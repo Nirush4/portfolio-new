@@ -1,0 +1,56 @@
+export const translations = {
+  EN: {
+    nav: {
+      home: 'home',
+      works: 'works',
+      about: 'about',
+      contacts: 'contacts',
+    },
+    hero: {
+      developerLabel: 'Developer',
+      appName: 'SeamlessWebApps',
+      nameKey: 'name',
+      titleKey: 'title',
+      focusKey: 'focus',
+      role: 'Nirushan',
+      title: 'Front-End Dev',
+      focus: 'UX & Fullstack',
+      comment1: '// 8 years in graphic design (incl. Senior role)',
+      comment2: '// Specializing in React, TypeScript & UX systems',
+      contactBtn: 'await contact()',
+      projectBtn: 'git view-projects()',
+      status: 'Backend Studies',
+    },
+    sidebar: {
+      socials: '// socials',
+      active: 'active',
+    },
+  },
+  NO: {
+    nav: {
+      home: 'hjem',
+      works: 'arbeid',
+      about: 'om-meg',
+      contacts: 'kontakt',
+    },
+    hero: {
+      developerLabel: 'Utvikler',
+      appName: 'SømløseNettApper',
+      nameKey: 'navn',
+      titleKey: 'tittel',
+      focusKey: 'fokus',
+      role: 'Nirushan',
+      title: 'Front-end utvikler',
+      focus: 'UX & fullstack',
+      comment1: '// 8 års grafisk design (inkl. Senior-rolle)',
+      comment2: '// Spesialisert i react, typeScript & UX-systemer',
+      contactBtn: 'await kontakt()',
+      projectBtn: 'git se-prosjekter()',
+      status: 'Backend-studier',
+    },
+    sidebar: {
+      socials: '// sosiale',
+      active: 'aktiv',
+    },
+  },
+};

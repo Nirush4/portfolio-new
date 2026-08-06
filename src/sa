@@ -1,0 +1,39 @@
+import React, { useState } from 'react';
+import { BackgroundAccents } from './components/BackgroundAccents';
+import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+// import { QuoteSection } from './components/QuoteSection';
+import { ProjectsSection } from './components/ProjectsSection';
+import { SkillsSection } from './components/SkillsSection';
+import { AboutSection } from './components/AboutSection';
+import { ContactsSection } from './components/ContactsSection';
+import { Footer } from './components/Footer';
+import { PROJECTS, SKILL_CATEGORIES } from './data/portfolioData';
+import { translations } from './constants/translations';
+
+const App: React.FC = () => {
+  const [currentLang, setCurrentLang] = useState<'NO' | 'EN'>('NO');
+  const t = translations[currentLang];
+
+  return (
+    <div className='bg-[#282C33] text-[#CCCCCC] font-mono min-h-screen relative selection:bg-[#007ACC] selection:text-white'>
+      <BackgroundAccents lang={currentLang} t={t} />
+      <Navbar
+        currentLang={currentLang}
+        onLanguageChange={setCurrentLang}
+        t={t}
+      />
+      <main>
+        <Hero lang={currentLang} t={t} />
+        {/* <QuoteSection /> */}
+        <ProjectsSection projects={PROJECTS} />
+        <SkillsSection categories={SKILL_CATEGORIES} />
+        <AboutSection />
+        <ContactsSection />
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default App;
