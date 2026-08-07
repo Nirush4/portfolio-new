@@ -225,26 +225,26 @@ export const ProjectDetailsPage = (): JSX.Element => {
 
               <div className='flex flex-wrap gap-4 pt-6 border-t border-[#30363D]'>
                 {frontendData.live && (
-                  <a
-                    href={frontendData.live}
+                  <Link
+                    to={frontendData.live}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='px-6 py-3 bg-[#C586C0] text-[#0D1117] text-xs font-mono font-bold hover:bg-[#d89fd3] transition-all rounded shadow-md flex items-center gap-2'
                   >
                     <span>Launch Live Preview</span>
                     <span>↗</span>
-                  </a>
+                  </Link>
                 )}
                 {frontendData.github && (
-                  <a
-                    href={frontendData.github}
+                  <Link
+                    to={frontendData.github}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='px-6 py-3 bg-[#21262D] text-[#C9D1D9] border border-[#30363D] text-xs font-mono font-bold hover:border-[#8B949E] transition-all rounded flex items-center gap-2'
                   >
                     <span>View GitHub Source Code</span>
                     <span>&lt;/&gt;</span>
-                  </a>
+                  </Link>
                 )}
               </div>
             </div>

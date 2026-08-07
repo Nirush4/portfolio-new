@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, type JSX } from 'react';
 import type { translations } from '../constants/translations';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 interface NavbarProps {
   currentLang: 'NO' | 'EN';
@@ -40,9 +40,32 @@ export const Navbar = ({
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
   const location = useLocation();
+  const navigate = useNavigate();
   const isDetailsPage = location.pathname.startsWith('/projects/');
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  // Universal click handler for nav links
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string
+  ) => {
+    setIsOpen(false);
+
+    if (isDetailsPage) {
+      // If we are on the details page, navigate to home first, then scroll to section
+      e.preventDefault();
+      navigate('/' + sectionId);
+    } else {
+      // If we are already on the home page, let smooth scrolling handle it
+      e.preventDefault();
+      const element = document.querySelector(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState(null, '', sectionId);
+      }
+    }
+  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -60,6 +83,11 @@ export const Navbar = ({
       <div className='max-w-6xl mx-auto px-6 py-4 flex justify-between items-center'>
         <Link
           to='/'
+          onClick={() => {
+            if (!isDetailsPage) {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
           className='flex items-center gap-2 text-white font-bold text-base hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
           aria-label='Nirushan Rajamanoharan - Home'
         >
@@ -80,34 +108,38 @@ export const Navbar = ({
           className='hidden lg:flex items-center gap-8 text-sm'
         >
           <div className='flex items-center gap-6'>
-            <Link
-              to={isDetailsPage ? '/#home' : '#home'}
-              className='text-white hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group'
+            <a
+              href='#home'
+              onClick={(e) => handleNavClick(e, '#home')}
+              className='text-white hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group cursor-pointer'
             >
               <FolderIcon className='w-4 h-4 text-[#F2CC60] group-hover:scale-110 transition-transform' />
               <span>{t.nav.home}</span>
-            </Link>
-            <Link
-              to={isDetailsPage ? '/#projects' : '#projects'}
-              className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group'
+            </a>
+            <a
+              href='#projects'
+              onClick={(e) => handleNavClick(e, '#projects')}
+              className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group cursor-pointer'
             >
               <FolderIcon className='w-4 h-4 text-[#F2CC60] group-hover:scale-110 transition-transform' />
               <span>{t.nav.works}</span>
-            </Link>
-            <Link
-              to={isDetailsPage ? '/#about' : '#about'}
-              className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group'
+            </a>
+            <a
+              href='#about'
+              onClick={(e) => handleNavClick(e, '#about')}
+              className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group cursor-pointer'
             >
               <FolderIcon className='w-4 h-4 text-[#F2CC60] group-hover:scale-110 transition-transform' />
               <span>{t.nav.about}</span>
-            </Link>
-            <Link
-              to={isDetailsPage ? '/#contacts' : '#contacts'}
-              className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group'
+            </a>
+            <a
+              href='#contacts'
+              onClick={(e) => handleNavClick(e, '#contacts')}
+              className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group cursor-pointer'
             >
               <FolderIcon className='w-4 h-4 text-[#F2CC60] group-hover:scale-110 transition-transform' />
               <span>{t.nav.contacts}</span>
-            </Link>
+            </a>
           </div>
 
           <div className='flex items-center gap-1 bg-[#161B22] border border-[#C586C0]/40 px-2 py-1 rounded text-xs'>
@@ -169,38 +201,38 @@ export const Navbar = ({
           <div className='text-xs text-[#8B949E] mb-1' aria-hidden='true'>
             // mobile-navigation.ts
           </div>
-          <Link
-            to={isDetailsPage ? '/#home' : '#home'}
-            onClick={() => setIsOpen(false)}
+          <a
+            href='#home'
+            onClick={(e) => handleNavClick(e, '#home')}
             className='text-white hover:text-[#C586C0] transition-colors flex items-center gap-1.5 py-1 border-b border-[#2a2739] focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
           >
             <FolderIcon className='w-4 h-4 text-[#F2CC60]' />
             <span>{t.nav.home}</span>
-          </Link>
-          <Link
-            to={isDetailsPage ? '/#projects' : '#projects'}
-            onClick={() => setIsOpen(false)}
+          </a>
+          <a
+            href='#projects'
+            onClick={(e) => handleNavClick(e, '#projects')}
             className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 py-1 border-b border-[#2a2739] focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
           >
             <FolderIcon className='w-4 h-4 text-[#F2CC60]' />
             <span>{t.nav.works}</span>
-          </Link>
-          <Link
-            to={isDetailsPage ? '/#about' : '#about'}
-            onClick={() => setIsOpen(false)}
+          </a>
+          <a
+            href='#about'
+            onClick={(e) => handleNavClick(e, '#about')}
             className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 py-1 border-b border-[#2a2739] focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
           >
             <FolderIcon className='w-4 h-4 text-[#F2CC60]' />
             <span>{t.nav.about}</span>
-          </Link>
-          <Link
-            to={isDetailsPage ? '/#contacts' : '#contacts'}
-            onClick={() => setIsOpen(false)}
+          </a>
+          <a
+            href='#contacts'
+            onClick={(e) => handleNavClick(e, '#contacts')}
             className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 py-1 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
           >
             <FolderIcon className='w-4 h-4 text-[#F2CC60]' />
             <span>{t.nav.contacts}</span>
-          </Link>
+          </a>
 
           <div className='pt-4 flex items-center justify-between border-t border-[#2a2739]'>
             <label
