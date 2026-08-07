@@ -1,11 +1,34 @@
 import { useState, useEffect, useRef, type JSX } from 'react';
 import type { translations } from '../constants/translations';
+import { Link, useLocation } from 'react-router-dom';
 
 interface NavbarProps {
   currentLang: 'NO' | 'EN';
   onLanguageChange: (lang: 'NO' | 'EN') => void;
   t: (typeof translations)['NO'];
 }
+
+const FolderIcon = ({
+  className = 'w-4 h-4 text-[#F2CC60]',
+}: {
+  className?: string;
+}) => (
+  <svg
+    className={className}
+    fill='none'
+    stroke='currentColor'
+    viewBox='0 0 24 24'
+    xmlns='http://www.w3.org/2000/svg'
+    aria-hidden='true'
+  >
+    <path
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      strokeWidth={2}
+      d='M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z'
+    />
+  </svg>
+);
 
 export const Navbar = ({
   currentLang,
@@ -15,6 +38,9 @@ export const Navbar = ({
   const [isOpen, setIsOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const toggleButtonRef = useRef<HTMLButtonElement>(null);
+
+  const location = useLocation();
+  const isDetailsPage = location.pathname.startsWith('/projects/');
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -32,8 +58,8 @@ export const Navbar = ({
   return (
     <header className='fixed top-0 left-0 w-full bg-[#1b1924]/95 backdrop-blur-md border-b border-[#C586C0]/30 z-50 font-mono'>
       <div className='max-w-6xl mx-auto px-6 py-4 flex justify-between items-center'>
-        <a
-          href='#home'
+        <Link
+          to='/'
           className='flex items-center gap-2 text-white font-bold text-base hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
           aria-label='Nirushan Rajamanoharan - Home'
         >
@@ -47,41 +73,41 @@ export const Navbar = ({
           <span className='text-[#C586C0]'>
             &apos;{t.hero.developerLabel}&apos;
           </span>
-        </a>
+        </Link>
 
         <nav
           aria-label='Main Navigation'
           className='hidden lg:flex items-center gap-8 text-sm'
         >
           <div className='flex items-center gap-6'>
-            <a
-              href='#home'
-              className='text-white hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
+            <Link
+              to={isDetailsPage ? '/#home' : '#home'}
+              className='text-white hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group'
             >
-              <span className='text-[#C586C0] font-bold'>#</span>
+              <FolderIcon className='w-4 h-4 text-[#F2CC60] group-hover:scale-110 transition-transform' />
               <span>{t.nav.home}</span>
-            </a>
-            <a
-              href='#projects'
-              className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
+            </Link>
+            <Link
+              to={isDetailsPage ? '/#projects' : '#projects'}
+              className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group'
             >
-              <span className='text-[#C586C0] font-bold'>#</span>
+              <FolderIcon className='w-4 h-4 text-[#F2CC60] group-hover:scale-110 transition-transform' />
               <span>{t.nav.works}</span>
-            </a>
-            <a
-              href='#about'
-              className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
+            </Link>
+            <Link
+              to={isDetailsPage ? '/#about' : '#about'}
+              className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group'
             >
-              <span className='text-[#C586C0] font-bold'>#</span>
+              <FolderIcon className='w-4 h-4 text-[#F2CC60] group-hover:scale-110 transition-transform' />
               <span>{t.nav.about}</span>
-            </a>
-            <a
-              href='#contacts'
-              className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
+            </Link>
+            <Link
+              to={isDetailsPage ? '/#contacts' : '#contacts'}
+              className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group'
             >
-              <span className='text-[#C586C0] font-bold'>#</span>
+              <FolderIcon className='w-4 h-4 text-[#F2CC60] group-hover:scale-110 transition-transform' />
               <span>{t.nav.contacts}</span>
-            </a>
+            </Link>
           </div>
 
           <div className='flex items-center gap-1 bg-[#161B22] border border-[#C586C0]/40 px-2 py-1 rounded text-xs'>
@@ -143,38 +169,38 @@ export const Navbar = ({
           <div className='text-xs text-[#8B949E] mb-1' aria-hidden='true'>
             // mobile-navigation.ts
           </div>
-          <a
-            href='#home'
+          <Link
+            to={isDetailsPage ? '/#home' : '#home'}
             onClick={() => setIsOpen(false)}
             className='text-white hover:text-[#C586C0] transition-colors flex items-center gap-1.5 py-1 border-b border-[#2a2739] focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
           >
-            <span className='text-[#C586C0] font-bold'>#</span>
+            <FolderIcon className='w-4 h-4 text-[#F2CC60]' />
             <span>{t.nav.home}</span>
-          </a>
-          <a
-            href='#projects'
+          </Link>
+          <Link
+            to={isDetailsPage ? '/#projects' : '#projects'}
             onClick={() => setIsOpen(false)}
             className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 py-1 border-b border-[#2a2739] focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
           >
-            <span className='text-[#C586C0] font-bold'>#</span>
+            <FolderIcon className='w-4 h-4 text-[#F2CC60]' />
             <span>{t.nav.works}</span>
-          </a>
-          <a
-            href='#about'
+          </Link>
+          <Link
+            to={isDetailsPage ? '/#about' : '#about'}
             onClick={() => setIsOpen(false)}
             className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 py-1 border-b border-[#2a2739] focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
           >
-            <span className='text-[#C586C0] font-bold'>#</span>
+            <FolderIcon className='w-4 h-4 text-[#F2CC60]' />
             <span>{t.nav.about}</span>
-          </a>
-          <a
-            href='#contacts'
+          </Link>
+          <Link
+            to={isDetailsPage ? '/#contacts' : '#contacts'}
             onClick={() => setIsOpen(false)}
             className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 py-1 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
           >
-            <span className='text-[#C586C0] font-bold'>#</span>
+            <FolderIcon className='w-4 h-4 text-[#F2CC60]' />
             <span>{t.nav.contacts}</span>
-          </a>
+          </Link>
 
           <div className='pt-4 flex items-center justify-between border-t border-[#2a2739]'>
             <label

@@ -1,10 +1,10 @@
 export const translations = {
   EN: {
     nav: {
-      home: 'home',
-      works: 'works',
-      about: 'about',
-      contacts: 'contacts',
+      home: 'Home',
+      works: 'Works',
+      about: 'About',
+      contacts: 'Contacts',
     },
     hero: {
       developerLabel: 'Developer',
