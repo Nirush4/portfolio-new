@@ -1,4 +1,5 @@
 import type { JSX } from 'react';
+import { useNavigate } from 'react-router-dom';
 import type { FrontendProject, GraphicProject } from '../../types/portfolio';
 
 interface ProjectCardProps {
@@ -10,10 +11,18 @@ export const ProjectCard = ({
   project,
   onViewCaseStudy,
 }: ProjectCardProps): JSX.Element => {
+  const navigate = useNavigate();
   const isFrontend = project.category === 'frontend';
 
   const frontendData = isFrontend ? (project as FrontendProject) : null;
   const graphicData = !isFrontend ? (project as GraphicProject) : null;
+
+  const handleCaseStudyClick = () => {
+    if (onViewCaseStudy) {
+      onViewCaseStudy(project);
+    }
+    navigate(`/projects/${project.id}`);
+  };
 
   return (
     <div
@@ -48,7 +57,6 @@ export const ProjectCard = ({
         </div>
       </div>
 
-      {/* Clean Tech/Tools Badges */}
       <div
         style={{
           backgroundColor: 'color-mix(in oklab, #0d1117 60%, transparent)',
@@ -114,7 +122,7 @@ export const ProjectCard = ({
 
         <div className='space-y-3 pt-3 border-t border-[#30363D]'>
           <button
-            onClick={() => onViewCaseStudy && onViewCaseStudy(project)}
+            onClick={handleCaseStudyClick}
             className='w-full py-2.5 px-4 border cursor-pointer border-[#C586C0]/50 bg-[#C586C0]/10 text-white text-xs font-semibold font-sans hover:bg-[#C586C0] hover:text-[#0D1117] transition-all flex items-center justify-center gap-2 rounded shadow-sm'
           >
             <span>View Case Study</span>

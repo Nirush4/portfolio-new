@@ -1,0 +1,387 @@
+import type { JSX } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { FRONTEND_PROJECTS, GRAPHIC_PROJECTS } from '../data/projectsData';
+import type { FrontendProject, GraphicProject } from '../types/portfolio';
+
+import { ProjectHeader } from '../components/project-details/ProjectHeader';
+import { ProjectThumbnail } from '../components/project-details/ProjectThumbnail';
+import {
+  ProjectGallery,
+  type GalleryItem,
+} from '../components/project-details/ProjectGallery';
+
+export const ProjectDetailsPage = (): JSX.Element => {
+  const { id } = useParams<{ id: string }>();
+  const projectId = Number(id);
+
+  const project =
+    FRONTEND_PROJECTS.find((p) => p.id === projectId) ||
+    GRAPHIC_PROJECTS.find((p) => p.id === projectId);
+
+  if (!project) {
+    return (
+      <div className='max-w-3xl mx-auto px-6 py-32 text-center font-mono text-white'>
+        <div
+          style={{
+            backgroundColor: 'color-mix(in oklab, #1b1924 95%, transparent)',
+          }}
+          className='border border-[#30363D] p-8 rounded-2xl shadow-2xl'
+        >
+          <h2 className='text-3xl font-bold text-[#FF5F56] mb-3'>
+            404 // Project Not Found
+          </h2>
+          <p className='text-[#8B949E] mb-6 font-sans text-sm'>
+            The project workspace you are trying to access doesn&apos;t exist or
+            has been relocated.
+          </p>
+          <Link
+            to='/'
+            className='inline-flex items-center gap-2 px-6 py-2.5 bg-[#21262D] text-[#C9D1D9] border border-[#30363D] text-xs font-mono rounded hover:border-[#C586C0] hover:text-[#C586C0] transition-all'
+          >
+            <span>&lt;--</span> cd /portfolio/home
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  const isFrontend = project.category === 'frontend';
+  const frontendData = isFrontend ? (project as FrontendProject) : null;
+  const graphicData = !isFrontend ? (project as GraphicProject) : null;
+
+  return (
+    <div className='max-w-6xl mx-auto px-6 py-16 mt-10 font-mono text-[#C9D1D9] selection:bg-[#C586C0]/30 selection:text-white'>
+      <div className='mb-8 flex items-center justify-between text-xs text-[#8B949E] border-b border-[#3c444e] pb-3'>
+        <Link
+          to='/'
+          className='inline-flex items-center gap-2 hover:text-[#C586C0] transition-colors group'
+        >
+          <span className='text-[#C586C0] group-hover:-translate-x-1 transition-transform'>
+            &larr;
+          </span>
+          <span>cd .. / portfolio</span>
+        </Link>
+        <span className='hidden sm:inline-block font-mono text-[11px] text-[#F2CC60] bg-[#161B22] px-2.5 py-0.5 rounded border border-[#30363D]'>
+          case-study / id-{project.id}
+        </span>
+      </div>
+
+      <div
+        style={{
+          backgroundColor: 'color-mix(in oklab, #1b1924 95%, transparent)',
+        }}
+        className='border border-[#30363D] rounded-xl overflow-hidden shadow-2xl backdrop-blur-md'
+      >
+        <div
+          style={{
+            backgroundColor: 'color-mix(in oklab, #0d1117 95%, transparent)',
+          }}
+          className='border-b border-[#30363D] px-4 py-3 flex items-center justify-between'
+        >
+          <div className='flex items-center gap-2'>
+            <span className='w-3 h-3 rounded-full bg-[#FF5F56] inline-block'></span>
+            <span className='w-3 h-3 rounded-full bg-[#FFBD2E] inline-block'></span>
+            <span className='w-3 h-3 rounded-full bg-[#27C93F] inline-block'></span>
+            <span className='ml-3 text-xs text-[#8B949E] font-mono hidden sm:inline'>
+              {project.name.toLowerCase().replace(/\s+/g, '-')}.config
+            </span>
+          </div>
+          <span className='text-[10px] uppercase font-bold tracking-widest text-[#F2CC60] bg-[#21262D] px-2.5 py-0.5 rounded border border-[#30363D]'>
+            {project.category}
+          </span>
+        </div>
+
+        <div className='p-6 md:p-10 space-y-8'>
+          <ProjectHeader
+            name={project.name}
+            projectType={graphicData?.projectType}
+            description={project.description}
+          />
+
+          <ProjectThumbnail thumbnail={project.thumbnail} name={project.name} />
+
+          {isFrontend && frontendData && (
+            <div className='space-y-10 pt-4 font-sans'>
+              {frontendData.problem && (
+                <div
+                  style={{
+                    backgroundColor:
+                      'color-mix(in oklab, #161B22 60%, transparent)',
+                  }}
+                  className='border border-[#30363D] p-6 rounded-lg relative overflow-hidden'
+                >
+                  <div className='absolute top-0 left-0 w-1.5 h-full bg-[#FF5F56]'></div>
+                  <h3 className='text-white text-base font-bold mb-2 flex items-center gap-2 font-mono'>
+                    <span className='text-[#FF5F56]'>01 //</span> The Challenge
+                    & User Need
+                  </h3>
+                  <p className='text-sm text-[#8B949E] leading-relaxed'>
+                    {frontendData.problem}
+                  </p>
+                </div>
+              )}
+
+              {frontendData.uxProcess && frontendData.uxProcess.length > 0 && (
+                <div className='space-y-4'>
+                  <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
+                    <span className='text-[#C586C0]'>02 //</span> Research &
+                    User Experience Steps
+                  </h3>
+                  <div className='grid gap-3'>
+                    {frontendData.uxProcess.map((step, idx) => (
+                      <div
+                        key={idx}
+                        style={{
+                          backgroundColor:
+                            'color-mix(in oklab, #161B22 60%, transparent)',
+                        }}
+                        className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
+                      >
+                        <span className='text-xs font-mono text-[#C586C0] bg-[#21262D] px-2 py-0.5 rounded border border-[#30363D] shrink-0 mt-0.5'>
+                          Step 0{idx + 1}
+                        </span>
+                        <p className='text-sm text-[#8B949E] leading-relaxed'>
+                          {step}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {frontendData.finalSolution &&
+                frontendData.finalSolution.length > 0 && (
+                  <div className='space-y-4'>
+                    <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
+                      <span className='text-[#27C93F]'>03 //</span> The Final
+                      Product & Key Features
+                    </h3>
+                    <div className='grid gap-3'>
+                      {frontendData.finalSolution.map((sol, idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            backgroundColor:
+                              'color-mix(in oklab, #161B22 60%, transparent)',
+                          }}
+                          className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
+                        >
+                          <span className='text-xs font-mono text-[#27C93F] bg-[#21262D] px-2 py-0.5 rounded border border-[#30363D] shrink-0 mt-0.5'>
+                            Done
+                          </span>
+                          <p className='text-sm text-[#8B949E] leading-relaxed'>
+                            {sol}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+              <div className='space-y-3 pt-2'>
+                <h3 className='text-white text-sm font-bold font-mono tracking-wide uppercase text-[#8B949E]'>
+                  Technologies & Frameworks Deployed
+                </h3>
+                <div className='flex flex-wrap gap-2'>
+                  {frontendData.technologies.map((tech, i) => (
+                    <span
+                      key={i}
+                      className='text-xs px-3 py-1 bg-[#21262D] text-[#79C0FF] border border-[#30363D] rounded-md font-mono'
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className='flex flex-wrap gap-4 pt-6 border-t border-[#30363D]'>
+                {frontendData.live && (
+                  <a
+                    href={frontendData.live}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='px-6 py-3 bg-[#C586C0] text-[#0D1117] text-xs font-mono font-bold hover:bg-[#d89fd3] transition-all rounded shadow-md flex items-center gap-2'
+                  >
+                    <span>Launch Live Preview</span>
+                    <span>↗</span>
+                  </a>
+                )}
+                {frontendData.github && (
+                  <a
+                    href={frontendData.github}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='px-6 py-3 bg-[#21262D] text-[#C9D1D9] border border-[#30363D] text-xs font-mono font-bold hover:border-[#8B949E] transition-all rounded flex items-center gap-2'
+                  >
+                    <span>View GitHub Source Code</span>
+                    <span>&lt;/&gt;</span>
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
+
+          {!isFrontend && graphicData && (
+            <div className='space-y-10 pt-4 font-sans'>
+              {graphicData.challenge && (
+                <div
+                  style={{
+                    backgroundColor:
+                      'color-mix(in oklab, #161B22 60%, transparent)',
+                  }}
+                  className='border border-[#30363D] p-6 rounded-lg relative overflow-hidden'
+                >
+                  <div className='absolute top-0 left-0 w-1.5 h-full bg-[#7EE787]'></div>
+                  <h3 className='text-white text-base font-bold mb-2 flex items-center gap-2 font-mono'>
+                    <span className='text-[#7EE787]'>01 //</span> Design
+                    Challenge & Objective
+                  </h3>
+                  <p className='text-sm text-[#8B949E] leading-relaxed'>
+                    {graphicData.challenge}
+                  </p>
+                </div>
+              )}
+
+              {graphicData.research && graphicData.research.length > 0 && (
+                <div className='space-y-4'>
+                  <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
+                    <span className='text-[#79C0FF]'>02 //</span> Market
+                    Research & Discovery
+                  </h3>
+                  <div className='grid gap-3'>
+                    {graphicData.research.map((res, idx) => (
+                      <div
+                        key={idx}
+                        style={{
+                          backgroundColor:
+                            'color-mix(in oklab, #161B22 60%, transparent)',
+                        }}
+                        className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
+                      >
+                        <span className='text-xs font-mono text-[#79C0FF] bg-[#21262D] px-2 py-0.5 rounded border border-[#30363D] shrink-0 mt-0.5'>
+                          Insight
+                        </span>
+                        <p className='text-sm text-[#8B949E] leading-relaxed'>
+                          {res}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {graphicData.designProcess &&
+                graphicData.designProcess.length > 0 && (
+                  <div className='space-y-4'>
+                    <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
+                      <span className='text-[#F2CC60]'>03 //</span> Creative
+                      Process & Execution
+                    </h3>
+                    <div className='grid gap-3'>
+                      {graphicData.designProcess.map((proc, idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            backgroundColor:
+                              'color-mix(in oklab, #161B22 60%, transparent)',
+                          }}
+                          className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
+                        >
+                          <span className='text-xs font-mono text-[#F2CC60] bg-[#21262D] px-2 py-0.5 rounded border border-[#30363D] shrink-0 mt-0.5'>
+                            Phase
+                          </span>
+                          <p className='text-sm text-[#8B949E] leading-relaxed'>
+                            {proc}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+              {graphicData.colors && graphicData.colors.length > 0 && (
+                <div className='space-y-4 pt-2'>
+                  <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
+                    <span className='text-[#C586C0]'>04 //</span> Color System &
+                    Palette
+                  </h3>
+                  <div className='grid grid-cols-2 sm:grid-cols-4 gap-3'>
+                    {graphicData.colors.map((c, i) => (
+                      <div
+                        key={i}
+                        style={{
+                          backgroundColor:
+                            'color-mix(in oklab, #161B22 60%, transparent)',
+                        }}
+                        className='border border-[#30363D] p-3 rounded-lg flex flex-col items-center text-center gap-2'
+                      >
+                        <span
+                          className='w-10 h-10 rounded-full border border-white/20 shadow-md'
+                          style={{ backgroundColor: c.value }}
+                        ></span>
+                        <div>
+                          <p className='text-xs font-bold text-white font-sans'>
+                            {c.name}
+                          </p>
+                          <p className='text-[10px] text-[#8B949E] font-mono'>
+                            {c.value}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <ProjectGallery
+                gallery={(graphicData.gallery || []) as GalleryItem[]}
+                projectName={project.name}
+              />
+
+              <div className='space-y-3 pt-2'>
+                <h3 className='text-white text-sm font-bold font-mono tracking-wide uppercase text-[#8B949E]'>
+                  Software & Creative Tools Used
+                </h3>
+                <div className='flex flex-wrap gap-2'>
+                  {graphicData.tools.map((tool, i) => (
+                    <span
+                      key={i}
+                      className='text-xs px-3 py-1 bg-[#21262D] text-[#7EE787] border border-[#30363D] rounded-md font-mono'
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className='flex flex-wrap gap-4 pt-6 border-t border-[#30363D]'>
+                {graphicData.behance && (
+                  <a
+                    href={graphicData.behance}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='px-6 py-3 bg-[#7EE787] text-[#0D1117] text-xs font-mono font-bold hover:bg-[#96efa1] transition-all rounded shadow-md flex items-center gap-2'
+                  >
+                    <span>View on Behance</span>
+                    <span>↗</span>
+                  </a>
+                )}
+                {graphicData.figma && (
+                  <a
+                    href={graphicData.figma}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='px-6 py-3 bg-[#21262D] text-[#C9D1D9] border border-[#30363D] text-xs font-mono font-bold hover:border-[#8B949E] transition-all rounded flex items-center gap-2'
+                  >
+                    <span>Inspect Figma Design File</span>
+                    <span>↗</span>
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};

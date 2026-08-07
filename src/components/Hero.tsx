@@ -59,8 +59,8 @@ export const Hero = ({ t }: HeroProps): JSX.Element => {
           </div>
         </div>
 
-        <div className='md:col-span-5 relative flex flex-col items-center pt-8'>
-          <div className='absolute top-2 left-1/2 -translate-x-1/2 w-44 h-44 border border-[#C586C0]/70 pointer-events-none z-0'></div>
+        <div className='md:col-span-5 relative flex flex-col items-center'>
+          <div className='absolute top-0 left-1/2 -translate-x-1/2 w-44 h-44 border border-[#C586C0]/70 pointer-events-none z-0'></div>
           <div className='absolute top-10 left--2 -translate-x-1/2 w-44 h-44 border border-[#C586C0]/40 pointer-events-none z-0'></div>
           <div className='w-full max-w-[340px] relative z-10'>
             <img

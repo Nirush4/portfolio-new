@@ -445,7 +445,7 @@ export const FRONTEND_PROJECTS: FrontendProject[] = [
 
 export const GRAPHIC_PROJECTS: GraphicProject[] = [
   {
-    id: 1,
+    id: 11,
     category: 'graphic',
     name: 'Ritual Set',
     projectType: 'Packaging Design & Brand Identity',
@@ -509,7 +509,7 @@ export const GRAPHIC_PROJECTS: GraphicProject[] = [
     behance: '',
   },
   {
-    id: 2,
+    id: 12,
     category: 'graphic',
     name: 'Halo Flights — Cruise Campaign',
     projectType: 'Social Media Advertising Design',
@@ -570,7 +570,7 @@ export const GRAPHIC_PROJECTS: GraphicProject[] = [
     behance: '',
   },
   {
-    id: 3,
+    id: 13,
     category: 'graphic',
     name: 'Portrait Study — Line & Ink',
     projectType: 'Vector Illustration',
@@ -633,7 +633,7 @@ export const GRAPHIC_PROJECTS: GraphicProject[] = [
     behance: '',
   },
   {
-    id: 4,
+    id: 14,
     category: 'video',
     name: 'Halo Philippines — Website Welcome Video',
     projectType: 'Motion Graphics & Video Advertising',
@@ -696,7 +696,7 @@ export const GRAPHIC_PROJECTS: GraphicProject[] = [
     behance: '',
   },
   {
-    id: 5,
+    id: 15,
     category: 'analysis',
     name: "Munchy's Oat Krunch — Print Ad Breakdown",
     projectType: 'Design Analysis / Print Advertisement Teardown',
@@ -753,7 +753,7 @@ export const GRAPHIC_PROJECTS: GraphicProject[] = [
     behance: '',
   },
   {
-    id: 6,
+    id: 16,
     category: 'graphic',
     name: 'Voltage — Energy Drink Product & Packaging Design',
     projectType: 'Beverage Product & Packaging Design',

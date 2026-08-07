@@ -23,7 +23,7 @@ export const ProjectsSection = ({
     <section id='projects' className='max-w-6xl mx-auto px-6 py-16 font-mono'>
       <div className='flex flex-col md:flex-row md:justify-between md:items-center mb-12 gap-6'>
         <div className='flex items-center gap-4 w-full max-w-md'>
-          <h2 className='text-white text-2xl font-medium'>
+          <h2 className='text-white text-2xl md:text-3xl font-medium'>
             <span className='text-[#C778DD]'>#</span>projects
           </h2>
           <div className='h-[1px] bg-[#C778DD] flex-grow'></div>
@@ -34,7 +34,7 @@ export const ProjectsSection = ({
             onClick={() => setActiveTab('frontend')}
             className={`px-4 py-1 text-xs font-medium rounded transition-all ${
               activeTab === 'frontend'
-                ? 'bg-[#C778DD] text-[#282C34] font-bold '
+                ? 'bg-[#fbd100] text-[#16181d] font-bold '
                 : 'text-[#ABB2BF] hover:text-white cursor-pointer'
             }`}
           >
@@ -44,7 +44,7 @@ export const ProjectsSection = ({
             onClick={() => setActiveTab('graphic')}
             className={`px-4 py-1 text-xs font-medium rounded transition-all ${
               activeTab === 'graphic'
-                ? 'bg-[#C778DD] text-[#282C34] font-bold'
+                ? 'bg-[#fbd100] text-[#16181d] font-bold'
                 : 'text-[#ABB2BF] hover:text-white cursor-pointer'
             }`}
           >
