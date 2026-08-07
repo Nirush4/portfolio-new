@@ -19,12 +19,6 @@ export const ProjectGallery = ({
 
   if (!gallery || gallery.length === 0) return <></>;
 
-  const handleCardClick = (i: number) => {
-    if (window.innerWidth >= 768) {
-      setCurrentIndex(i);
-    }
-  };
-
   return (
     <>
       <div className='space-y-4 pt-2'>
@@ -35,12 +29,11 @@ export const ProjectGallery = ({
           {gallery.map((item, i) => (
             <div
               key={i}
-              onClick={() => handleCardClick(i)}
               style={{
                 backgroundColor:
                   'color-mix(in oklab, #161B22 60%, transparent)',
               }}
-              className='border border-[#30363D] rounded-lg overflow-hidden h-72 shadow-md relative group md:cursor-pointer'
+              className='border border-[#30363D] rounded-lg overflow-hidden h-72 shadow-md relative group'
             >
               {item.type === 'video' ? (
                 <video src={item.src} className='w-full h-full object-cover' />
@@ -48,11 +41,14 @@ export const ProjectGallery = ({
                 <img
                   src={item.src}
                   alt={`${projectName} asset ${i + 1}`}
-                  className='w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-300'
+                  className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
                 />
               )}
 
-              <div className='absolute inset-0 bg-black/20 opacity-0 md:group-hover:opacity-100 transition-opacity hidden md:flex items-center justify-center pointer-events-none'>
+              <div
+                onClick={() => setCurrentIndex(i)}
+                className='absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer'
+              >
                 <span className='text-xs font-mono bg-[#161B22]/90 text-white px-3 py-1.5 rounded border border-[#30363D] shadow-lg'>
                   Click to Expand ↗
                 </span>

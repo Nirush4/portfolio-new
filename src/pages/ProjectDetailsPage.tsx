@@ -1,4 +1,4 @@
-import type { JSX } from 'react';
+import { useState, type JSX } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { FRONTEND_PROJECTS, GRAPHIC_PROJECTS } from '../data/projectsData';
 import type { FrontendProject, GraphicProject } from '../types/portfolio';
@@ -13,6 +13,8 @@ import {
 export const ProjectDetailsPage = (): JSX.Element => {
   const { id } = useParams<{ id: string }>();
   const projectId = Number(id);
+
+  const [copied, setCopied] = useState(false);
 
   const project =
     FRONTEND_PROJECTS.find((p) => p.id === projectId) ||
@@ -49,6 +51,12 @@ export const ProjectDetailsPage = (): JSX.Element => {
   const frontendData = isFrontend ? (project as FrontendProject) : null;
   const graphicData = !isFrontend ? (project as GraphicProject) : null;
 
+  const handleCopyUrl = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div className='max-w-6xl mx-auto px-6 py-16 mt-10 font-mono text-[#C9D1D9] selection:bg-[#C586C0]/30 selection:text-white'>
       <div className='mb-8 flex items-center justify-between text-xs text-[#8B949E] border-b border-[#3c444e] pb-3'>
@@ -59,11 +67,32 @@ export const ProjectDetailsPage = (): JSX.Element => {
           <span className='text-[#C586C0] group-hover:-translate-x-1 transition-transform'>
             &larr;
           </span>
-          <span>cd .. / portfolio</span>
+          <span className='text-sm'>cd .. / portfolio</span>
         </Link>
-        <span className='hidden sm:inline-block font-mono text-[11px] text-[#F2CC60] bg-[#161B22] px-2.5 py-0.5 rounded border border-[#30363D]'>
-          case-study / id-{project.id}
-        </span>
+
+        <div className='flex items-center gap-3'>
+          <span className='hidden sm:inline-block font-mono text-[11px] text-[#F2CC60] bg-[#161B22] px-2.5 py-0.5 rounded border border-[#30363D]'>
+            case-study / id-{project.id}
+          </span>
+
+          <button
+            onClick={handleCopyUrl}
+            className='inline-flex items-center gap-1.5 px-3 py-1 bg-[#21262D] hover:bg-[#30363D] text-[#C9D1D9] border border-[#4f5964] text-[11px] font-mono rounded transition-all cursor-pointer'
+            title='Copy Project URL'
+          >
+            {copied ? (
+              <>
+                <span className='text-[#27C93F]'>✓</span>
+                <span className='text-[#27C93F]'>Link Copied!</span>
+              </>
+            ) : (
+              <>
+                <span>🔗</span>
+                <span>Copy Link</span>
+              </>
+            )}
+          </button>
+        </div>
       </div>
 
       <div
