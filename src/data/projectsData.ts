@@ -1453,4 +1453,133 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     figma: '',
     behance: '',
   },
+  {
+    id: 18,
+    category: 'graphic',
+    name: 'Uga — Private Pool Villas Brand Identity & Mockup',
+    projectType: {
+      NO: 'Merkevareidentitet / Markedsføringsmateriell & Mockup',
+      EN: 'Brand Identity / Marketing Material & Mockup',
+    },
+    description: {
+      NO: 'En komplett merkevareidentitet for Uga Private Pool Villas, en luksuriøs privat villa-opplevelse bygget rundt ro, natur og eksklusivitet. Prosjektet omfatter logo, fargepalett, typografi og en serie markedsføringsapplikasjoner — fra skilting og brevpapir til hangtags og sosiale medieannonser — som samlet formidler merkevarens løfte: "Your Private Escape. Naturally."',
+      EN: 'A complete brand identity for Uga Private Pool Villas, a luxury private villa experience built around serenity, nature, and exclusivity. The project spans logo, color palette, typography, and a range of marketing applications — from signage and letterhead to hangtags and social media ads — that together communicate the brand promise: "Your Private Escape. Naturally."',
+    },
+    challenge: {
+      NO: 'Utvikle en varm, eksklusiv merkevareidentitet for en privat villa-utleier som skiller seg fra typisk hotellmarkedsføring, og anvende den konsekvent på tvers av fysiske og digitale kontaktpunkter for å styrke en følelse av privatliv, luksus og naturlig ro.',
+      EN: 'Develop a warm, exclusive brand identity for a private villa rental that stands apart from typical hotel branding, and apply it consistently across physical and digital touchpoints to reinforce a feeling of privacy, luxury, and natural calm.',
+    },
+    research: {
+      NO: [
+        'Undersøkte luksuriøse private villa- og boutique-hotellmerker for å identifisere visuelle konvensjoner innen ro og eksklusivitet.',
+        'Studerte fargepsykologi knyttet til natur, privatliv og avslapning for å informere paletten.',
+        'Samlet referanser på håndskrevet/skriptbasert logotypografi som formidler personlighet og varme.',
+      ],
+      EN: [
+        'Researched luxury private villa and boutique hotel brands to identify visual conventions around calm and exclusivity.',
+        'Studied color psychology tied to nature, privacy, and relaxation to inform the palette.',
+        'Collected references on handwritten/script-based logo typography that conveys personality and warmth.',
+      ],
+    },
+    designProcess: {
+      NO: [
+        'Designet en skriptbasert primærlogo med en organisk bladdetalj for å knytte merket til natur og håndverk.',
+        'Bygde en fargepalett som balanserer dyp aubergine mot rolige jordtoner og en mørk skoggrønn aksent.',
+        'Parte Playfair Display for overskrifter med Poppins for brødtekst, for å balansere elegant karakter med lesbarhet.',
+        'Utviklet et sett med linje-ikoner (basseng, villa, dining, natur, sikkerhet) for å kommunisere nøkkelfordeler raskt.',
+        'Anvendte identiteten på en rekke markedsføringsmaterialer: hengeskilt, brevpapir, hangtags, sosiale medieannonser og livsstilsfotografering.',
+      ],
+      EN: [
+        'Designed a script-based primary logo with an organic leaf detail to tie the brand to nature and craft.',
+        'Built a color palette balancing deep aubergine against calm earth tones and a dark forest-green accent.',
+        'Paired Playfair Display for headings with Poppins for body text, balancing elegant character with readability.',
+        'Developed a set of line icons (pool, villa, dining, nature, security) to communicate key benefits at a glance.',
+        'Applied the identity across a range of marketing materials: hanging signage, letterhead, hangtags, social media ads, and lifestyle photography.',
+      ],
+    },
+    designDecisions: {
+      NO: [
+        'Valgte en flytende, håndskrevet skripttype for logoen for å formidle intimitet og et personlig, "privat" løfte fremfor et bedriftspreget hotelluttrykk.',
+        'Brukte dyp aubergine (#5A2D46) som primærfarge for å signalisere luksus, med mykere mauve og sandtoner for varme og balanse.',
+        'La til en mørk skoggrønn (#2E3E34) som jordet motvekt, og forankret merket visuelt i naturen villaene ligger i.',
+        'Holdt ikonografien tynn og linjebasert for å matche logoens elegante linjekvalitet på tvers av alle applikasjoner.',
+        'Anvendte konsekvent merkevarefarge og typografi på fysiske touchpoints (skilt, hangtags, brevpapir) for å skape en sammenhengende gjesteopplevelse fra første kontakt.',
+        'Designet sosiale medieannonser med livsstilsfotografering og tydelig prisplassering ("Starting from LKR 19,750") for å drive direkte bookinger.',
+      ],
+      EN: [
+        'Chose a flowing, handwritten script typeface for the logo to convey intimacy and a personal, "private" promise rather than a corporate hotel feel.',
+        'Used deep aubergine (#5A2D46) as the primary color to signal luxury, paired with softer mauve and sand tones for warmth and balance.',
+        'Introduced a dark forest green (#2E3E34) as an earthy counterweight, visually grounding the brand in the natural setting of the villas.',
+        'Kept the iconography thin and line-based to match the elegant line quality of the logo across all applications.',
+        'Applied the brand color and typography consistently across physical touchpoints (signage, hangtags, letterhead) to create a cohesive guest experience from first contact.',
+        'Designed social media ads with lifestyle photography and clear price placement ("Starting from LKR 19,750") to drive direct bookings.',
+      ],
+    },
+    finalOutcome: {
+      NO: [
+        'Leverte en helhetlig merkevareidentitet med logo, fargepalett, typografi og ikonografi klar for implementering.',
+        'Produserte realistiske mockups på tvers av skilting, trykt materiell, emballasje og digital annonsering for å demonstrere merkets allsidighet.',
+        'Skapte en sammenhengende gjesteopplevelse som formidler "Private, Luxurious, Natural, Memorable" fra første inntrykk til booking.',
+      ],
+      EN: [
+        'Delivered a cohesive brand identity with logo, color palette, typography, and iconography ready for implementation.',
+        "Produced realistic mockups across signage, print materials, packaging, and digital advertising to demonstrate the brand's versatility.",
+        'Created a cohesive guest experience communicating "Private, Luxurious, Natural, Memorable" from first impression through to booking.',
+      ],
+    },
+    tools: ['Photoshop', 'Illustrator'],
+    colors: [
+      { name: 'Deep Aubergine', value: '#5A2D46' },
+      { name: 'Mauve Rose', value: '#7B4B5E' },
+      { name: 'Sand Taupe', value: '#A48F7A' },
+      { name: 'Warm Ivory', value: '#E9E2D6' },
+      { name: 'Forest Green', value: '#2E3E34' },
+    ],
+    typography: {
+      NO: ['Playfair Display (Overskrifter)', 'Poppins (Brødtekst)'],
+      EN: ['Playfair Display (Headings)', 'Poppins (Body Text)'],
+    },
+    deliverables: {
+      NO: [
+        'Logo Design',
+        'Fargepalett',
+        'Typografisystem',
+        'Ikonografi',
+        'Skilting',
+        'Brevpapir',
+        'Hangtag Design',
+        'Sosiale Medier Annonse',
+        'Merkevaremockup',
+      ],
+      EN: [
+        'Logo Design',
+        'Color Palette',
+        'Typography System',
+        'Iconography',
+        'Signage',
+        'Letterhead',
+        'Hangtag Design',
+        'Social Media Ad',
+        'Brand Mockup',
+      ],
+    },
+    thumbnail: '/projects/graphic/uga/uga.png',
+    thumbnailType: 'image',
+    gallery: [
+      {
+        type: 'image',
+        src: '/projects/graphic/uga/uga.png',
+      },
+      {
+        type: 'image',
+        src: '/projects/graphic/uga/uga1.png',
+      },
+      {
+        type: 'image',
+        src: '/projects/graphic/uga/uga2.png',
+      },
+    ],
+    figma: '',
+    behance: '',
+  },
 ];
