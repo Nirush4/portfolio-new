@@ -1,10 +1,11 @@
 import { useState, useEffect, type JSX } from 'react';
 import { ProjectCard } from './ProjectCard';
+import { Pagination } from './Pagination';
 import type {
   LocalizedFrontendProject,
   LocalizedGraphicProject,
 } from '../../data/projectsData';
-import { getStorageItem, setStorageItem } from './localStorage';
+import { getStorageItem, setStorageItem } from '../utils/localStorage';
 
 interface ProjectsSectionProps {
   lang: 'NO' | 'EN';
@@ -27,12 +28,36 @@ export const ProjectsSection = ({
       : 'frontend';
   });
 
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const ITEMS_PER_PAGE = 6;
+
+  const handleTabChange = (tab: 'frontend' | 'graphic') => {
+    if (tab !== activeTab) {
+      setActiveTab(tab);
+      setCurrentPage(1);
+    }
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     setStorageItem('portfolio_active_project_tab', activeTab);
   }, [activeTab]);
 
   const currentProjects =
     activeTab === 'frontend' ? frontendProjects : graphicProjects;
+
+  const totalPages = Math.ceil(currentProjects.length / ITEMS_PER_PAGE);
+  const paginatedProjects = currentProjects.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
 
   return (
     <section id='projects' className='max-w-6xl mx-auto px-6 py-16 font-mono'>
@@ -48,7 +73,7 @@ export const ProjectsSection = ({
 
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto mb-14'>
         <button
-          onClick={() => setActiveTab('frontend')}
+          onClick={() => handleTabChange('frontend')}
           className={`group text-left p-5 rounded-xl border-2 transition-all duration-300 cursor-pointer flex items-center justify-between shadow-lg ${
             activeTab === 'frontend'
               ? 'bg-[#1b1924] border-[#C586C0] shadow-[#C586C0]/15 scale-[1.02]'
@@ -88,7 +113,7 @@ export const ProjectsSection = ({
         </button>
 
         <button
-          onClick={() => setActiveTab('graphic')}
+          onClick={() => handleTabChange('graphic')}
           className={`group text-left p-5 rounded-xl border-2 transition-all duration-300 cursor-pointer flex items-center justify-between shadow-lg ${
             activeTab === 'graphic'
               ? 'bg-[#1b1924] border-[#7EE787] shadow-[#7EE787]/15 scale-[1.02]'
@@ -128,11 +153,18 @@ export const ProjectsSection = ({
         </button>
       </div>
 
-      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
-        {(currentProjects ?? []).map((project) => (
+      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12'>
+        {(paginatedProjects ?? []).map((project) => (
           <ProjectCard key={project.id} lang={lang} project={project} />
         ))}
       </div>
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+        lang={lang}
+      />
     </section>
   );
 };
