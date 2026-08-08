@@ -9,7 +9,7 @@ import { ProjectDetailsPage } from './pages/ProjectDetailsPage';
 import {
   getStorageItem,
   setStorageItem,
-} from './components/projects/localStorage';
+} from './components/utils/localStorage';
 
 const App = (): JSX.Element => {
   const [currentLang, setCurrentLang] = useState<'NO' | 'EN'>(() => {
