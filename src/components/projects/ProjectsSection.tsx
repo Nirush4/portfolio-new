@@ -4,7 +4,7 @@ import type {
   LocalizedFrontendProject,
   LocalizedGraphicProject,
 } from '../../data/projectsData';
-import { getStorageItem, setStorageItem } from '../utils/localStorage';
+import { getStorageItem, setStorageItem } from './localStorage';
 
 interface ProjectsSectionProps {
   lang: 'NO' | 'EN';
