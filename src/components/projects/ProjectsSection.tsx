@@ -4,7 +4,7 @@ import type {
   LocalizedFrontendProject,
   LocalizedGraphicProject,
 } from '../../data/projectsData';
-import { setStorageItem } from '../utils/localStorage';
+import { getStorageItem, setStorageItem } from '../utils/localStorage';
 
 interface ProjectsSectionProps {
   lang: 'NO' | 'EN';
@@ -18,7 +18,10 @@ export const ProjectsSection = ({
   graphicProjects = [],
 }: ProjectsSectionProps): JSX.Element => {
   const [activeTab, setActiveTab] = useState<'frontend' | 'graphic'>(() => {
-    const savedTab = localStorage.getItem('portfolio_active_project_tab');
+    const savedTab = getStorageItem<'frontend' | 'graphic'>(
+      'portfolio_active_project_tab',
+      'frontend'
+    );
     return savedTab === 'graphic' || savedTab === 'frontend'
       ? savedTab
       : 'frontend';
