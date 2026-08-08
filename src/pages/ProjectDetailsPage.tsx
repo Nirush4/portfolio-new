@@ -24,7 +24,7 @@ export const ProjectDetailsPage = ({
   lang,
 }: ProjectDetailsProps): JSX.Element => {
   const { id } = useParams<{ id: string }>();
-  const projectId = Number(id);
+  const projectId = id ? Number(id) : NaN;
 
   const [copied, setCopied] = useState(false);
 
@@ -209,7 +209,7 @@ export const ProjectDetailsPage = ({
                     <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
                       <span className='text-[#27C93F]'>03 //</span>{' '}
                       {lang === 'NO'
-                        ? 'Sluttproduktet & Nkkelfunksjoner'
+                        ? 'Sluttproduktet & Nøkkelfunksjoner'
                         : 'The Final Product & Key Features'}
                     </h3>
                     <div className='grid gap-3'>
@@ -254,34 +254,24 @@ export const ProjectDetailsPage = ({
 
               <div className='flex flex-wrap gap-4 pt-6 border-t border-[#30363D]'>
                 {frontendData.live && (
-                  <Link
-                    to={frontendData.live}
+                  <a
+                    href={frontendData.live}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='px-6 py-3 bg-[#C586C0] text-[#0D1117] text-xs font-mono font-bold hover:bg-[#d89fd3] transition-all rounded shadow-md flex items-center gap-2'
                   >
-                    <span>
-                      {lang === 'NO'
-                        ? 'Start Live Forhåndsvisning'
-                        : 'Launch Live Preview'}
-                    </span>
-                    <span>↗</span>
-                  </Link>
+                    <span>Live Demo ↗</span>
+                  </a>
                 )}
                 {frontendData.github && (
-                  <Link
-                    to={frontendData.github}
+                  <a
+                    href={frontendData.github}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='px-6 py-3 bg-[#21262D] text-[#C9D1D9] border border-[#30363D] text-xs font-mono font-bold hover:border-[#8B949E] transition-all rounded flex items-center gap-2'
                   >
-                    <span>
-                      {lang === 'NO'
-                        ? 'Vis GitHub Kildekode'
-                        : 'View GitHub Source Code'}
-                    </span>
-                    <span>&lt;/&gt;</span>
-                  </Link>
+                    <span>GitHub Code</span>
+                  </a>
                 )}
               </div>
             </div>
@@ -439,10 +429,7 @@ export const ProjectDetailsPage = ({
                     rel='noopener noreferrer'
                     className='px-6 py-3 bg-[#7EE787] text-[#0D1117] text-xs font-mono font-bold hover:bg-[#96efa1] transition-all rounded shadow-md flex items-center gap-2'
                   >
-                    <span>
-                      {lang === 'NO' ? 'Se på Behance' : 'View on Behance'}
-                    </span>
-                    <span>↗</span>
+                    <span>Behance ↗</span>
                   </a>
                 )}
                 {graphicData.figma && (
@@ -452,12 +439,7 @@ export const ProjectDetailsPage = ({
                     rel='noopener noreferrer'
                     className='px-6 py-3 bg-[#21262D] text-[#C9D1D9] border border-[#30363D] text-xs font-mono font-bold hover:border-[#8B949E] transition-all rounded flex items-center gap-2'
                   >
-                    <span>
-                      {lang === 'NO'
-                        ? 'Inspekter Figma-designfil'
-                        : 'Inspect Figma Design File'}
-                    </span>
-                    <span>↗</span>
+                    <span>Figma File</span>
                   </a>
                 )}
               </div>
