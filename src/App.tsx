@@ -22,7 +22,10 @@ const App = (): JSX.Element => {
       <main>
         <Routes>
           <Route path='/' element={<Home lang={currentLang} t={t} />} />
-          <Route path='/projects/:id' element={<ProjectDetailsPage />} />
+          <Route
+            path='/projects/:id'
+            element={<ProjectDetailsPage lang={currentLang} t={t} />}
+          />
         </Routes>
       </main>
       <Footer />

@@ -19,12 +19,13 @@ export const Home = ({ lang, t }: HomeProps): JSX.Element => {
     <>
       <Hero lang={lang} t={t} />
       <ProjectsSection
+        lang={lang}
         frontendProjects={FRONTEND_PROJECTS}
         graphicProjects={GRAPHIC_PROJECTS}
       />
-      <SkillsSection categories={SKILL_CATEGORIES} />
-      <AboutSection />
-      <ContactsSection />
+      <SkillsSection lang={lang} categories={SKILL_CATEGORIES} />
+      <AboutSection lang={lang} />
+      <ContactsSection lang={lang} t={t} />
     </>
   );
 };

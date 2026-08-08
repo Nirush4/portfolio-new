@@ -4,17 +4,20 @@ import { DotGrid } from './BackgroundAccents';
 import type { SkillCategory } from '../types/portfolio';
 
 interface SkillsSectionProps {
+  lang: 'NO' | 'EN';
   categories: SkillCategory[];
 }
 
 export const SkillsSection = ({
+  lang,
   categories,
 }: SkillsSectionProps): JSX.Element => {
   return (
     <section id='skills' className='max-w-5xl mx-auto px-6 py-16'>
       <div className='flex items-center gap-4 w-full max-w-sm mb-12'>
         <h2 className='text-white text-2xl font-medium'>
-          <span className='text-[#C778DD]'>#</span>skills
+          <span className='text-[#C778DD]'>#</span>
+          {lang === 'NO' ? 'ferdigheter' : 'skills'}
         </h2>
         <div className='h-[1px] bg-[#C778DD] flex-grow'></div>
       </div>

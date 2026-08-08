@@ -1,7 +1,12 @@
 import { useState, type JSX } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { FRONTEND_PROJECTS, GRAPHIC_PROJECTS } from '../data/projectsData';
-import type { FrontendProject, GraphicProject } from '../types/portfolio';
+import {
+  FRONTEND_PROJECTS,
+  GRAPHIC_PROJECTS,
+  type LocalizedFrontendProject,
+  type LocalizedGraphicProject,
+} from '../data/projectsData';
+import type { translations } from '../constants/translations';
 
 import { ProjectHeader } from '../components/project-details/ProjectHeader';
 import { ProjectThumbnail } from '../components/project-details/ProjectThumbnail';
@@ -10,7 +15,14 @@ import {
   type GalleryItem,
 } from '../components/project-details/ProjectGallery';
 
-export const ProjectDetailsPage = (): JSX.Element => {
+interface ProjectDetailsProps {
+  lang: 'NO' | 'EN';
+  t: (typeof translations)['NO'];
+}
+
+export const ProjectDetailsPage = ({
+  lang,
+}: ProjectDetailsProps): JSX.Element => {
   const { id } = useParams<{ id: string }>();
   const projectId = Number(id);
 
@@ -48,8 +60,10 @@ export const ProjectDetailsPage = (): JSX.Element => {
   }
 
   const isFrontend = project.category === 'frontend';
-  const frontendData = isFrontend ? (project as FrontendProject) : null;
-  const graphicData = !isFrontend ? (project as GraphicProject) : null;
+  const frontendData = isFrontend
+    ? (project as LocalizedFrontendProject)
+    : null;
+  const graphicData = !isFrontend ? (project as LocalizedGraphicProject) : null;
 
   const handleCopyUrl = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -58,7 +72,7 @@ export const ProjectDetailsPage = (): JSX.Element => {
   };
 
   return (
-    <div className='max-w-6xl mx-auto px-6 py-16 mt-10 font-mono text-[#C9D1D9] selection:bg-[#C586C0]/30 selection:text-white'>
+    <div className='max-w-6xl mx-auto px-6 py-16 mt-7 font-mono text-[#C9D1D9] selection:bg-[#C586C0]/30 selection:text-white'>
       <div className='mb-8 flex items-center justify-between text-xs text-[#8B949E] border-b border-[#3c444e] pb-3'>
         <Link
           to='/'
@@ -123,8 +137,12 @@ export const ProjectDetailsPage = (): JSX.Element => {
         <div className='p-6 md:p-10 space-y-8'>
           <ProjectHeader
             name={project.name}
-            projectType={graphicData?.projectType}
-            description={project.description}
+            projectType={
+              graphicData?.projectType
+                ? graphicData.projectType[lang]
+                : undefined
+            }
+            description={project.description[lang]}
           />
 
           <ProjectThumbnail thumbnail={project.thumbnail} name={project.name} />
@@ -141,52 +159,61 @@ export const ProjectDetailsPage = (): JSX.Element => {
                 >
                   <div className='absolute top-0 left-0 w-1.5 h-full bg-[#FF5F56]'></div>
                   <h3 className='text-white text-base font-bold mb-2 flex items-center gap-2 font-mono'>
-                    <span className='text-[#FF5F56]'>01 //</span> The Challenge
-                    & User Need
+                    <span className='text-[#FF5F56]'>01 //</span>{' '}
+                    {lang === 'NO'
+                      ? 'Utfordringen & Brukerbehovet'
+                      : 'The Challenge & User Need'}
                   </h3>
                   <p className='text-sm text-[#8B949E] leading-relaxed'>
-                    {frontendData.problem}
+                    {frontendData.problem[lang]}
                   </p>
                 </div>
               )}
 
-              {frontendData.uxProcess && frontendData.uxProcess.length > 0 && (
-                <div className='space-y-4'>
-                  <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
-                    <span className='text-[#C586C0]'>02 //</span> Research &
-                    User Experience Steps
-                  </h3>
-                  <div className='grid gap-3'>
-                    {frontendData.uxProcess.map((step, idx) => (
-                      <div
-                        key={idx}
-                        style={{
-                          backgroundColor:
-                            'color-mix(in oklab, #161B22 60%, transparent)',
-                        }}
-                        className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
-                      >
-                        <span className='text-xs font-mono text-[#C586C0] bg-[#21262D] px-2 py-0.5 rounded border border-[#30363D] shrink-0 mt-0.5'>
-                          Step 0{idx + 1}
-                        </span>
-                        <p className='text-sm text-[#8B949E] leading-relaxed'>
-                          {step}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {frontendData.finalSolution &&
-                frontendData.finalSolution.length > 0 && (
+              {frontendData.uxProcess &&
+                frontendData.uxProcess[lang].length > 0 && (
                   <div className='space-y-4'>
                     <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
-                      <span className='text-[#27C93F]'>03 //</span> The Final
-                      Product & Key Features
+                      <span className='text-[#C586C0]'>02 //</span>{' '}
+                      {lang === 'NO'
+                        ? 'Forskning & Brukererfaringselementer'
+                        : 'Research & User Experience Steps'}
                     </h3>
                     <div className='grid gap-3'>
-                      {frontendData.finalSolution.map((sol, idx) => (
+                      {frontendData.uxProcess[lang].map((step, idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            backgroundColor:
+                              'color-mix(in oklab, #161B22 60%, transparent)',
+                          }}
+                          className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
+                        >
+                          <span className='text-xs font-mono text-[#C586C0] bg-[#21262D] px-2 py-0.5 rounded border border-[#30363D] shrink-0 mt-0.5'>
+                            {lang === 'NO'
+                              ? `Trinn 0${idx + 1}`
+                              : `Step 0${idx + 1}`}
+                          </span>
+                          <p className='text-sm text-[#8B949E] leading-relaxed'>
+                            {step}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+              {frontendData.finalSolution &&
+                frontendData.finalSolution[lang].length > 0 && (
+                  <div className='space-y-4'>
+                    <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
+                      <span className='text-[#27C93F]'>03 //</span>{' '}
+                      {lang === 'NO'
+                        ? 'Sluttproduktet & Nkkelfunksjoner'
+                        : 'The Final Product & Key Features'}
+                    </h3>
+                    <div className='grid gap-3'>
+                      {frontendData.finalSolution[lang].map((sol, idx) => (
                         <div
                           key={idx}
                           style={{
@@ -196,7 +223,7 @@ export const ProjectDetailsPage = (): JSX.Element => {
                           className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
                         >
                           <span className='text-xs font-mono text-[#27C93F] bg-[#21262D] px-2 py-0.5 rounded border border-[#30363D] shrink-0 mt-0.5'>
-                            Done
+                            {lang === 'NO' ? 'Ferdig' : 'Done'}
                           </span>
                           <p className='text-sm text-[#8B949E] leading-relaxed'>
                             {sol}
@@ -209,7 +236,9 @@ export const ProjectDetailsPage = (): JSX.Element => {
 
               <div className='space-y-3 pt-2'>
                 <h3 className='text-white text-sm font-bold font-mono tracking-wide uppercase text-[#8B949E]'>
-                  Technologies & Frameworks Deployed
+                  {lang === 'NO'
+                    ? 'Teknologier & Rammeverk'
+                    : 'Technologies & Frameworks Deployed'}
                 </h3>
                 <div className='flex flex-wrap gap-2'>
                   {frontendData.technologies.map((tech, i) => (
@@ -231,7 +260,11 @@ export const ProjectDetailsPage = (): JSX.Element => {
                     rel='noopener noreferrer'
                     className='px-6 py-3 bg-[#C586C0] text-[#0D1117] text-xs font-mono font-bold hover:bg-[#d89fd3] transition-all rounded shadow-md flex items-center gap-2'
                   >
-                    <span>Launch Live Preview</span>
+                    <span>
+                      {lang === 'NO'
+                        ? 'Start Live Forhåndsvisning'
+                        : 'Launch Live Preview'}
+                    </span>
                     <span>↗</span>
                   </Link>
                 )}
@@ -242,7 +275,11 @@ export const ProjectDetailsPage = (): JSX.Element => {
                     rel='noopener noreferrer'
                     className='px-6 py-3 bg-[#21262D] text-[#C9D1D9] border border-[#30363D] text-xs font-mono font-bold hover:border-[#8B949E] transition-all rounded flex items-center gap-2'
                   >
-                    <span>View GitHub Source Code</span>
+                    <span>
+                      {lang === 'NO'
+                        ? 'Vis GitHub Kildekode'
+                        : 'View GitHub Source Code'}
+                    </span>
                     <span>&lt;/&gt;</span>
                   </Link>
                 )}
@@ -262,52 +299,59 @@ export const ProjectDetailsPage = (): JSX.Element => {
                 >
                   <div className='absolute top-0 left-0 w-1.5 h-full bg-[#7EE787]'></div>
                   <h3 className='text-white text-base font-bold mb-2 flex items-center gap-2 font-mono'>
-                    <span className='text-[#7EE787]'>01 //</span> Design
-                    Challenge & Objective
+                    <span className='text-[#7EE787]'>01 //</span>{' '}
+                    {lang === 'NO'
+                      ? 'Designutfordring & Målsetting'
+                      : 'Design Challenge & Objective'}
                   </h3>
                   <p className='text-sm text-[#8B949E] leading-relaxed'>
-                    {graphicData.challenge}
+                    {graphicData.challenge[lang]}
                   </p>
                 </div>
               )}
 
-              {graphicData.research && graphicData.research.length > 0 && (
-                <div className='space-y-4'>
-                  <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
-                    <span className='text-[#79C0FF]'>02 //</span> Market
-                    Research & Discovery
-                  </h3>
-                  <div className='grid gap-3'>
-                    {graphicData.research.map((res, idx) => (
-                      <div
-                        key={idx}
-                        style={{
-                          backgroundColor:
-                            'color-mix(in oklab, #161B22 60%, transparent)',
-                        }}
-                        className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
-                      >
-                        <span className='text-xs font-mono text-[#79C0FF] bg-[#21262D] px-2 py-0.5 rounded border border-[#30363D] shrink-0 mt-0.5'>
-                          Insight
-                        </span>
-                        <p className='text-sm text-[#8B949E] leading-relaxed'>
-                          {res}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {graphicData.designProcess &&
-                graphicData.designProcess.length > 0 && (
+              {graphicData.research &&
+                graphicData.research[lang].length > 0 && (
                   <div className='space-y-4'>
                     <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
-                      <span className='text-[#F2CC60]'>03 //</span> Creative
-                      Process & Execution
+                      <span className='text-[#79C0FF]'>02 //</span>{' '}
+                      {lang === 'NO'
+                        ? 'Markedsundersøkelse & Oppdagelse'
+                        : 'Market Research & Discovery'}
                     </h3>
                     <div className='grid gap-3'>
-                      {graphicData.designProcess.map((proc, idx) => (
+                      {graphicData.research[lang].map((res, idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            backgroundColor:
+                              'color-mix(in oklab, #161B22 60%, transparent)',
+                          }}
+                          className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
+                        >
+                          <span className='text-xs font-mono text-[#79C0FF] bg-[#21262D] px-2 py-0.5 rounded border border-[#30363D] shrink-0 mt-0.5'>
+                            {lang === 'NO' ? 'Innsikt' : 'Insight'}
+                          </span>
+                          <p className='text-sm text-[#8B949E] leading-relaxed'>
+                            {res}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+              {graphicData.designProcess &&
+                graphicData.designProcess[lang].length > 0 && (
+                  <div className='space-y-4'>
+                    <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
+                      <span className='text-[#F2CC60]'>03 //</span>{' '}
+                      {lang === 'NO'
+                        ? 'Kreativ Prosess & Utførelse'
+                        : 'Creative Process & Execution'}
+                    </h3>
+                    <div className='grid gap-3'>
+                      {graphicData.designProcess[lang].map((proc, idx) => (
                         <div
                           key={idx}
                           style={{
@@ -317,7 +361,7 @@ export const ProjectDetailsPage = (): JSX.Element => {
                           className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
                         >
                           <span className='text-xs font-mono text-[#F2CC60] bg-[#21262D] px-2 py-0.5 rounded border border-[#30363D] shrink-0 mt-0.5'>
-                            Phase
+                            {lang === 'NO' ? 'Fase' : 'Phase'}
                           </span>
                           <p className='text-sm text-[#8B949E] leading-relaxed'>
                             {proc}
@@ -331,8 +375,10 @@ export const ProjectDetailsPage = (): JSX.Element => {
               {graphicData.colors && graphicData.colors.length > 0 && (
                 <div className='space-y-4 pt-2'>
                   <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
-                    <span className='text-[#C586C0]'>04 //</span> Color System &
-                    Palette
+                    <span className='text-[#C586C0]'>04 //</span>{' '}
+                    {lang === 'NO'
+                      ? 'Fargesystem & Palett'
+                      : 'Color System & Palette'}
                   </h3>
                   <div className='grid grid-cols-2 sm:grid-cols-4 gap-3'>
                     {graphicData.colors.map((c, i) => (
@@ -369,7 +415,9 @@ export const ProjectDetailsPage = (): JSX.Element => {
 
               <div className='space-y-3 pt-2'>
                 <h3 className='text-white text-sm font-bold font-mono tracking-wide uppercase text-[#8B949E]'>
-                  Software & Creative Tools Used
+                  {lang === 'NO'
+                    ? 'Programvare & Kreative Verktøy Brukt'
+                    : 'Software & Creative Tools Used'}
                 </h3>
                 <div className='flex flex-wrap gap-2'>
                   {graphicData.tools.map((tool, i) => (
@@ -391,7 +439,9 @@ export const ProjectDetailsPage = (): JSX.Element => {
                     rel='noopener noreferrer'
                     className='px-6 py-3 bg-[#7EE787] text-[#0D1117] text-xs font-mono font-bold hover:bg-[#96efa1] transition-all rounded shadow-md flex items-center gap-2'
                   >
-                    <span>View on Behance</span>
+                    <span>
+                      {lang === 'NO' ? 'Se på Behance' : 'View on Behance'}
+                    </span>
                     <span>↗</span>
                   </a>
                 )}
@@ -402,7 +452,11 @@ export const ProjectDetailsPage = (): JSX.Element => {
                     rel='noopener noreferrer'
                     className='px-6 py-3 bg-[#21262D] text-[#C9D1D9] border border-[#30363D] text-xs font-mono font-bold hover:border-[#8B949E] transition-all rounded flex items-center gap-2'
                   >
-                    <span>Inspect Figma Design File</span>
+                    <span>
+                      {lang === 'NO'
+                        ? 'Inspekter Figma-designfil'
+                        : 'Inspect Figma Design File'}
+                    </span>
                     <span>↗</span>
                   </a>
                 )}

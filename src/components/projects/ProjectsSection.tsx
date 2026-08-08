@@ -1,14 +1,19 @@
 import { useState, type JSX } from 'react';
 
 import { ProjectCard } from './ProjectCard';
-import type { FrontendProject, GraphicProject } from '../../types/portfolio';
+import type {
+  LocalizedFrontendProject,
+  LocalizedGraphicProject,
+} from '../../data/projectsData';
 
 interface ProjectsSectionProps {
-  frontendProjects?: FrontendProject[];
-  graphicProjects?: GraphicProject[];
+  lang: 'NO' | 'EN';
+  frontendProjects: LocalizedFrontendProject[];
+  graphicProjects: LocalizedGraphicProject[];
 }
 
 export const ProjectsSection = ({
+  lang,
   frontendProjects = [],
   graphicProjects = [],
 }: ProjectsSectionProps): JSX.Element => {
@@ -24,7 +29,8 @@ export const ProjectsSection = ({
       <div className='flex flex-col md:flex-row md:justify-between md:items-center mb-12 gap-6'>
         <div className='flex items-center gap-4 w-full max-w-md'>
           <h2 className='text-white text-2xl md:text-3xl font-medium'>
-            <span className='text-[#C778DD]'>#</span>projects
+            <span className='text-[#C778DD]'>#</span>
+            {lang === 'NO' ? 'prosjekter' : 'projects'}
           </h2>
           <div className='h-[1px] bg-[#C778DD] flex-grow'></div>
         </div>
@@ -38,7 +44,7 @@ export const ProjectsSection = ({
                 : 'text-[#ABB2BF] hover:text-white cursor-pointer'
             }`}
           >
-            Frontend Dev
+            {lang === 'NO' ? 'Frontend-utvikling' : 'Frontend Dev'}
           </button>
           <button
             onClick={() => setActiveTab('graphic')}
@@ -48,14 +54,14 @@ export const ProjectsSection = ({
                 : 'text-[#ABB2BF] hover:text-white cursor-pointer'
             }`}
           >
-            Graphic Design
+            {lang === 'NO' ? 'Grafisk design' : 'Graphic Design'}
           </button>
         </div>
       </div>
 
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
         {(currentProjects ?? []).map((project) => (
-          <ProjectCard key={project.id} project={project} />
+          <ProjectCard key={project.id} lang={lang} project={project} />
         ))}
       </div>
     </section>

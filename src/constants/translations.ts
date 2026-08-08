@@ -20,6 +20,7 @@ export const translations = {
       contactBtn: 'await contact()',
       projectBtn: 'git view-projects()',
       status: 'Backend Studies',
+      workingOn: 'Currently working on',
     },
     sidebar: {
       socials: '// socials',
@@ -47,6 +48,7 @@ export const translations = {
       contactBtn: 'await kontakt()',
       projectBtn: 'git se-prosjekter()',
       status: 'Backend-studier',
+      workingOn: 'Jobber for øyeblikket med',
     },
     sidebar: {
       socials: '// sosiale',

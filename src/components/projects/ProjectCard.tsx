@@ -1,26 +1,36 @@
 import type { JSX } from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { FrontendProject, GraphicProject } from '../../types/portfolio';
+import type {
+  LocalizedFrontendProject,
+  LocalizedGraphicProject,
+} from '../../data/projectsData';
 
 interface ProjectCardProps {
-  project: FrontendProject | GraphicProject;
-  onViewCaseStudy?: (project: FrontendProject | GraphicProject) => void;
+  lang: 'NO' | 'EN';
+  project: LocalizedFrontendProject | LocalizedGraphicProject;
+  onViewCaseStudy?: (
+    project: LocalizedFrontendProject | LocalizedGraphicProject
+  ) => void;
 }
 
 export const ProjectCard = ({
+  lang,
   project,
   onViewCaseStudy,
 }: ProjectCardProps): JSX.Element => {
   const navigate = useNavigate();
   const isFrontend = project.category === 'frontend';
 
-  const frontendData = isFrontend ? (project as FrontendProject) : null;
-  const graphicData = !isFrontend ? (project as GraphicProject) : null;
+  const frontendData = isFrontend
+    ? (project as LocalizedFrontendProject)
+    : null;
+  const graphicData = !isFrontend ? (project as LocalizedGraphicProject) : null;
 
   const handleCaseStudyClick = () => {
     if (onViewCaseStudy) {
       onViewCaseStudy(project);
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     navigate(`/projects/${project.id}`);
   };
 
@@ -87,9 +97,9 @@ export const ProjectCard = ({
 
       <div className='p-5 flex-grow flex flex-col justify-between space-y-4'>
         <div>
-          {!isFrontend && graphicData && (
+          {!isFrontend && graphicData && graphicData.projectType && (
             <span className='text-[11px] text-[#79C0FF] uppercase tracking-wider block mb-1 font-sans font-semibold'>
-              {graphicData.projectType}
+              {graphicData.projectType[lang]}
             </span>
           )}
           <h3 className='text-white text-xl font-bold font-sans tracking-tight line-clamp-1'>
@@ -97,7 +107,7 @@ export const ProjectCard = ({
           </h3>
 
           <p className='text-xs md:text-sm text-[#8B949E] mt-2.5 leading-relaxed line-clamp-3 font-sans'>
-            {project.description}
+            {project.description[lang]}
           </p>
 
           {!isFrontend &&
@@ -106,7 +116,7 @@ export const ProjectCard = ({
             graphicData.colors.length > 0 && (
               <div className='mt-4 flex items-center gap-2 pt-3 border-t border-[#30363D]/60'>
                 <span className='text-[11px] text-[#8B949E] font-sans mr-1'>
-                  Palette:
+                  {lang === 'NO' ? 'Palett:' : 'Palette:'}
                 </span>
                 {graphicData.colors.map((c, idx) => (
                   <span
@@ -125,7 +135,7 @@ export const ProjectCard = ({
             onClick={handleCaseStudyClick}
             className='w-full py-2.5 px-4 border cursor-pointer border-[#C586C0]/50 bg-[#C586C0]/10 text-white text-xs font-semibold font-sans hover:bg-[#C586C0] hover:text-[#0D1117] transition-all flex items-center justify-center gap-2 rounded shadow-sm'
           >
-            <span>View Case Study</span>
+            <span>{lang === 'NO' ? 'Se saksstudie' : 'View Case Study'}</span>
             <span className='font-mono'>~~&gt;</span>
           </button>
 
@@ -139,7 +149,7 @@ export const ProjectCard = ({
                     rel='noopener noreferrer'
                     className='flex-1 text-center py-2 border border-[#30363D] bg-[#21262D] text-[#C9D1D9] text-xs font-sans hover:border-[#C586C0] hover:text-[#C586C0] transition-colors rounded shadow-sm'
                   >
-                    Live Demo ↗
+                    {lang === 'NO' ? 'Direkte demo ↗' : 'Live Demo ↗'}
                   </a>
                 )}
                 {frontendData.github && (
@@ -149,7 +159,7 @@ export const ProjectCard = ({
                     rel='noopener noreferrer'
                     className='flex-1 text-center py-2 border border-[#30363D] bg-[#21262D] text-[#8B949E] text-xs font-sans hover:border-[#8B949E] hover:text-white transition-colors rounded shadow-sm'
                   >
-                    GitHub Code
+                    {lang === 'NO' ? 'GitHub kode' : 'GitHub Code'}
                   </a>
                 )}
               </>
@@ -174,7 +184,7 @@ export const ProjectCard = ({
                     rel='noopener noreferrer'
                     className='flex-1 text-center py-2 border border-[#30363D] bg-[#21262D] text-[#8B949E] text-xs font-sans hover:border-[#8B949E] hover:text-white transition-colors rounded shadow-sm'
                   >
-                    Figma File
+                    {lang === 'NO' ? 'Figma-fil' : 'Figma File'}
                   </a>
                 )}
               </>

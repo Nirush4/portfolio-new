@@ -79,7 +79,7 @@ export const Hero = ({ t }: HeroProps): JSX.Element => {
           <div className='absolute bottom-[-16px] left-1/2 transform -translate-x-1/2 w-[90%] bg-[#161B22]/95 border border-[#C586C0]/40 px-4 py-2.5 rounded shadow-2xl flex items-center gap-3 backdrop-blur-md z-30'>
             <span className='w-2.5 h-2.5 bg-[#C586C0] rounded-sm inline-block shrink-0'></span>
             <span className='text-xs text-[#8B949E] whitespace-nowrap'>
-              Currently working on{' '}
+              {t.hero.workingOn}{' '}
               <strong className='text-white font-semibold'>Portfolio</strong>
             </span>
           </div>
