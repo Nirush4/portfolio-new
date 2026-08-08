@@ -16,8 +16,10 @@ export const Hero = ({ t }: HeroProps): JSX.Element => {
       >
         <div className='md:col-span-7 z-10'>
           <div className='text-xs text-[#8B949E] mb-3 font-semibold tracking-wide flex items-center space-x-2'>
-            <span className='text-[#C586C0]'>const</span>
-            <span className='text-[#4EC9B0]'>{t.hero.developerLabel}</span>
+            <span className='text-base text-[#C586C0]'>const</span>
+            <span className=' text-base text-[#4EC9B0]'>
+              {t.hero.developerLabel}
+            </span>
             <span className='text-[#d4d4d4]'>=</span>
             <span className='text-[#C586C0]'>&#123;</span>
           </div>
