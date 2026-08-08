@@ -952,8 +952,134 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     figma: '',
     behance: '',
   },
+
   {
     id: 13,
+    category: 'graphic',
+    name: 'Voltage — Energy Drink Product & Packaging Design',
+    projectType: {
+      NO: 'Drikkevare Produkt- & Emballasjedesign',
+      EN: 'Beverage Product & Packaging Design',
+    },
+    description: {
+      NO: 'Et dristig energidrikk-konsept bygget rundt fart, fokus og adrenalin. Produkt- og emballasjesystemet parer en glatt matt boksdesign med en høykontrast neonidentitet, og oversetter rå energi til et visuelt språk som skiller seg ut i overfylte dagligvarehyller.',
+      EN: 'A bold energy drink concept built around speed, focus, and adrenaline. The product and packaging system pairs a sleek matte can design with a high-contrast neon identity, translating raw energy into a visual language that stands out on crowded convenience store shelves.',
+    },
+    challenge: {
+      NO: 'Design et komplett emballasjesystem for drikkevarer — fra selve boksen til multipack-bæreren — som formidler høy energi og ytelse på et blikk, samtidig som det forblir eksklusivt nok til å skille seg fra typisk sukkerrik, lavpris energidrikk-merkevarebygging.',
+      EN: 'Design a full beverage packaging system — from the can itself to its multipack carrier — that communicates high energy and performance at a glance, while remaining premium enough to differentiate from typical high-sugar, low-cost energy drink branding.',
+    },
+    research: {
+      NO: [
+        'Analyserte ledende energidrikkmerker for å identifisere gjentakende visuelle klisjeer (aggressiv typografi, generiske lynbolter, overmettet farge) som burde unngås.',
+        'Studerte kjølemiljøer i dagligvarebutikker for å forstå hylletetthet og hvordan emballasje må leses umiddelbart på avstand.',
+        'Samlet referanser fra motorsport, nattløp og prestasjonskultur for å informere merkets energifortelling.',
+        'Bygde moodboards som kontrasterte matte-svarte premiumestetikk mot neon aksentfarger for å teste hylleutmerkelse versus raffinement.',
+      ],
+      EN: [
+        'Analyzed leading energy drink brands to identify recurring visual clichés (aggressive typography, generic lightning bolts, oversaturated color) worth avoiding.',
+        'Studied convenience store cooler environments to understand shelf density and how packaging needs to read instantly from a distance.',
+        "Collected references on motorsport, night-run, and performance-culture visuals to inform the brand's energy narrative.",
+        'Built mood boards contrasting matte-black premium aesthetics against neon accent colors to test shelf standout versus refinement.',
+      ],
+    },
+    designProcess: {
+      NO: [
+        'Utviklet merkevarekonseptet rundt ideen om "kontrollert energi" — kraft som er presis fremfor kaotisk.',
+        'Designet boksformen og etikettsystemet, og testet etikettomslag-behandlinger og finish-kombinasjoner for hylleeffekt.',
+        'Utvidet identiteten til en multipack-bærer og kartongemballasje, og opprettholdt visuell konsistens på tvers av alle formater.',
+        'Produserte høykvalitets kommersielle mockups som simulerte kjølehylleplassering, livsstilsbruk og studioproduktfotografering.',
+      ],
+      EN: [
+        'Developed the brand concept around the idea of "controlled energy" — power that is precise rather than chaotic.',
+        'Designed the can form and label system, testing label wrap treatments and finish combinations for shelf impact.',
+        'Extended the identity into a multipack carrier and case packaging, maintaining visual consistency across all formats.',
+        'Produced high-fidelity commercial mockups simulating cooler shelf placement, lifestyle use, and studio product photography.',
+      ],
+    },
+    designDecisions: {
+      NO: [
+        'Brukte en matt svart bokskropp som base for å signalisere premiumposisjonering og skape maksimal kontrast mot den neon-lime aksentfargen.',
+        'Introduserte et enkelt skarpt lynbolt-merke fremfor et travelt grafisk system, og holdt logoen lesbar i liten skala og på avstand.',
+        'Påførte et børstet metallisk sølvbånd rundt boksen for å tilføre en taktil, teknisk kvalitet som forsterker en "ytelsesprodukt"-følelse fremfor en "sukkerdrikk"-følelse.',
+        'Valgte en dristig geometrisk sans-serif for ordmerket for å formidle fart og presisjon, kombinert med en kondensert monospace for funksjonelle detaljer som koffeininnhold.',
+        'Begrenset fargepaletten til kun svart, neon-lime og sølv, og unngikk flerfarget kaos som er vanlig i kategorien for å holde merket kontrollert og eksklusivt.',
+        'Designet multipack-bæreren med utstansede sirkulære vinduer slik at de neonfargede bokstoppene forblir synlige på hyllen, og bevarte hyllegjenkjenning selv når den er pakket.',
+        'Regisserte dynamisk, bevegelsesinspirert produktfotografering (kondens, sprut, lysstriper) for å forsterke energifortellingen på tvers av markedsføringskanaler.',
+      ],
+      EN: [
+        'Used a matte black can body as the base to signal premium positioning and create maximum contrast against the neon-lime accent color.',
+        'Introduced a single sharp lightning-bolt mark rather than a busy graphic system, keeping the logo legible at small scale and from a distance.',
+        'Applied a brushed metallic silver band around the can to add a tactile, engineered quality that reinforces a "performance product" feel over a "sugary drink" feel.',
+        'Selected a bold geometric sans-serif for the wordmark to communicate speed and precision, paired with a condensed monospace for functional details like caffeine content.',
+        'Restrained the color palette to black, neon-lime, and silver only, avoiding the multi-color chaos common in the category to keep the brand feeling controlled and premium.',
+        'Designed the multipack carrier with die-cut circular windows so the neon can tops remain visible on shelf, preserving shelf recognition even when packaged.',
+        'Directed dynamic, motion-inspired product photography (condensation, splash, light streaks) to reinforce the energy narrative across marketing touchpoints.',
+      ],
+    },
+    finalOutcome: {
+      NO: [
+        'Utviklet et sammenhengende produkt- og emballasjesystem som fremstår som eksklusivt og ytelsesdrevet fremfor generisk eller rent sukkerdrevet.',
+        'Skapte en skalerbar visuell identitet som holder seg gjennom enkeltboks-, multipack- og kartongformater uten å miste hylleeffekt.',
+        'Demonstrerte hvordan tilbakeholden farge- og materialvalg kan differensiere et produkt innen en svært mettet, visuelt høylytt kategori.',
+        'Leverte et komplett sett med kommersielle produktvisualiseringer egnet for detaljhandel, livsstil og reklamebruk.',
+      ],
+      EN: [
+        'Developed a cohesive product and packaging system that reads as premium and performance-driven rather than generic or purely sugar-fueled.',
+        'Created a scalable visual identity that holds up across single-can, multipack, and case formats without losing shelf impact.',
+        'Demonstrated how restrained color and material choices can differentiate a product within a highly saturated, visually loud category.',
+        'Delivered a full set of commercial-grade product visualizations suitable for retail, lifestyle, and advertising use.',
+      ],
+    },
+    tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Adobe Dimension'],
+    colors: [
+      { name: 'Matte Black', value: '#111111' },
+      { name: 'Neon Lime', value: '#C6FF3D' },
+      { name: 'Brushed Silver', value: '#B8BCC2' },
+      { name: 'Electric Blue', value: '#2E9BFF' },
+    ],
+    typography: {
+      NO: ['Dristig Geometrisk Sans Serif', 'Kondensert Monospace'],
+      EN: ['Bold Geometric Sans Serif', 'Condensed Monospace'],
+    },
+    deliverables: {
+      NO: [
+        'Merkevareidentitet',
+        'Boksdesign',
+        'Etikettdesign',
+        'Multipack-bærer Design',
+        'Kartongemballasje',
+        'Produktvisualisering',
+        'Livsstilsmockups',
+        'Detaljhandel/Kjøler Mockups',
+        'Hero-produktbilder',
+      ],
+      EN: [
+        'Brand Identity',
+        'Can Design',
+        'Label Design',
+        'Multipack Carrier Design',
+        'Case Packaging',
+        'Product Visualization',
+        'Lifestyle Mockups',
+        'Retail/Cooler Mockups',
+        'Hero Product Images',
+      ],
+    },
+    thumbnail: '/projects/graphic/voltage/cover.png',
+    thumbnailType: 'image',
+    gallery: [
+      { type: 'image', src: '/projects/graphic/voltage/cover.png' },
+      { type: 'image', src: '/projects/graphic/voltage/image.png' },
+      { type: 'image', src: '/projects/graphic/voltage/image1.png' },
+      { type: 'image', src: '/projects/graphic/voltage/image2.png' },
+      { type: 'image', src: '/projects/graphic/voltage/image3.png' },
+    ],
+    figma: '',
+    behance: '',
+  },
+  {
+    id: 14,
     category: 'graphic',
     name: 'Portrait Study — Line & Ink',
     projectType: {
@@ -1064,7 +1190,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 14,
+    id: 15,
     category: 'video',
     name: 'Halo Philippines — Website Welcome Video',
     projectType: {
@@ -1181,7 +1307,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 15,
+    id: 16,
     category: 'analysis',
     name: "Munchy's Oat Krunch — Print Ad Breakdown",
     projectType: {
@@ -1232,6 +1358,98 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     thumbnail: '/projects/graphic/munchys/munchys.jpg',
     thumbnailType: 'image',
     gallery: [{ type: 'image', src: '/projects/graphic/munchys/munchys.jpg' }],
+    figma: '',
+    behance: '',
+  },
+  {
+    id: 17,
+    category: 'graphic',
+    name: 'Halo Flights — Six Nations Rugby 2024 Campaign',
+    projectType: {
+      NO: 'Sosiale Medier Kampanje / Reise & Sport Markedsføring',
+      EN: 'Social Media Campaign / Travel & Sports Marketing',
+    },
+    description: {
+      NO: 'En energisk sosiale medier-annonse for Halo Flights som promoterer reisepakker til Six Nations Rugby 2024. Designet kombinerer dramatisk sportsfotografi med gnistrende effekter for å formidle intensiteten i live rugby, samtidig som det tydelig kommuniserer pristilbud og kampoppsett for å drive billettsalg.',
+      EN: 'A high-energy social media ad for Halo Flights promoting travel packages to the Six Nations Rugby 2024 tournament. The design combines dramatic sports photography with fiery spark effects to capture the intensity of live rugby, while clearly communicating pricing and match fixtures to drive ticket and package sales.',
+    },
+    challenge: {
+      NO: 'Skape en visuelt slående sosiale medier-annonse som fanger oppmerksomheten i en overfylt feed, formidler spenningen ved live rugby, og samtidig holder viktig informasjon (pris, kamper, tillit-signaler) lettlest på et lite mobilformat.',
+      EN: 'Create a visually striking social media ad that stops the scroll in a crowded feed, conveys the excitement of live rugby, and still keeps essential information (price, fixtures, trust signals) easy to read on a small mobile format.',
+    },
+    research: {
+      NO: [
+        'Analyserte konkurrerende reisebyråers sportsreisekampanjer for å identifisere visuelle trender.',
+        'Undersøkte hvordan sportsmerkevarer bruker bevegelse og partikkeleffekter for å formidle energi.',
+        'Vurderte plassering av tillit-elementer (ABTA, Trustpilot, Google) for maksimal konverteringstillit.',
+      ],
+      EN: [
+        "Analyzed competing travel agencies' sports travel campaigns to identify visual trends.",
+        'Researched how sports brands use motion and particle effects to convey energy and intensity.',
+        'Evaluated trust-badge placement (ABTA, Trustpilot, Google) for maximum conversion confidence.',
+      ],
+    },
+    designProcess: {
+      NO: [
+        'Bygde et klart visuelt hierarki: merkevarelogo øverst, dramatisk overskrift i midten, handlingsbilde og tilbud nederst.',
+        'Kombinerte en nærbildet rugbyball med spillere i aksjon for å skape dybde og bevegelse i komposisjonen.',
+        'La til gnist- og ildeffekter rundt spillerne for å forsterke følelsen av fart og intensitet.',
+        'Strukturerte kampoppsett (Italy vs England, Italy vs Scotland) med lagenes skjold for rask gjenkjennelse.',
+      ],
+      EN: [
+        'Built a clear visual hierarchy: brand logo up top, dramatic headline in the center, action imagery and offer at the base.',
+        'Combined a close-up rugby ball with players in action to create depth and movement within the composition.',
+        'Layered spark and ember effects around the players to heighten the sense of speed and intensity.',
+        'Structured the match fixtures (Italy vs England, Italy vs Scotland) with team crests for instant recognition.',
+      ],
+    },
+    designDecisions: {
+      NO: [
+        'Brukte rødt og svart for "RUGBY"-teksten for å skape kontrast og formidle intensitet og lidenskap for sporten.',
+        'Plasserte prisen ("FROM £409 PER PERSON") i en tydelig rød banner nederst for umiddelbar synlighet.',
+        'Inkluderte ikoner for fly, hotell og transport for å visuelt kommunisere at pakken er komplett.',
+        'Samlet tillit-badges (ABTA, Google, Trustpilot, FlyNow Pay Later) i bunnen for å bygge troverdighet før konvertering.',
+      ],
+      EN: [
+        'Used bold red and black typography for "RUGBY" to create contrast and convey the intensity and passion of the sport.',
+        'Placed the pricing ("FROM £409 PER PERSON") in a clear red banner at the base for immediate visibility.',
+        'Included flight, hotel, and transport icons to visually communicate that the package is all-inclusive.',
+        'Grouped trust badges (ABTA, Google, Trustpilot, FlyNow Pay Later) at the bottom to build credibility right before the call to action.',
+      ],
+    },
+    finalOutcome: {
+      NO: [
+        'Leverte en ferdig sosiale medier-annonse klar for publisering på tvers av plattformer.',
+        'Skapte en visuell identitet som balanserer sportsdramatikk med klar, konverteringsdrevet informasjon.',
+      ],
+      EN: [
+        'Delivered a polished social media ad ready for publishing across platforms.',
+        'Created a visual identity that balances sports drama with clear, conversion-focused information.',
+      ],
+    },
+    tools: ['Photoshop', 'Illustrator'],
+    colors: [
+      { name: 'Rugby Red', value: '#E4292B' },
+      { name: 'Charcoal Black', value: '#1A1A1A' },
+      { name: 'Ember Orange', value: '#F4900C' },
+      { name: 'Pure White', value: '#FFFFFF' },
+    ],
+    typography: {
+      NO: ['Bold Sans Serif', 'Condensed Display'],
+      EN: ['Bold Sans Serif', 'Condensed Display'],
+    },
+    deliverables: {
+      NO: ['Sosiale Medier Annonse', 'Kampanjegrafikk'],
+      EN: ['Social Media Ad', 'Campaign Graphic'],
+    },
+    thumbnail: '/projects/graphic/rugby-2024/rugby-2024.png',
+    thumbnailType: 'image',
+    gallery: [
+      {
+        type: 'image',
+        src: '/projects/graphic/rugby-2024/rugby-2024.png',
+      },
+    ],
     figma: '',
     behance: '',
   },
