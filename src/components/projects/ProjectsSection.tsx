@@ -4,6 +4,7 @@ import type {
   LocalizedFrontendProject,
   LocalizedGraphicProject,
 } from '../../data/projectsData';
+import { setStorageItem } from '../utils/localStorage';
 
 interface ProjectsSectionProps {
   lang: 'NO' | 'EN';
@@ -24,7 +25,7 @@ export const ProjectsSection = ({
   });
 
   useEffect(() => {
-    localStorage.setItem('portfolio_active_project_tab', activeTab);
+    setStorageItem('portfolio_active_project_tab', activeTab);
   }, [activeTab]);
 
   const currentProjects =
@@ -42,9 +43,7 @@ export const ProjectsSection = ({
         </div>
       </div>
 
-      {/* Distinct Side-by-Side Cards Toggle with clear gap */}
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto mb-14'>
-        {/* Frontend / Code Vibe Card */}
         <button
           onClick={() => setActiveTab('frontend')}
           className={`group text-left p-5 rounded-xl border-2 transition-all duration-300 cursor-pointer flex items-center justify-between shadow-lg ${
@@ -85,7 +84,6 @@ export const ProjectsSection = ({
           ></div>
         </button>
 
-        {/* Graphic / Design Vibe Card */}
         <button
           onClick={() => setActiveTab('graphic')}
           className={`group text-left p-5 rounded-xl border-2 transition-all duration-300 cursor-pointer flex items-center justify-between shadow-lg ${
