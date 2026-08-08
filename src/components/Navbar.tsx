@@ -45,7 +45,6 @@ export const Navbar = ({
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Universal click handler for nav links
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     sectionId: string
@@ -53,11 +52,9 @@ export const Navbar = ({
     setIsOpen(false);
 
     if (isDetailsPage) {
-      // If we are on the details page, navigate to home first, then scroll to section
       e.preventDefault();
       navigate('/' + sectionId);
     } else {
-      // If we are already on the home page, let smooth scrolling handle it
       e.preventDefault();
       const element = document.querySelector(sectionId);
       if (element) {
@@ -142,22 +139,26 @@ export const Navbar = ({
             </a>
           </div>
 
-          <div className='flex items-center gap-1 bg-[#161B22] border border-[#C586C0]/40 px-2 py-1 rounded text-xs'>
-            <label htmlFor='language-select' className='text-[#8B949E]'>
-              lang:
-            </label>
+          <div className='flex items-center gap-2 bg-[#21262D]/80 border border-[#C586C0]/40 px-3 py-1.5 rounded-xl text-xs shadow-sm hover:border-[#C586C0]/75 transition-colors'>
+            <span className='text-[#8B949E] font-medium'>lang:</span>
             <select
               id='language-select'
               aria-label='Select Language'
-              className='bg-transparent border-none text-[#C586C0] focus:outline-none focus:ring-1 focus:ring-[#C586C0] cursor-pointer font-semibold'
+              className='bg-[#161B22] border border-[#C586C0]/30 text-[#7EE787] rounded-md px-2.5 py-1 focus:outline-none focus:ring-2 focus:ring-[#C586C0] cursor-pointer font-bold tracking-wide transition-colors  hover:border-[#C586C0]'
               value={currentLang}
               onChange={(e) => onLanguageChange(e.target.value as 'NO' | 'EN')}
             >
-              <option value='NO' className='bg-[#161B22] text-white'>
-                NO
+              <option
+                value='NO'
+                className='bg-[#161B22] text-white font-bold py-1'
+              >
+                🇳🇴 NO
               </option>
-              <option value='EN' className='bg-[#161B22] text-white'>
-                EN
+              <option
+                value='EN'
+                className='bg-[#161B22] text-white font-bold py-1'
+              >
+                🇬🇧 EN
               </option>
             </select>
           </div>
@@ -234,22 +235,32 @@ export const Navbar = ({
             <span>{t.nav.contacts}</span>
           </a>
 
-          <div className='pt-4 flex items-center justify-between border-t border-[#2a2739]'>
+          <div className='pt-4 flex items-center justify-between border-t border-[#2a2739] bg-[#21262D]/50 p-3.5 rounded-xl border border-[#C586C0]/30 shadow-inner'>
             <label
               htmlFor='mobile-language-select'
-              className='text-xs text-[#8B949E]'
+              className='text-xs text-[#C586C0] font-bold uppercase tracking-wider flex items-center gap-1.5'
             >
-              Select Language:
+              <span>🌐</span> Språk / Language:
             </label>
             <select
               id='mobile-language-select'
               aria-label='Select Language Mobile'
-              className='bg-[#161B22] border border-[#C586C0]/40 text-[#C586C0] rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#C586C0] text-xs'
+              className='bg-[#161B22] border border-[#C586C0]/40 text-[#7EE787] rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] text-xs font-bold tracking-wide cursor-pointer'
               value={currentLang}
               onChange={(e) => onLanguageChange(e.target.value as 'NO' | 'EN')}
             >
-              <option value='NO'>NO</option>
-              <option value='EN'>EN</option>
+              <option
+                value='NO'
+                className='bg-[#161B22] text-white font-bold py-1'
+              >
+                🇳🇴 NO
+              </option>
+              <option
+                value='EN'
+                className='bg-[#161B22] text-white font-bold py-1'
+              >
+                🇬🇧 EN
+              </option>
             </select>
           </div>
         </div>
