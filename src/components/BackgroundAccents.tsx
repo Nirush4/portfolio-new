@@ -24,7 +24,7 @@ export const BackgroundAccents = ({
               git.push
             </span>
             <a
-              href='https://github.com'
+              href='https://github.com/Nirush4'
               target='_blank'
               rel='noopener noreferrer'
               aria-label='GitHub Profile'
@@ -41,7 +41,7 @@ export const BackgroundAccents = ({
               connect
             </span>
             <a
-              href='https://linkedin.com'
+              href='https://www.linkedin.com/in/nirushan-rajamanoharan/'
               target='_blank'
               rel='noopener noreferrer'
               aria-label='LinkedIn Profile'

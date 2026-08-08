@@ -1,13 +1,29 @@
-import { useState, type JSX } from 'react';
+import { useState, useEffect, type JSX } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { BackgroundAccents } from './components/BackgroundAccents';
 import { Navbar } from './components/Navbar';
-
 import { Footer } from './components/Footer';
 import { translations } from './constants/translations';
 import { Home } from './pages/HomePage';
+import { ProjectDetailsPage } from './pages/ProjectDetailsPage';
+import {
+  getStorageItem,
+  setStorageItem,
+} from './components/projects/localStorage';
 
 const App = (): JSX.Element => {
-  const [currentLang, setCurrentLang] = useState<'NO' | 'EN'>('NO');
+  const [currentLang, setCurrentLang] = useState<'NO' | 'EN'>(() => {
+    const savedLang = getStorageItem<'NO' | 'EN'>(
+      'portfolio_language_mode',
+      'NO'
+    );
+    return savedLang === 'EN' || savedLang === 'NO' ? savedLang : 'NO';
+  });
+
+  useEffect(() => {
+    setStorageItem('portfolio_language_mode', currentLang);
+  }, [currentLang]);
+
   const t = translations[currentLang];
 
   return (
@@ -19,7 +35,13 @@ const App = (): JSX.Element => {
         t={t}
       />
       <main>
-        <Home lang={currentLang} t={t} />
+        <Routes>
+          <Route path='/' element={<Home lang={currentLang} t={t} />} />
+          <Route
+            path='/projects/:id'
+            element={<ProjectDetailsPage lang={currentLang} t={t} />}
+          />
+        </Routes>
       </main>
       <Footer />
     </div>
