@@ -1,6 +1,4 @@
 import { type JSX } from 'react';
-
-import { DotGrid } from './BackgroundAccents';
 import type { SkillCategory } from '../types/portfolio';
 
 interface SkillsSectionProps {
@@ -13,38 +11,50 @@ export const SkillsSection = ({
   categories,
 }: SkillsSectionProps): JSX.Element => {
   return (
-    <section id='skills' className='max-w-5xl mx-auto px-6 py-16'>
-      <div className='flex items-center gap-4 w-full max-w-sm mb-12'>
-        <h2 className='text-white text-2xl font-medium'>
+    <section id='skills' className='max-w-6xl mx-auto px-6 py-16 font-mono'>
+      <div className='flex items-center gap-4 w-full max-w-md mb-12'>
+        <h2 className='text-white text-2xl md:text-3xl font-medium'>
           <span className='text-[#C778DD]'>#</span>
           {lang === 'NO' ? 'ferdigheter' : 'skills'}
         </h2>
         <div className='h-[1px] bg-[#C778DD] flex-grow'></div>
       </div>
 
-      <div className='grid md:grid-cols-12 gap-8 items-start'>
-        {/* Left Graphics Accent Column */}
-        <div className='hidden md:col-span-4 md:flex flex-col gap-8 relative pt-4'>
-          <DotGrid rows={5} cols={5} className='opacity-50' />
-          <div className='w-24 h-24 border border-[#ABB2BF] absolute top-12 left-20'></div>
-          <div className='w-16 h-16 border border-[#C778DD] absolute bottom-0 left-4'></div>
-        </div>
-
-        {/* Right Modular Skill Cards */}
-        <div className='md:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-start'>
-          {categories.map((cat, idx) => (
-            <div key={idx} className='border border-[#ABB2BF] bg-[#282C34]'>
-              <div className='p-2 border-b border-[#ABB2BF] text-white text-xs font-semibold'>
-                {cat.title}
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-start'>
+        {categories.map((cat, idx) => (
+          <div
+            key={idx}
+            className='bg-[#161B22]/90 border-2 border-[#30363D] rounded-xl overflow-hidden shadow-xl hover:border-[#C586C0]/60 transition-all group'
+          >
+            <div className='px-4 py-2.5 bg-[#1F242C] border-b border-[#30363D] flex items-center justify-between'>
+              <div className='flex items-center gap-2'>
+                <span className='text-white text-xs font-semibold tracking-wide ml-1'>
+                  {cat.title}.tsx
+                </span>
               </div>
-              <div className='p-2 text-xs text-[#ABB2BF] leading-relaxed flex flex-wrap gap-x-2 gap-y-1'>
+            </div>
+
+            <div className='p-4 bg-[#171c23] text-xs leading-relaxed'>
+              <div className='text-[#484F58] mb-2 select-none'>
+                <span className='text-[#bcc4cd]'>
+                  // Stack &amp; Capabilities
+                </span>
+              </div>
+
+              <div className='flex flex-wrap gap-2 pl-2 border-l border-[#30363D]/60 ml-1'>
                 {cat.skills.map((skill, sIdx) => (
-                  <span key={sIdx}>{skill}</span>
+                  <span
+                    key={sIdx}
+                    className='bg-[#161B22] text-[#7EE787] border border-[#30363D] hover:border-[#C586C0]/40 px-2.5 py-1 rounded font-sans text-xs font-medium transition-all shadow-sm'
+                  >
+                    <span className='text-[#C586C0] mr-1'>&bull;</span>
+                    {skill}
+                  </span>
                 ))}
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );
