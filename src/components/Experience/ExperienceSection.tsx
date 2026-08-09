@@ -171,15 +171,11 @@ export const ExperienceSection = ({
               'Skapte engasjerende og visuelt overbevisende grafikk for digitale og trykte plattformer, inkludert sosiale medier, nettsider, brosjyrer og presentasjoner',
               'Oversatt konsepter og ideer til nyskapende design som formidler budskapet effektivt',
               'Opprettholdt merkevarekonsistens på tvers av alt visuelt materiale og sikret overholdelse av retningslinjer',
-              'Forfrisket og administrert visuelle eiendeler for å støtte pågående markedsføring og merkevarebygging',
-              'Samarbeidet med markeds-, innholds- og produktteam for å forstå krav og levere design av høy kvalitet',
             ]
           : [
               'Create engaging and visually compelling graphics for digital and print platforms, including social media, websites, brochures, presentations, and marketing campaigns',
               'Translate concepts and ideas into innovative designs that effectively convey the intended message',
               'Maintain brand consistency across all visual materials and ensure adherence to brand guidelines',
-              'Refresh and manage visual assets to support ongoing marketing and branding initiatives',
-              'Collaborate with marketing, content, and product teams to understand requirements and deliver high-quality designs',
             ],
       images: ['/graphic-design/steve.jpg', '/graphic-design/1873221.jpg'],
     },
@@ -195,13 +191,11 @@ export const ExperienceSection = ({
               'Designet kreative og visuelt tiltalende grafiske elementer for både digitale medier og trykksaker, inkludert sosiale innlegg, nettsidegrafikk og brosjyrer',
               'Omdannet ideer og konsepter til effektive design som kommuniserte budskap klart til målgrupper',
               'Sikret at alt design fulgte retningslinjer for merkevaren og opprettholdt en konsistent, profesjonell visuell identitet',
-              'Oppdatert og organisert visuelle eiendeler for å støtte pågående markedsføringskampanjer og strategier',
             ]
           : [
               'Designed creative and visually appealing graphics for both digital and print media, including social posts, website visuals, brochures, presentations, and marketing materials',
               'Turned ideas and concepts into effective designs that communicated messages clearly to target audiences',
               'Ensured all designs adhered to brand guidelines, maintaining a consistent and professional visual identity across platforms',
-              'Updated and organized visual assets to support ongoing marketing campaigns and branding strategies',
             ],
       images: [],
     },

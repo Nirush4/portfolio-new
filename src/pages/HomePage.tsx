@@ -12,6 +12,7 @@ import {
 import { FRONTEND_PROJECTS, GRAPHIC_PROJECTS } from '../data/projectsData';
 
 import { ExperienceSection } from '../components/Experience/ExperienceSection';
+import { HonorsAwards } from '../components/HonorsAwards';
 
 interface HomeProps {
   lang: 'NO' | 'EN';
@@ -31,6 +32,7 @@ export const Home = ({ lang, t }: HomeProps): JSX.Element => {
       />
       <ExperienceSection lang={lang} />
       <SkillsSection lang={lang} categories={categories} />
+      <HonorsAwards lang={lang} />
       <AboutSection lang={lang} />
       <ContactsSection lang={lang} t={t} />
     </>
