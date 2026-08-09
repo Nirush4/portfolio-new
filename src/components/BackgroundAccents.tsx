@@ -12,7 +12,7 @@ export const BackgroundAccents = ({
   return (
     <>
       <div className='fixed left-6 xl:left-10 top-1/3 hidden xl:flex flex-col items-center gap-3 z-25 font-mono select-none'>
-        <span className='text-[11px] text-[#41bf06e4] font-semibold tracking-wider writing-mode-vertical mb-2'>
+        <span className='text-[11px] text-white font-semibold tracking-wider writing-mode-vertical mb-2'>
           {t.sidebar.socials}
         </span>
 
@@ -56,7 +56,7 @@ export const BackgroundAccents = ({
 
         <div className='w-[1px] h-12 bg-[#919191a7] transition-all duration-300 hover:bg-[#569CD6]'></div>
 
-        <span className='text-[10px] text-[#F2CC60] font-bold tracking-wider px-1.5 py-0.5 bg-[#161B22] border border-[#30363D] rounded shadow-inner mt-1'>
+        <span className='text-[10px] text-white font-bold tracking-wider px-1.5 py-0.5 bg-[#161B22] border border-[#30363D] rounded shadow-inner mt-1'>
           {t.sidebar.active}
         </span>
       </div>

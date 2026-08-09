@@ -8,6 +8,17 @@ interface HeroProps {
 }
 
 export const Hero = ({ t }: HeroProps): JSX.Element => {
+  const handleSmoothScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string
+  ) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className='relative'>
       <section
@@ -48,12 +59,14 @@ export const Hero = ({ t }: HeroProps): JSX.Element => {
           <div className='mt-8 flex items-center gap-4'>
             <a
               href='#contacts'
+              onClick={(e) => handleSmoothScroll(e, 'contacts')}
               className='px-5 py-2.5 border border-[#C586C0] text-white font-semibold text-sm rounded-md hover:bg-[#C586C0]/20 transition-all transform hover:-translate-y-0.5 shadow-sm'
             >
               {t.hero.contactBtn}
             </a>
             <a
               href='#projects'
+              onClick={(e) => handleSmoothScroll(e, 'projects')}
               className='px-5 py-2.5 border border-[#30363D] bg-[#21262D] text-[#C9D1D9] hover:text-[#C586C0] hover:border-[#C586C0] rounded-md transition-all text-sm'
             >
               {t.hero.projectBtn}
