@@ -39,7 +39,7 @@ export const ProjectCard = ({
       style={{
         backgroundColor: 'color-mix(in oklab, #1b1924 95%, transparent)',
       }}
-      className='border border-[#30363D] flex flex-col justify-between overflow-hidden group font-mono rounded-lg shadow-xl transition-all duration-300 hover:border-[#C586C0]/60 hover:-translate-y-1'
+      className='border border-[#30363D] flex flex-col justify-between overflow-hidden group font-mono  shadow-xl transition-all duration-300 hover:border-[#C586C0]/60 hover:-translate-y-1'
     >
       <div
         style={{

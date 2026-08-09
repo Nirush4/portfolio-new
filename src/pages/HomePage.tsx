@@ -5,10 +5,14 @@ import { SkillsSection } from '../components/SkillsSection';
 import { AboutSection } from '../components/AboutSection';
 import { ContactsSection } from '../components/ContactsSection';
 
-import type { translations } from '../constants/translations';
+import {
+  getLocalizedSkills,
+  type translations,
+} from '../constants/translations';
 import { FRONTEND_PROJECTS, GRAPHIC_PROJECTS } from '../data/projectsData';
-import { SKILL_CATEGORIES } from '../data/portfolioData';
+
 import { ExperienceSection } from '../components/Experience/ExperienceSection';
+import { HonorsAwards } from '../components/HonorsAwards';
 
 interface HomeProps {
   lang: 'NO' | 'EN';
@@ -16,6 +20,8 @@ interface HomeProps {
 }
 
 export const Home = ({ lang, t }: HomeProps): JSX.Element => {
+  const categories = getLocalizedSkills(lang);
+
   return (
     <>
       <Hero lang={lang} t={t} />
@@ -25,7 +31,8 @@ export const Home = ({ lang, t }: HomeProps): JSX.Element => {
         graphicProjects={GRAPHIC_PROJECTS}
       />
       <ExperienceSection lang={lang} />
-      <SkillsSection lang={lang} categories={SKILL_CATEGORIES} />
+      <SkillsSection lang={lang} categories={categories} />
+      <HonorsAwards lang={lang} />
       <AboutSection lang={lang} />
       <ContactsSection lang={lang} t={t} />
     </>

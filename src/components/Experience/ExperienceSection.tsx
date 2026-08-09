@@ -95,7 +95,7 @@ export const ExperienceSection = ({
     },
     {
       period: 'January 2022 - August 2023',
-      role: lang === 'NO' ? 'Seniordesigner' : 'Senior Graphic Designer',
+      role: lang === 'NO' ? 'Senior designer' : 'Senior Graphic Designer',
       company: 'Halo Flights – Halo Group of Companies',
       link: 'https://www.haloflights.co.uk',
       badge: lang === 'NO' ? 'Design' : 'Design',
@@ -142,7 +142,6 @@ export const ExperienceSection = ({
               'Sikret at alt design fulgte merkevarens retningslinjer og opprettholdt et konsistent utseende på tvers av plattformer',
               'Oppdatert og vedlikeholdt visuelle eiendeler i tråd med bedriftens merkevarestrategi',
               'Samarbeidet tett med markedsførings-, innholds- og produktteam for å forstå prosjektkrav og levere kvalitetsløsninger',
-              'Deltatt i idémyldring og bidratt med kreative innspill for å forbedre kampanjer og prosjekter',
               'Håndtert flere designprosjekter fra idé til ferdigstillelse innen tidsfrister og kvalitetsstandarder',
             ]
           : [
@@ -151,7 +150,6 @@ export const ExperienceSection = ({
               'Ensure all designs align with brand guidelines and maintain a consistent look and feel across all platforms',
               'Update and maintain visual assets in line with the company’s branding strategy',
               'Work closely with marketing, content, and product teams to understand project requirements and deliver high-quality design solutions',
-              'Participate in brainstorming sessions and provide creative input to enhance campaigns and projects',
               'Manage multiple design projects from concept to completion, meeting deadlines and quality standards',
             ],
       images: [
@@ -173,19 +171,11 @@ export const ExperienceSection = ({
               'Skapte engasjerende og visuelt overbevisende grafikk for digitale og trykte plattformer, inkludert sosiale medier, nettsider, brosjyrer og presentasjoner',
               'Oversatt konsepter og ideer til nyskapende design som formidler budskapet effektivt',
               'Opprettholdt merkevarekonsistens på tvers av alt visuelt materiale og sikret overholdelse av retningslinjer',
-              'Forfrisket og administrert visuelle eiendeler for å støtte pågående markedsføring og merkevarebygging',
-              'Samarbeidet med markeds-, innholds- og produktteam for å forstå krav og levere design av høy kvalitet',
-              'Bidratt med kreative ideer i idémyldringer for å løfte kampanjer og prosjekter',
-              'Håndtert flere designprosjekter samtidig fra idé til fullføring med fokus på tidsfrister og kvalitet',
             ]
           : [
               'Create engaging and visually compelling graphics for digital and print platforms, including social media, websites, brochures, presentations, and marketing campaigns',
               'Translate concepts and ideas into innovative designs that effectively convey the intended message',
               'Maintain brand consistency across all visual materials and ensure adherence to brand guidelines',
-              'Refresh and manage visual assets to support ongoing marketing and branding initiatives',
-              'Collaborate with marketing, content, and product teams to understand requirements and deliver high-quality designs',
-              'Contribute creative ideas in brainstorming sessions to elevate campaigns and projects',
-              'Handle multiple design projects simultaneously, from concept through completion, ensuring timely delivery and quality standards',
             ],
       images: ['/graphic-design/steve.jpg', '/graphic-design/1873221.jpg'],
     },
@@ -201,17 +191,11 @@ export const ExperienceSection = ({
               'Designet kreative og visuelt tiltalende grafiske elementer for både digitale medier og trykksaker, inkludert sosiale innlegg, nettsidegrafikk og brosjyrer',
               'Omdannet ideer og konsepter til effektive design som kommuniserte budskap klart til målgrupper',
               'Sikret at alt design fulgte retningslinjer for merkevaren og opprettholdt en konsistent, profesjonell visuell identitet',
-              'Oppdatert og organisert visuelle eiendeler for å støtte pågående markedsføringskampanjer og strategier',
-              'Samarbeidet tett med markeds-, innholds- og produktteam for å forstå prosjektmål og levere kvalitetsdesign',
-              'Bidratt med kreative ideer under teamets idémyldringer for å styrke kampanjer og prosjekter',
             ]
           : [
               'Designed creative and visually appealing graphics for both digital and print media, including social posts, website visuals, brochures, presentations, and marketing materials',
               'Turned ideas and concepts into effective designs that communicated messages clearly to target audiences',
               'Ensured all designs adhered to brand guidelines, maintaining a consistent and professional visual identity across platforms',
-              'Updated and organized visual assets to support ongoing marketing campaigns and branding strategies',
-              'Collaborated closely with marketing, content, and product teams to understand project goals and deliver high-quality design solutions',
-              'Contributed creative ideas during team brainstorming sessions to enhance campaigns and projects',
             ],
       images: [],
     },

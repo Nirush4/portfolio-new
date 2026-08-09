@@ -23,7 +23,7 @@ export const ExperienceCard = ({
     <div className='relative group'>
       <div className='absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-[#161B22] border-2 border-[#C586C0] group-hover:bg-[#C586C0] transition-colors duration-300 shadow-md z-10'></div>
 
-      <div className='bg-[#161B22]/90 border-2 border-[#30363D] hover:border-[#C586C0]/50 transition-all duration-300 p-4 md:p-6 rounded-xl shadow-xl'>
+      <div className='bg-[#161B22]/90  border-[#30363D] hover:border-[#C586C0]/50 transition-all duration-300 p-4 md:p-6 shadow-xl'>
         <div className='flex flex-wrap items-center justify-between gap-3 mb-3'>
           <span className='text-xs font-mono font-medium px-3 py-1 bg-[#21262D] text-[#79C0FF] rounded-full border border-[#30363D]'>
             {period}

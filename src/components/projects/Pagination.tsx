@@ -21,9 +21,9 @@ export const Pagination = ({
         <span className='text-[#C586C0]'>//</span>
         <span>
           {lang === 'NO' ? 'Viser side' : 'Showing page'}{' '}
-          <strong className='text-white'>{currentPage}</strong>{' '}
+          <strong className='text-white text-base'>{currentPage}</strong>{' '}
           {lang === 'NO' ? 'av' : 'of'}{' '}
-          <strong className='text-white'>{totalPages}</strong>
+          <strong className='text-white text-base'>{totalPages}</strong>
         </span>
       </div>
 

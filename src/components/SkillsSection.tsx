@@ -1,6 +1,4 @@
 import { type JSX } from 'react';
-
-import { DotGrid } from './BackgroundAccents';
 import type { SkillCategory } from '../types/portfolio';
 
 interface SkillsSectionProps {
@@ -13,38 +11,81 @@ export const SkillsSection = ({
   categories,
 }: SkillsSectionProps): JSX.Element => {
   return (
-    <section id='skills' className='max-w-5xl mx-auto px-6 py-16'>
-      <div className='flex items-center gap-4 w-full max-w-sm mb-12'>
-        <h2 className='text-white text-2xl font-medium'>
-          <span className='text-[#C778DD]'>#</span>
+    <section
+      id='skills'
+      className='max-w-6xl mx-auto px-6 py-16 font-mono'
+      aria-labelledby='skills-heading'
+    >
+      <div className='flex items-center gap-4 w-full max-w-md mb-12'>
+        <h2
+          id='skills-heading'
+          className='text-white text-2xl md:text-3xl font-medium'
+        >
+          <span className='text-[#C778DD]' aria-hidden='true'>
+            #
+          </span>
           {lang === 'NO' ? 'ferdigheter' : 'skills'}
         </h2>
-        <div className='h-[1px] bg-[#C778DD] flex-grow'></div>
+        <div
+          className='h-[1px] bg-[#C778DD] flex-grow'
+          aria-hidden='true'
+        ></div>
       </div>
 
-      <div className='grid md:grid-cols-12 gap-8 items-start'>
-        {/* Left Graphics Accent Column */}
-        <div className='hidden md:col-span-4 md:flex flex-col gap-8 relative pt-4'>
-          <DotGrid rows={5} cols={5} className='opacity-50' />
-          <div className='w-24 h-24 border border-[#ABB2BF] absolute top-12 left-20'></div>
-          <div className='w-16 h-16 border border-[#C778DD] absolute bottom-0 left-4'></div>
-        </div>
-
-        {/* Right Modular Skill Cards */}
-        <div className='md:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-start'>
-          {categories.map((cat, idx) => (
-            <div key={idx} className='border border-[#ABB2BF] bg-[#282C34]'>
-              <div className='p-2 border-b border-[#ABB2BF] text-white text-xs font-semibold'>
-                {cat.title}
-              </div>
-              <div className='p-2 text-xs text-[#ABB2BF] leading-relaxed flex flex-wrap gap-x-2 gap-y-1'>
-                {cat.skills.map((skill, sIdx) => (
-                  <span key={sIdx}>{skill}</span>
-                ))}
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start'>
+        {categories.map((cat, idx) => (
+          <article
+            key={idx}
+            className='bg-[#282C34] border border-[#3d454e] rounded-none overflow-hidden shadow-lg hover:border-[#C778DD] transition-all flex flex-col justify-between'
+          >
+            <div className='px-4 py-3 bg-[#21252B] border-b border-[#ABB2BF] flex items-center justify-between'>
+              <div className='flex items-center gap-2'>
+                <div className='flex gap-1.5' aria-hidden='true'>
+                  <div
+                    className='w-2.5 h-2.5 rounded-full bg-[#E06C75]'
+                    aria-hidden='true'
+                  ></div>
+                  <div
+                    className='w-2.5 h-2.5 rounded-full bg-[#E5C07B]'
+                    aria-hidden='true'
+                  ></div>
+                  <div
+                    className='w-2.5 h-2.5 rounded-full bg-[#98C379]'
+                    aria-hidden='true'
+                  ></div>
+                </div>
+                <span className='text-white text-xs font-semibold tracking-wide ml-1'>
+                  {cat.title.toLowerCase().replace(/\s+/g, '-')}.tsx
+                </span>
               </div>
             </div>
-          ))}
-        </div>
+
+            <div className='p-5 bg-[#161B22] text-xs leading-relaxed'>
+              <div
+                className='text-[#ABB2BF] mb-3 select-none flex items-center gap-2'
+                aria-hidden='true'
+              >
+                <span className='text-[#61AFEF]'>//</span>
+                <span>Stack &amp; Capabilities</span>
+              </div>
+
+              <ul
+                className='flex flex-wrap gap-2 m-0 p-0 list-none'
+                aria-label={`${cat.title} ${
+                  lang === 'NO' ? 'ferdigheter' : 'skills'
+                }`}
+              >
+                {cat.skills.map((skill, sIdx) => (
+                  <li key={sIdx}>
+                    <span className='inline-block font-sans font-medium text-[#98C379] bg-[#21252B] border border-[#ABB2BF]/60 hover:border-[#C778DD] px-2.5 py-1 transition-all'>
+                      {skill}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );
