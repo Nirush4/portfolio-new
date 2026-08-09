@@ -2,7 +2,7 @@ export const translations = {
   EN: {
     nav: {
       home: 'Home',
-      works: 'Works',
+      works: 'Projects',
       about: 'About',
       contacts: 'Contacts',
     },
@@ -30,7 +30,7 @@ export const translations = {
   NO: {
     nav: {
       home: 'hjem',
-      works: 'arbeid',
+      works: 'prosjekter',
       about: 'om-meg',
       contacts: 'kontakt',
     },
