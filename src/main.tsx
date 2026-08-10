@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
 import { BrowserRouter } from 'react-router-dom';
-import { ScrollToTopOnRoute } from './components/utils/ScrollToTopOnRoute.ts';
+import { ScrollToTopOnRoute } from './utils/ScrollToTopOnRoute.ts';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
