@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, type JSX } from 'react';
 import type { translations } from '../constants/translations';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { handleNavClick } from '../utils/navigation';
 
 interface NavbarProps {
   currentLang: 'NO' | 'EN';
@@ -45,23 +46,17 @@ export const Navbar = ({
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const handleNavClick = (
+  const onNavLinkClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     sectionId: string
   ) => {
-    setIsOpen(false);
-
-    if (isDetailsPage) {
-      e.preventDefault();
-      navigate('/' + sectionId);
-    } else {
-      e.preventDefault();
-      const element = document.querySelector(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        window.history.pushState(null, '', sectionId);
-      }
-    }
+    handleNavClick({
+      e,
+      sectionId,
+      isDetailsPage,
+      navigate,
+      setIsOpen,
+    });
   };
 
   useEffect(() => {
@@ -107,7 +102,7 @@ export const Navbar = ({
           <div className='flex items-center gap-6'>
             <a
               href='#home'
-              onClick={(e) => handleNavClick(e, '#home')}
+              onClick={(e) => onNavLinkClick(e, '#home')}
               className='text-white hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group cursor-pointer'
             >
               <FolderIcon className='w-4 h-4 text-[#F2CC60] group-hover:scale-110 transition-transform' />
@@ -115,7 +110,7 @@ export const Navbar = ({
             </a>
             <a
               href='#projects'
-              onClick={(e) => handleNavClick(e, '#projects')}
+              onClick={(e) => onNavLinkClick(e, '#projects')}
               className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group cursor-pointer'
             >
               <FolderIcon className='w-4 h-4 text-[#F2CC60] group-hover:scale-110 transition-transform' />
@@ -123,7 +118,7 @@ export const Navbar = ({
             </a>
             <a
               href='#about'
-              onClick={(e) => handleNavClick(e, '#about')}
+              onClick={(e) => onNavLinkClick(e, '#about')}
               className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group cursor-pointer'
             >
               <FolderIcon className='w-4 h-4 text-[#F2CC60] group-hover:scale-110 transition-transform' />
@@ -131,7 +126,7 @@ export const Navbar = ({
             </a>
             <a
               href='#contacts'
-              onClick={(e) => handleNavClick(e, '#contacts')}
+              onClick={(e) => onNavLinkClick(e, '#contacts')}
               className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1 group cursor-pointer'
             >
               <FolderIcon className='w-4 h-4 text-[#F2CC60] group-hover:scale-110 transition-transform' />
@@ -204,7 +199,7 @@ export const Navbar = ({
           </div>
           <a
             href='#home'
-            onClick={(e) => handleNavClick(e, '#home')}
+            onClick={(e) => onNavLinkClick(e, '#home')}
             className='text-white hover:text-[#C586C0] transition-colors flex items-center gap-1.5 py-1 border-b border-[#2a2739] focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
           >
             <FolderIcon className='w-4 h-4 text-[#F2CC60]' />
@@ -212,7 +207,7 @@ export const Navbar = ({
           </a>
           <a
             href='#projects'
-            onClick={(e) => handleNavClick(e, '#projects')}
+            onClick={(e) => onNavLinkClick(e, '#projects')}
             className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 py-1 border-b border-[#2a2739] focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
           >
             <FolderIcon className='w-4 h-4 text-[#F2CC60]' />
@@ -220,7 +215,7 @@ export const Navbar = ({
           </a>
           <a
             href='#about'
-            onClick={(e) => handleNavClick(e, '#about')}
+            onClick={(e) => onNavLinkClick(e, '#about')}
             className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 py-1 border-b border-[#2a2739] focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
           >
             <FolderIcon className='w-4 h-4 text-[#F2CC60]' />
@@ -228,7 +223,7 @@ export const Navbar = ({
           </a>
           <a
             href='#contacts'
-            onClick={(e) => handleNavClick(e, '#contacts')}
+            onClick={(e) => onNavLinkClick(e, '#contacts')}
             className='text-[#8A99AD] hover:text-[#C586C0] transition-colors flex items-center gap-1.5 py-1 focus:outline-none focus:ring-2 focus:ring-[#C586C0] rounded px-1'
           >
             <FolderIcon className='w-4 h-4 text-[#F2CC60]' />

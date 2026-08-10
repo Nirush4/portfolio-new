@@ -6,10 +6,7 @@ import { Footer } from './components/Footer';
 import { translations } from './constants/translations';
 import { Home } from './pages/HomePage';
 import { ProjectDetailsPage } from './pages/ProjectDetailsPage';
-import {
-  getStorageItem,
-  setStorageItem,
-} from './components/utils/localStorage';
+import { getStorageItem, setStorageItem } from './utils/localStorage';
 
 const App = (): JSX.Element => {
   const [currentLang, setCurrentLang] = useState<'NO' | 'EN'>(() => {
