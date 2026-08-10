@@ -206,7 +206,7 @@ export const AboutSection = ({ lang }: AboutSectionProps): JSX.Element => {
                     graphic designer
                   </strong>
                   . transitioning into development was never about changing
-                  direction—it was about building the solutions, not just
+                  direction, it was about building the solutions, not just
                   designing them.
                 </p>
                 <p className='font-sans'>
