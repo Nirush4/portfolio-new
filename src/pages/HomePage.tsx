@@ -3,7 +3,6 @@ import { Hero } from '../components/Hero';
 import { ProjectsSection } from '../components/projects/ProjectsSection';
 import { SkillsSection } from '../components/SkillsSection';
 import { AboutSection } from '../components/AboutSection';
-import { ContactsSection } from '../components/ContactsSection';
 
 import {
   getLocalizedSkills,
@@ -13,6 +12,7 @@ import { FRONTEND_PROJECTS, GRAPHIC_PROJECTS } from '../data/projectsData';
 
 import { ExperienceSection } from '../components/Experience/ExperienceSection';
 import { HonorsAwards } from '../components/HonorsAwards';
+import { ContactSection } from '../components/ContactSection';
 
 interface HomeProps {
   lang: 'NO' | 'EN';
@@ -34,7 +34,7 @@ export const Home = ({ lang, t }: HomeProps): JSX.Element => {
       <SkillsSection lang={lang} categories={categories} />
       <HonorsAwards lang={lang} />
       <AboutSection lang={lang} />
-      <ContactsSection lang={lang} t={t} />
+      <ContactSection lang={lang} />
     </>
   );
 };
