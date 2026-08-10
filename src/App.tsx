@@ -43,7 +43,7 @@ const App = (): JSX.Element => {
           />
         </Routes>
       </main>
-      <Footer />
+      <Footer lang={currentLang} />
     </div>
   );
 };
