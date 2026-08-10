@@ -93,7 +93,7 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
   return (
     <section
       id='contacts'
-      className='max-w-6xl mx-auto px-6 py-16 font-mono'
+      className='max-w-6xl mx-auto px-6 py-20 font-mono'
       aria-labelledby='contact-section-heading'
     >
       <div className='flex items-center gap-4 w-full max-w-md mb-12'>
@@ -101,10 +101,10 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
           id='contact-section-heading'
           className='text-white text-2xl md:text-3xl font-medium'
         >
-          <span className='text-[#C778DD]' aria-hidden='true'>
+          <span className='text-[#C586C0]' aria-hidden='true'>
             #
           </span>
-          {lang === 'NO' ? 'kontakt-meg' : 'contacts'}
+          {lang === 'NO' ? 'kontakt-meg' : 'contact-me'}
         </h2>
         <div
           className='h-[1px] bg-[#C778DD] flex-grow'
@@ -112,37 +112,48 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
         ></div>
       </div>
 
-      <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch'>
-        <div className='lg:col-span-6 bg-[#282C34] border border-[#ABB2BF] hover:border-[#C778DD] transition-all rounded-none shadow-lg flex flex-col justify-between overflow-hidden'>
-          <div className='px-4 py-3 bg-[#21252B] border-b border-[#ABB2BF] flex items-center justify-between'>
+      <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 items-start'>
+        {/* Left Information Card */}
+        <div
+          style={{
+            backgroundColor: 'color-mix(in oklab, #1b1924 95%, transparent)',
+          }}
+          className='lg:col-span-5 border border-[#30363D] hover:border-[#C586C0] transition-all shadow-xl flex flex-col justify-between overflow-hidden'
+        >
+          <div
+            style={{
+              backgroundColor: 'color-mix(in oklab, #0d1117 95%, transparent)',
+            }}
+            className='px-4 py-3 border-b border-[#30363D] flex items-center justify-between'
+          >
             <div className='flex items-center gap-2' aria-hidden='true'>
-              <span className='w-3 h-3 rounded-full bg-[#E06C75]'></span>
-              <span className='w-3 h-3 rounded-full bg-[#E5C07B]'></span>
-              <span className='w-3 h-3 rounded-full bg-[#98C379]'></span>
+              <span className='w-2.5 h-2.5 rounded-full bg-[#FF5F56]/80'></span>
+              <span className='w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/80'></span>
+              <span className='w-2.5 h-2.5 rounded-full bg-[#27C93F]/80'></span>
             </div>
-            <span className='text-[10px] lowercase font-bold tracking-widest text-[#E5C07B] bg-[#21252B] px-2.5 py-0.5 border border-[#ABB2BF]/40 font-mono'>
+            <span className='text-[11px] font-medium tracking-wider text-[#F2CC60] bg-[#21262D] px-2.5 py-0.5 border border-[#30363D] rounded font-sans'>
               availability.tsx
             </span>
           </div>
 
           <div className='p-6 md:p-8 flex flex-col justify-center space-y-6'>
             <div className='space-y-3 font-sans'>
-              <p className='text-white font-medium text-base md:text-lg'>
+              <p className='text-white font-bold text-xl md:text-2xl tracking-tight leading-snug'>
                 {lang === 'NO'
                   ? 'La oss skape noe sammen'
                   : 'Let’s build something together'}
               </p>
-              <p className='text-sm md:text-base text-[#ABB2BF] leading-relaxed'>
+              <p className='text-sm md:text-base text-[#8B949E] leading-relaxed'>
                 {lang === 'NO'
                   ? 'Jeg er interessert i nye muligheter som frontend-utvikler eller designer. Har du en spennende forespørsel, et prosjekt, eller ønsker du bare å slå av en prat? Ta gjerne kontakt via skjemaet!'
                   : 'I am interested in new opportunities as a frontend developer or designer. Whether you have an exciting query, a project, or just want to connect, feel free to drop a message using the form!'}
               </p>
             </div>
 
-            <div className='border border-[#ABB2BF]/40 bg-[#21252B] p-4 rounded-none space-y-2 font-sans'>
-              <div className='flex items-center gap-2 text-xs font-mono text-[#98C379]'>
+            <div className='border border-[#30363D] bg-[#0d1117]/60 p-4 rounded space-y-2 font-sans'>
+              <div className='flex items-center gap-2 text-xs font-mono text-[#7EE787]'>
                 <span
-                  className='w-2 h-2 bg-[#98C379] rounded-full animate-pulse'
+                  className='w-2 h-2 bg-[#7EE787] rounded-full animate-pulse'
                   aria-hidden='true'
                 ></span>
                 <span>
@@ -151,7 +162,7 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
                     : 'Status: Open for new opportunities'}
                 </span>
               </div>
-              <p className='text-xs text-[#ABB2BF]'>
+              <p className='text-xs text-[#8B949E]'>
                 {lang === 'NO'
                   ? 'Svarer vanligvis innen 24 timer på virkedager.'
                   : 'Typically responds within 24 hours on business days.'}
@@ -160,14 +171,25 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
           </div>
         </div>
 
-        <div className='lg:col-span-6 bg-[#282C34] border border-[#ABB2BF] hover:border-[#C778DD] transition-all rounded-none shadow-lg overflow-hidden flex flex-col'>
-          <div className='px-4 py-3 bg-[#21252B] border-b border-[#ABB2BF] flex items-center justify-between'>
+        {/* Right High-Visibility Form Card */}
+        <div
+          style={{
+            backgroundColor: 'color-mix(in oklab, #1b1924 95%, transparent)',
+          }}
+          className='lg:col-span-7 border border-[#30363D] shadow-2xl overflow-hidden flex flex-col relative ring-2 ring-[#C586C0]/30'
+        >
+          <div
+            style={{
+              backgroundColor: 'color-mix(in oklab, #0d1117 95%, transparent)',
+            }}
+            className='px-4 py-3 border-b border-[#30363D] flex items-center justify-between pr-24 sm:pr-4'
+          >
             <div className='flex items-center gap-2' aria-hidden='true'>
-              <span className='w-3 h-3 rounded-full bg-[#E06C75]'></span>
-              <span className='w-3 h-3 rounded-full bg-[#E5C07B]'></span>
-              <span className='w-3 h-3 rounded-full bg-[#98C379]'></span>
+              <span className='w-2.5 h-2.5 rounded-full bg-[#FF5F56]/80'></span>
+              <span className='w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/80'></span>
+              <span className='w-2.5 h-2.5 rounded-full bg-[#27C93F]/80'></span>
             </div>
-            <span className='text-[10px] lowercase font-bold tracking-widest text-[#E5C07B] bg-[#21252B] px-2.5 py-0.5 border border-[#ABB2BF]/40 font-mono'>
+            <span className='text-[11px] font-medium tracking-wider text-[#F2CC60] bg-[#21262D] px-2.5 py-0.5 border border-[#30363D] rounded font-sans'>
               contact.tsx
             </span>
           </div>
@@ -181,10 +203,10 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
               <div>
                 <label
                   htmlFor='contact-name'
-                  className='block mb-2 text-xs text-[#ABB2BF] uppercase tracking-wider font-mono'
+                  className='block mb-2 text-xs text-[#C9D1D9] uppercase tracking-wider font-mono font-semibold'
                 >
                   {lang === 'NO' ? 'Navn' : 'Name'}{' '}
-                  <span className='text-[#E06C75]' aria-hidden='true'>
+                  <span className='text-[#FF5F56]' aria-hidden='true'>
                     *
                   </span>
                 </label>
@@ -194,16 +216,16 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
                   aria-required='true'
                   aria-invalid={errors.name ? 'true' : 'false'}
                   {...register('name')}
-                  className={`w-full px-4 py-3 text-sm bg-[#21252B] text-white border rounded-none outline-none font-sans transition-all ${
+                  className={`w-full px-4 py-3 text-sm bg-[#0d1117] text-white border rounded outline-none font-sans transition-all shadow-inner ${
                     errors.name
-                      ? 'border-[#E06C75]'
-                      : 'border-[#ABB2BF]/60 focus:border-[#C778DD] focus:ring-1 focus:ring-[#C778DD]'
+                      ? 'border-[#FF5F56] ring-1 ring-[#FF5F56]'
+                      : 'border-[#30363D] hover:border-[#C586C0]/50 focus:border-[#C586C0] focus:ring-1 focus:ring-[#C586C0]'
                   }`}
                   placeholder={lang === 'NO' ? 'Ola Nordmann' : 'John Doe'}
                 />
                 {errors.name && (
                   <p
-                    className='mt-1 text-xs text-[#E06C75] font-sans'
+                    className='mt-1 text-xs text-[#FF5F56] font-sans'
                     role='alert'
                   >
                     {errors.name.message}
@@ -214,10 +236,10 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
               <div>
                 <label
                   htmlFor='contact-email'
-                  className='block mb-2 text-xs text-[#ABB2BF] uppercase tracking-wider font-mono'
+                  className='block mb-2 text-xs text-[#C9D1D9] uppercase tracking-wider font-mono font-semibold'
                 >
                   E-post{' '}
-                  <span className='text-[#E06C75]' aria-hidden='true'>
+                  <span className='text-[#FF5F56]' aria-hidden='true'>
                     *
                   </span>
                 </label>
@@ -227,16 +249,16 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
                   aria-required='true'
                   aria-invalid={errors.email ? 'true' : 'false'}
                   {...register('email')}
-                  className={`w-full px-4 py-3 text-sm bg-[#21252B] text-white border rounded-none outline-none font-sans transition-all ${
+                  className={`w-full px-4 py-3 text-sm bg-[#0d1117] text-white border rounded outline-none font-sans transition-all shadow-inner ${
                     errors.email
-                      ? 'border-[#E06C75]'
-                      : 'border-[#ABB2BF]/60 focus:border-[#C778DD] focus:ring-1 focus:ring-[#C778DD]'
+                      ? 'border-[#FF5F56] ring-1 ring-[#FF5F56]'
+                      : 'border-[#30363D] hover:border-[#C586C0]/50 focus:border-[#C586C0] focus:ring-1 focus:ring-[#C586C0]'
                   }`}
                   placeholder='you@example.com'
                 />
                 {errors.email && (
                   <p
-                    className='mt-1 text-xs text-[#E06C75] font-sans'
+                    className='mt-1 text-xs text-[#FF5F56] font-sans'
                     role='alert'
                   >
                     {errors.email.message}
@@ -247,10 +269,10 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
               <div>
                 <label
                   htmlFor='contact-message'
-                  className='block mb-2 text-xs text-[#ABB2BF] uppercase tracking-wider font-mono'
+                  className='block mb-2 text-xs text-[#C9D1D9] uppercase tracking-wider font-mono font-semibold'
                 >
                   {lang === 'NO' ? 'Melding' : 'Message'}{' '}
-                  <span className='text-[#E06C75]' aria-hidden='true'>
+                  <span className='text-[#FF5F56]' aria-hidden='true'>
                     *
                   </span>
                 </label>
@@ -260,10 +282,10 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
                   aria-required='true'
                   aria-invalid={errors.message ? 'true' : 'false'}
                   {...register('message')}
-                  className={`w-full px-4 py-3 text-sm bg-[#21252B] text-white border rounded-none outline-none font-sans transition-all resize-none ${
+                  className={`w-full px-4 py-3 text-sm bg-[#0d1117] text-white border rounded outline-none font-sans transition-all resize-none shadow-inner ${
                     errors.message
-                      ? 'border-[#E06C75]'
-                      : 'border-[#ABB2BF]/60 focus:border-[#C778DD] focus:ring-1 focus:ring-[#C778DD]'
+                      ? 'border-[#FF5F56] ring-1 ring-[#FF5F56]'
+                      : 'border-[#30363D] hover:border-[#C586C0]/50 focus:border-[#C586C0] focus:ring-1 focus:ring-[#C586C0]'
                   }`}
                   placeholder={
                     lang === 'NO'
@@ -273,7 +295,7 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
                 />
                 {errors.message && (
                   <p
-                    className='mt-1 text-xs text-[#E06C75] font-sans'
+                    className='mt-1 text-xs text-[#FF5F56] font-sans'
                     role='alert'
                   >
                     {errors.message.message}
@@ -282,11 +304,11 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
               </div>
             </div>
 
-            <div className='pt-2'>
+            <div className='pt-3'>
               <button
                 type='submit'
                 disabled={isSubmitting}
-                className='inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#282C34] text-[#C778DD] border border-[#C778DD] font-mono font-medium text-sm rounded-none hover:bg-[#C778DD] hover:text-[#282C34] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#C778DD] focus:ring-offset-2 focus:ring-offset-[#282C34] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer shadow-md'
+                className='w-full py-3 px-4 border border-[#C586C0] bg-[#C586C0] text-[#0D1117] text-sm font-bold font-sans hover:bg-[#c586c0d9] hover:text-white transition-all flex items-center justify-center gap-2 rounded shadow-md cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-[#C586C0] focus:ring-offset-2 focus:ring-offset-[#1b1924]'
                 aria-label={lang === 'NO' ? 'Send melding' : 'Send message'}
               >
                 {isSubmitting ? (
@@ -294,7 +316,12 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
                     {lang === 'NO' ? 'Sender melding...' : 'Sending message...'}
                   </span>
                 ) : (
-                  <span>{lang === 'NO' ? 'Send melding' : 'Send Message'}</span>
+                  <>
+                    <span>
+                      {lang === 'NO' ? 'Send melding' : 'Send Message'}
+                    </span>
+                    <span className='font-mono'>~~&gt;</span>
+                  </>
                 )}
               </button>
 
@@ -302,12 +329,12 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
                 <div
                   role='status'
                   aria-live='polite'
-                  className={`mt-4 text-xs md:text-sm p-3 font-mono border text-center ${
+                  className={`mt-4 text-xs md:text-sm p-3 font-mono border text-center rounded ${
                     statusType === 'success'
-                      ? 'bg-[#98C379]/10 text-[#98C379] border-[#98C379]'
+                      ? 'bg-[#27C93F]/10 text-[#7EE787] border-[#27C93F]/40'
                       : statusType === 'error'
-                      ? 'bg-[#E06C75]/10 text-[#E06C75] border-[#E06C75]'
-                      : 'bg-[#61AFEF]/10 text-[#61AFEF] border-[#61AFEF]'
+                      ? 'bg-[#FF5F56]/10 text-[#FF5F56] border-[#FF5F56]/40'
+                      : 'bg-[#79C0FF]/10 text-[#79C0FF] border-[#79C0FF]/40'
                   }`}
                 >
                   {resultMessage}
