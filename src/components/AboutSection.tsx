@@ -97,14 +97,12 @@ export const AboutSection = ({ lang }: AboutSectionProps): JSX.Element => {
                   men om å bygge løsningene, ikke bare designe dem.
                 </p>
                 <p className='font-sans'>
-                  gjennom utdanningen i{' '}
+                  jeg har{' '}
                   <strong className='text-white font-semibold'>
-                    front-end utvikling
-                  </strong>{' '}
-                  ved{' '}
-                  <strong className='text-white font-semibold'>noroff</strong>{' '}
-                  fikk jeg et solid fundament innen moderne webutvikling. jeg
-                  fullførte studiet med{' '}
+                    fagbrev i frontend-utvikling fra noroff
+                  </strong>
+                  . gjennom utdanningen bygget jeg et solid fundament innen
+                  moderne webutvikling, fullførte studiet med{' '}
                   <strong className='text-white font-semibold'>
                     a i alle fag
                   </strong>{' '}
@@ -212,18 +210,17 @@ export const AboutSection = ({ lang }: AboutSectionProps): JSX.Element => {
                   designing them.
                 </p>
                 <p className='font-sans'>
-                  through my{' '}
+                  i hold a{' '}
                   <strong className='text-white font-semibold'>
-                    front-end development
-                  </strong>{' '}
-                  education at{' '}
-                  <strong className='text-white font-semibold'>noroff</strong>,
-                  i built a solid foundation in modern web engineering. i
-                  completed my studies with{' '}
+                    professional degree in front-end development from Noroff
+                    School of Technology and Digital Media
+                  </strong>
+                  . through my education, i built a solid foundation in modern
+                  web engineering, completed my studies with{' '}
                   <strong className='text-white font-semibold'>
                     top grades (A)
                   </strong>{' '}
-                  across all subjects and received the{' '}
+                  across all subjects, and received the{' '}
                   <strong className='text-white font-semibold'>
                     golden egg award
                   </strong>{' '}
