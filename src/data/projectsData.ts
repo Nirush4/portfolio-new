@@ -1578,6 +1578,10 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
         type: 'image',
         src: '/projects/graphic/uga/uga2.png',
       },
+      {
+        type: 'image',
+        src: '/projects/graphic/uga/uga3.png',
+      },
     ],
     figma: '',
     behance: '',
