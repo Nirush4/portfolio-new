@@ -97,7 +97,9 @@ export const HonorsAwards = ({ lang }: HonorsAwardsProps): JSX.Element => {
 
             <div className='pt-3 border-t border-[#ABB2BF]/30 flex items-center justify-between text-xs font-mono'>
               <span className='text-[#ABB2BF]'>
-                {lang === 'NO' ? 'Utstedt av: Noroff' : 'Issued by: Noroff'}
+                {lang === 'NO'
+                  ? 'Utstedt av: Noroff Oslo'
+                  : 'Issued by: Noroff School of Technology and Digital Media'}
               </span>
               <span className='text-[#C778DD] font-semibold'>Year: 2025</span>
             </div>
