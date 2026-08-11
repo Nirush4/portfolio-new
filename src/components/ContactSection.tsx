@@ -113,7 +113,6 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
       </div>
 
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 items-start'>
-        {/* Left Information Card */}
         <div
           style={{
             backgroundColor: 'color-mix(in oklab, #1b1924 95%, transparent)',
@@ -132,7 +131,7 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
               <span className='w-2.5 h-2.5 rounded-full bg-[#27C93F]/80'></span>
             </div>
             <span className='text-[11px] font-medium tracking-wider text-[#F2CC60] bg-[#21262D] px-2.5 py-0.5 border border-[#30363D] rounded font-sans'>
-              availability.tsx
+              {lang === 'NO' ? 'tilgjengelighet.tsx' : 'availability.tsx'}
             </span>
           </div>
 
@@ -171,7 +170,6 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
           </div>
         </div>
 
-        {/* Right High-Visibility Form Card */}
         <div
           style={{
             backgroundColor: 'color-mix(in oklab, #1b1924 95%, transparent)',
@@ -190,7 +188,7 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
               <span className='w-2.5 h-2.5 rounded-full bg-[#27C93F]/80'></span>
             </div>
             <span className='text-[11px] font-medium tracking-wider text-[#F2CC60] bg-[#21262D] px-2.5 py-0.5 border border-[#30363D] rounded font-sans'>
-              contact.tsx
+              {lang == 'NO' ? 'kontakt.tsx' : 'contact.tsx'}
             </span>
           </div>
 
