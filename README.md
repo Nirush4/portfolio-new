@@ -8,12 +8,12 @@ The project features a sleek developer terminal aesthetic, full **bilingual supp
 
 ## 📸 Preview
 
-![hero section](/readme-screenshots/image.png)
-![projects section](/readme-screenshots/image-1.png)
-![experience section](/readme-screenshots/image-2.png)
-![skills section](/readme-screenshots/image-3.png)
-![about section](/readme-screenshots/image-4.png)
-![contact section](/readme-screenshots/image-5.png)
+![hero section](public/readme-screenshots/image.png)
+![projects section](public/readme-screenshots/image-1.png)
+![experience section](public/readme-screenshots/image-2.png)
+![skills section](public/readme-screenshots/image-3.png)
+![about section](public/readme-screenshots/image-4.png)
+![contact section](public/readme-screenshots/image-5.png)
 
 ---
 
