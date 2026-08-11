@@ -1,5 +1,5 @@
 import { useState, type JSX } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import {
   FRONTEND_PROJECTS,
   GRAPHIC_PROJECTS,
@@ -25,12 +25,89 @@ export const ProjectDetailsPage = ({
 }: ProjectDetailsProps): JSX.Element => {
   const { id } = useParams<{ id: string }>();
   const projectId = id ? Number(id) : NaN;
+  const navigate = useNavigate();
 
   const [copied, setCopied] = useState(false);
+  const [bottomCopied, setBottomCopied] = useState(false);
 
   const project =
     FRONTEND_PROJECTS.find((p) => p.id === projectId) ||
     GRAPHIC_PROJECTS.find((p) => p.id === projectId);
+
+  const handleBackToProjects = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/');
+    setTimeout(() => {
+      const element = document.getElementById('projects');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 50);
+  };
+
+  const handleCopyUrl = (isBottom = false) => {
+    navigator.clipboard.writeText(window.location.href);
+    if (isBottom) {
+      setBottomCopied(true);
+      setTimeout(() => setBottomCopied(false), 2000);
+    } else {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const renderNavToolbar = (isBottom = false) => (
+    <div className='flex flex-wrap items-center justify-between gap-4 text-xs text-white'>
+      <Link
+        to='/#projects'
+        onClick={handleBackToProjects}
+        title={
+          lang === 'NO' ? 'Gå tilbake til prosjekter' : 'Go back to projects'
+        }
+        className='inline-flex items-center gap-2 hover:text-[#C586C0] transition-colors group cursor-pointer bg-[#21262D] px-4 py-2 rounded-lg border border-[#30363D] hover:border-[#C586C0] shadow-sm'
+      >
+        <span className='text-[#C586C0] group-hover:-translate-x-1 transition-transform'>
+          &larr;
+        </span>
+        <span className='text-sm font-bold'>
+          {lang === 'NO' ? 'Tilbake til Prosjekter' : 'Back to Projects'}
+        </span>
+        <span className='text-xs text-[#8B949E] hidden sm:inline font-mono'>
+          (cd /portfolio/projects)
+        </span>
+      </Link>
+
+      <div className='flex items-center gap-3'>
+        {!isBottom && (
+          <span className='hidden sm:inline-block font-mono text-[11px] text-[#F2CC60] bg-[#161B22] px-3 py-1.5 rounded-lg border border-[#30363D]'>
+            case-study / id-{project?.id}
+          </span>
+        )}
+
+        <button
+          onClick={() => handleCopyUrl(isBottom)}
+          className='inline-flex items-center gap-2 px-4 py-2 bg-[#21262D] hover:bg-[#30363D] text-white border border-[#4f5964] hover:border-[#C586C0] text-xs font-mono rounded-lg transition-all cursor-pointer shadow-md'
+          title='Copy Project URL'
+        >
+          {isBottom ? (
+            bottomCopied
+          ) : copied ? (
+            <>
+              <span className='text-[#27C93F] font-bold'>✓</span>
+              <span className='text-[#27C93F] font-bold'>Link Copied!</span>
+            </>
+          ) : (
+            <>
+              <span>🔗</span>
+              <span className='font-bold'>Copy Link</span>
+            </>
+          )}
+        </button>
+      </div>
+    </div>
+  );
 
   if (!project) {
     return (
@@ -49,10 +126,21 @@ export const ProjectDetailsPage = ({
             has been relocated.
           </p>
           <Link
-            to='/'
-            className='inline-flex items-center gap-2 px-6 py-2.5 bg-[#21262D] text-[#C9D1D9] border border-[#30363D] text-xs font-mono rounded hover:border-[#C586C0] hover:text-[#C586C0] transition-all'
+            to='/#projects'
+            onClick={handleBackToProjects}
+            title={
+              lang === 'NO'
+                ? 'Gå tilbake til prosjekter'
+                : 'Go back to projects'
+            }
+            className='inline-flex items-center gap-2 hover:text-[#C586C0] transition-colors group cursor-pointer bg-[#21262D] px-4 py-2 rounded-lg border border-[#30363D]'
           >
-            <span>&lt;--</span> cd /portfolio/home
+            <span className='text-[#C586C0] group-hover:-translate-x-1 transition-transform'>
+              &larr;
+            </span>
+            <span className='text-sm font-bold'>
+              {lang === 'NO' ? 'Tilbake til Prosjekter' : 'Back to Projects'}
+            </span>
           </Link>
         </div>
       </div>
@@ -65,48 +153,11 @@ export const ProjectDetailsPage = ({
     : null;
   const graphicData = !isFrontend ? (project as LocalizedGraphicProject) : null;
 
-  const handleCopyUrl = () => {
-    navigator.clipboard.writeText(window.location.href);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
-    <div className='max-w-6xl mx-auto px-6 py-16 mt-7 font-mono text-[#C9D1D9] selection:bg-[#C586C0]/30 selection:text-white'>
-      <div className='mb-8 flex items-center justify-between text-xs text-[#8B949E] border-b border-[#3c444e] pb-3'>
-        <Link
-          to='/'
-          className='inline-flex items-center gap-2 hover:text-[#C586C0] transition-colors group'
-        >
-          <span className='text-[#C586C0] group-hover:-translate-x-1 transition-transform'>
-            &larr;
-          </span>
-          <span className='text-sm'>cd .. / portfolio</span>
-        </Link>
-
-        <div className='flex items-center gap-3'>
-          <span className='hidden sm:inline-block font-mono text-[11px] text-[#F2CC60] bg-[#161B22] px-2.5 py-0.5 rounded border border-[#30363D]'>
-            case-study / id-{project.id}
-          </span>
-
-          <button
-            onClick={handleCopyUrl}
-            className='inline-flex items-center gap-1.5 px-3 py-1 bg-[#21262D] hover:bg-[#30363D] text-[#C9D1D9] border border-[#4f5964] text-[11px] font-mono rounded transition-all cursor-pointer'
-            title='Copy Project URL'
-          >
-            {copied ? (
-              <>
-                <span className='text-[#27C93F]'>✓</span>
-                <span className='text-[#27C93F]'>Link Copied!</span>
-              </>
-            ) : (
-              <>
-                <span>🔗</span>
-                <span>Copy Link</span>
-              </>
-            )}
-          </button>
-        </div>
+    <div className='max-w-6xl mx-auto px-6 py-12 mt-8 font-mono text-[#C9D1D9] selection:bg-[#C586C0]/30 selection:text-white'>
+      {/* Top Clean Navigation Toolbar */}
+      <div className='mb-6 bg-[#161B22]/60 p-4 rounded-xl border border-[#30363D] backdrop-blur-md shadow-lg'>
+        {renderNavToolbar(false)}
       </div>
 
       <div
@@ -319,8 +370,8 @@ export const ProjectDetailsPage = ({
                           }}
                           className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
                         >
-                          <span className='text-xs font-mono text-[#79C0FF] bg-[#21262D] px-2 py-0.5 rounded border border-[#30363D] shrink-0 mt-0.5'>
-                            {lang === 'NO' ? 'Innsikt' : 'Insight'}
+                          <span className='text-[#79C0FF] font-bold text-base leading-none shrink-0 mt-1'>
+                            &bull;
                           </span>
                           <p className='text-sm text-[#8B949E] leading-relaxed'>
                             {res}
@@ -350,8 +401,8 @@ export const ProjectDetailsPage = ({
                           }}
                           className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
                         >
-                          <span className='text-xs font-mono text-[#F2CC60] bg-[#21262D] px-2 py-0.5 rounded border border-[#30363D] shrink-0 mt-0.5'>
-                            {lang === 'NO' ? 'Fase' : 'Phase'}
+                          <span className='text-[#F2CC60] font-bold text-base leading-none shrink-0 mt-1'>
+                            &bull;
                           </span>
                           <p className='text-sm text-[#8B949E] leading-relaxed'>
                             {proc}
@@ -445,6 +496,10 @@ export const ProjectDetailsPage = ({
               </div>
             </div>
           )}
+
+          <div className='pt-8 mt-12 border-t border-[#30363D] bg-[#161B22]/40 p-4 rounded-xl'>
+            {renderNavToolbar(true)}
+          </div>
         </div>
       </div>
     </div>

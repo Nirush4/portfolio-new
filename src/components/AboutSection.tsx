@@ -99,7 +99,8 @@ export const AboutSection = ({ lang }: AboutSectionProps): JSX.Element => {
                 <p className='font-sans'>
                   jeg har{' '}
                   <strong className='text-white font-semibold'>
-                    fagbrev i frontend-utvikling fra noroff
+                    fagbrev i frontend-utvikling fra noroff school of technology
+                    and digital media
                   </strong>
                   . gjennom utdanningen bygget jeg et solid fundament innen
                   moderne webutvikling, fullførte studiet med{' '}
@@ -342,7 +343,7 @@ export const AboutSection = ({ lang }: AboutSectionProps): JSX.Element => {
                 }
               >
                 <img
-                  src='/portfolio copy 2.png'
+                  src='/portfolio_pic.jpeg'
                   alt={
                     lang === 'NO'
                       ? 'portrettbilde av nirushan rajamanoharan'

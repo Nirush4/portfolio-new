@@ -948,7 +948,10 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     },
     thumbnail: '/projects/graphic/msc/image.png',
     thumbnailType: 'image',
-    gallery: [{ type: 'image', src: '/projects/graphic/msc/image.png' }],
+    gallery: [
+      { type: 'image', src: '/projects/graphic/msc/image.png' },
+      { type: 'image', src: '/projects/graphic/msc/image1.png' },
+    ],
     figma: '',
     behance: '',
   },

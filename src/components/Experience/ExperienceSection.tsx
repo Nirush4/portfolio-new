@@ -58,7 +58,7 @@ export const ExperienceSection = ({
         lang === 'NO'
           ? 'Frontend-utviklerstudent'
           : 'Front-End Developer Student',
-      company: 'Noroff Oslo',
+      company: 'Noroff School of Technology and Digital Media',
       link: '',
       badge:
         lang === 'NO' ? 'Utdanning / Utvikling' : 'Education / Development',
@@ -96,7 +96,7 @@ export const ExperienceSection = ({
     {
       period: 'January 2022 - August 2023',
       role: lang === 'NO' ? 'Senior designer' : 'Senior Graphic Designer',
-      company: 'Halo Flights – Halo Group of Companies',
+      company: 'Halo Flights UK',
       link: 'https://www.haloflights.co.uk',
       badge: lang === 'NO' ? 'Design' : 'Design',
       tasks:
