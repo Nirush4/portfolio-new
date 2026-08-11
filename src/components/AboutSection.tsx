@@ -327,7 +327,7 @@ export const AboutSection = ({ lang }: AboutSectionProps): JSX.Element => {
                   aria-hidden='true'
                 ></span>
               </div>
-              <span className='text-[10px] uppercase font-bold tracking-widest text-[#E5C07B] bg-[#21252B] px-2.5 py-0.5 rounded-none border border-[#ABB2BF]/40 font-mono'>
+              <span className='text-[10px]  font-bold tracking-widest text-[#E5C07B] bg-[#21252B] px-2.5 py-0.5 rounded-none border border-[#ABB2BF]/40 font-mono'>
                 profile.png
               </span>
             </div>
