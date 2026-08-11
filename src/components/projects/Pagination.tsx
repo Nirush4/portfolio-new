@@ -15,6 +15,18 @@ export const Pagination = ({
 }: PaginationProps): JSX.Element | null => {
   if (totalPages <= 1) return null;
 
+  const handlePageClick = (page: number) => {
+    onPageChange(page);
+    setTimeout(() => {
+      const element = document.getElementById('projects');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 50);
+  };
+
   return (
     <div className='flex flex-col sm:flex-row items-center justify-between bg-[#161B22]/80 border border-[#30363D] px-6 py-4 rounded-xl gap-4 shadow-md'>
       <div className='text-xs text-[#8B949E] flex items-center gap-2'>
@@ -29,7 +41,7 @@ export const Pagination = ({
 
       <div className='flex items-center gap-2'>
         <button
-          onClick={() => onPageChange(Math.max(currentPage - 1, 1))}
+          onClick={() => handlePageClick(Math.max(currentPage - 1, 1))}
           disabled={currentPage === 1}
           className={`px-3 py-1.5 text-xs rounded-lg border transition-all flex items-center gap-1 cursor-pointer ${
             currentPage === 1
@@ -44,7 +56,7 @@ export const Pagination = ({
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
             <button
               key={page}
-              onClick={() => onPageChange(page)}
+              onClick={() => handlePageClick(page)}
               className={`w-8 h-8 text-xs font-bold rounded-lg border transition-all flex items-center justify-center cursor-pointer ${
                 currentPage === page
                   ? 'bg-[#1b1924] border-[#C586C0] text-[#C586C0] shadow-sm shadow-[#C586C0]/20'
@@ -57,7 +69,7 @@ export const Pagination = ({
         </div>
 
         <button
-          onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
+          onClick={() => handlePageClick(Math.min(currentPage + 1, totalPages))}
           disabled={currentPage === totalPages}
           className={`px-3 py-1.5 text-xs rounded-lg border transition-all flex items-center gap-1 cursor-pointer ${
             currentPage === totalPages
