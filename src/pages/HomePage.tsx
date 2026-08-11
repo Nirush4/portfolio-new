@@ -1,4 +1,4 @@
-import { type JSX } from 'react';
+import { useEffect, type JSX } from 'react';
 import { Hero } from '../components/Hero';
 import { ProjectsSection } from '../components/projects/ProjectsSection';
 import { SkillsSection } from '../components/SkillsSection';
@@ -21,6 +21,17 @@ interface HomeProps {
 
 export const Home = ({ lang, t }: HomeProps): JSX.Element => {
   const categories = getLocalizedSkills(lang);
+
+  useEffect(() => {
+    if (window.location.hash === '#projects') {
+      setTimeout(() => {
+        const element = document.getElementById('projects');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, []);
 
   return (
     <>
