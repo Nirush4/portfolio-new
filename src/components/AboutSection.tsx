@@ -343,7 +343,7 @@ export const AboutSection = ({ lang }: AboutSectionProps): JSX.Element => {
                 }
               >
                 <img
-                  src='/portfolio_pic.jpeg'
+                  src='/portfolio_pic2.jpeg'
                   alt={
                     lang === 'NO'
                       ? 'portrettbilde av nirushan rajamanoharan'

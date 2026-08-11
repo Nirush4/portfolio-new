@@ -11,13 +11,11 @@ export const BackgroundAccents = ({
 }: BackgroundAccentsProps): JSX.Element => {
   return (
     <>
-      <div className='fixed left-6 xl:left-10 top-1/3 hidden xl:flex flex-col items-center gap-3 z-25 font-mono select-none'>
+      <div className='fixed left-6 xl:left-10 top-1/3 hidden min-[1350px]:flex flex-col items-center gap-3 z-25 font-mono select-none'>
         <span className='text-[11px] text-white font-semibold tracking-wider writing-mode-vertical mb-2'>
           {t.sidebar.socials}
         </span>
-
         <div className='w-[1px] h-12 bg-[#919191a7] transition-all duration-300 hover:bg-[#569CD6]'></div>
-
         <div className='flex flex-col gap-6 text-[#808080] py-3 items-center'>
           <div className='relative flex items-center group'>
             <span className='absolute left-10 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 text-[10px] text-[#569CD6] font-bold bg-[#161B22] border border-[#30363D] px-2 py-0.5 rounded shadow-md whitespace-nowrap pointer-events-none'>
@@ -53,9 +51,7 @@ export const BackgroundAccents = ({
             </a>
           </div>
         </div>
-
         <div className='w-[1px] h-12 bg-[#919191a7] transition-all duration-300 hover:bg-[#569CD6]'></div>
-
         <span className='text-[10px] text-white font-bold tracking-wider px-1.5 py-0.5 bg-[#161B22] border border-[#30363D] rounded shadow-inner mt-1'>
           {t.sidebar.active}
         </span>
