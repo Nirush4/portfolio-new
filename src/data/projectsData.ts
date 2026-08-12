@@ -1175,6 +1175,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     thumbnail: '/projects/graphic/steve_jobs/steve.jpg',
     thumbnailType: 'image',
     gallery: [
+      { type: 'image', src: '/projects/graphic/steve_jobs/steve.jpg' },
       { type: 'image', src: '/projects/graphic/steve_jobs/part1_top_left.png' },
       {
         type: 'image',
@@ -1584,6 +1585,102 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
       {
         type: 'image',
         src: '/projects/graphic/uga/uga3.png',
+      },
+    ],
+    figma: '',
+    behance: '',
+  },
+  {
+    id: 19,
+    category: 'graphic',
+    name: 'Halo Flights — Bulgaria Ski & Spa Holiday Campaign',
+    projectType: {
+      NO: 'Sosiale Medier Kampanje / Reise & Vintersport Markedsføring',
+      EN: 'Social Media Campaign / Travel & Winter Sports Marketing',
+    },
+    description: {
+      NO: 'En dynamisk sosiale medier-annonse for Halo Flights som promoterer en Bulgaria Ski & Spa-ferie. Designet fanger et actionfylt øyeblikk av en skiløper midt i et hopp mot et dramatisk fjellandskap, og kombinerer adrenalin med et tydelig, konverteringsdrevet tilbud for å drive bookinger.',
+      EN: 'A dynamic social media ad for Halo Flights promoting a Bulgaria Ski & Spa holiday. The design captures a high-action moment of a skier mid-jump against a dramatic mountain backdrop, pairing adrenaline with a clear, conversion-focused offer to drive bookings.',
+    },
+    challenge: {
+      NO: 'Skape en actionfylt sosiale medier-annonse som formidler spenningen ved en skiferie, samtidig som pris, inkluderte fordeler og et tidsbegrenset tilbud ("Free Ski Equipment") kommuniseres tydelig for å drive umiddelbar handling.',
+      EN: 'Create an action-packed social media ad that conveys the thrill of a ski holiday, while clearly communicating price, included benefits, and a limited-time offer ("Free Ski Equipment") to drive immediate action.',
+    },
+    research: {
+      NO: [
+        'Analyserte konkurrerende vintersport- og skiferiekampanjer for å identifisere effektive visuelle og komposisjonsmessige trender.',
+        'Undersøkte hvordan actionfotografering med bevegelse og sprutende snø brukes til å formidle energi og spenning.',
+        'Vurderte plassering av tillit- og sikkerhetselementer (ATOL, ABTA, Trustpilot, Google) for å styrke bookingtillit.',
+      ],
+      EN: [
+        'Analyzed competing winter sports and ski holiday campaigns to identify effective visual and compositional trends.',
+        'Researched how action photography with motion and spraying snow is used to convey energy and excitement.',
+        'Evaluated the placement of trust and protection elements (ATOL, ABTA, Trustpilot, Google) to strengthen booking confidence.',
+      ],
+    },
+    designProcess: {
+      NO: [
+        'Bygde komposisjonen rundt en diagonal, dynamisk skiløperpose som strekker seg over hele billedflaten for maksimal bevegelsesfølelse.',
+        'Plasserte logoen i et hvitt kort øverst til venstre for å skape kontrast mot den mørkeblå bakgrunnen og sikre lesbarhet.',
+        'Kombinerte en skriptfont for "Bulgaria" med en tung, teksturert display-font for "SKI & SPA HOLIDAY!" for å balansere elegant og dristig.',
+        'Strukturerte prisblokken ("3 NIGHTS FROM £449 PP") og tilbuds-banneret ("FREE SKI EQUIPMENT") som separate, tydelig avgrensede elementer i høyre kolonne.',
+        'La til fjellsilhuetter nederst i bildet for å forankre komposisjonen og forsterke destinasjonsfølelsen.',
+      ],
+      EN: [
+        'Built the composition around a diagonal, dynamic skier pose that spans the full frame for maximum sense of movement.',
+        'Placed the logo in a white card top-left to create contrast against the deep navy background and ensure readability.',
+        'Paired a script font for "Bulgaria" with a heavy, textured display font for "SKI & SPA HOLIDAY!" to balance elegance with boldness.',
+        'Structured the pricing block ("3 NIGHTS FROM £449 PP") and offer banner ("FREE SKI EQUIPMENT") as distinct, clearly separated elements in the right-hand column.',
+        'Added mountain silhouettes at the base of the image to ground the composition and reinforce the destination.',
+      ],
+    },
+    designDecisions: {
+      NO: [
+        'Brukte en dyp marineblå bakgrunn for å formidle kulde, fjellhøyde og premium vinterferie-følelse.',
+        'Kontrasterte den blå bakgrunnen med rødt for "Bulgaria"-skripten og tilbudsbanneret, for å trekke øyet direkte til destinasjon og handling.',
+        'Plasserte prisen ("£449 PP") i stor, hvit, tung typografi for umiddelbar synlighet og lesbarhet på mobil.',
+        'Inkluderte sirkulære ikoner for fly, hotell og skipass langs venstre kant for å visuelt bekrefte at pakken er komplett.',
+        'Samlet beskyttelses- og tillit-badges (ATOL, ABTA, Google, Trustpilot, FlyNow Pay Later) i en ren rad nederst for å bygge troverdighet rett før konvertering.',
+      ],
+      EN: [
+        'Used a deep navy background to convey cold, mountain altitude, and a premium winter holiday feel.',
+        'Contrasted the blue background with red for the "Bulgaria" script and the offer banner, drawing the eye directly to the destination and the call to action.',
+        'Placed the pricing ("£449 PP") in large, heavy white typography for immediate visibility and mobile readability.',
+        'Included circular icons for flights, hotel, and ski pass along the left edge to visually confirm the package is all-inclusive.',
+        'Grouped protection and trust badges (ATOL, ABTA, Google, Trustpilot, FlyNow Pay Later) in a clean row at the bottom to build credibility right before conversion.',
+      ],
+    },
+    finalOutcome: {
+      NO: [
+        'Leverte en ferdig sosiale medier-annonse klar for publisering på tvers av plattformer.',
+        'Skapte en visuell identitet som balanserer actionfylt vintersportsenergi med klar, konverteringsdrevet tilbudsinformasjon.',
+      ],
+      EN: [
+        'Delivered a polished social media ad ready for publishing across platforms.',
+        'Created a visual identity that balances high-energy winter sports action with clear, conversion-focused offer information.',
+      ],
+    },
+    tools: ['Photoshop', 'Illustrator'],
+    colors: [
+      { name: 'Navy Blue', value: '#0B1D3A' },
+      { name: 'Signal Red', value: '#E4292B' },
+      { name: 'Pure White', value: '#FFFFFF' },
+      { name: 'Ski Gold', value: '#F4B400' },
+    ],
+    typography: {
+      NO: ['Script Display', 'Bold Condensed Display'],
+      EN: ['Script Display', 'Bold Condensed Display'],
+    },
+    deliverables: {
+      NO: ['Sosiale Medier Annonse', 'Kampanjegrafikk'],
+      EN: ['Social Media Ad', 'Campaign Graphic'],
+    },
+    thumbnail: '/projects/graphic/bulgaria/image.png',
+    thumbnailType: 'image',
+    gallery: [
+      {
+        type: 'image',
+        src: '/projects/graphic/bulgaria/image.png',
       },
     ],
     figma: '',
