@@ -1,6 +1,5 @@
 import type { FrontendProject, GraphicProject } from '../types/portfolio';
 
-// Multilingual text wrapper helper
 export interface LocalizedText {
   NO: string;
   EN: string;
@@ -50,6 +49,73 @@ export interface LocalizedGraphicProject
 export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
   {
     id: 1,
+    name: 'Fremtid Web 🚀',
+    description: {
+      NO: 'Moderne, raske og tilgjengelige digitale løsninger for små og mellomstore bedrifter. Vi kombinerer solid frontend-utvikling med gjennomtenkt visuelt design for å skape merkevareopplevelser som skaper vekst.',
+      EN: 'Modern, fast, and accessible digital solutions for small and medium-sized businesses. We combine solid frontend development with thoughtful visual design to create brand experiences that drive growth.',
+    },
+    problem: {
+      NO: 'Mindre bedrifter trenger en lynrask, universelt utformet og visuelt slående digital tilstedeværelse som sikrer god SEO og konverterer besøkende til kunder.',
+      EN: 'Smaller businesses need a fast, universally designed, and visually striking digital presence that ensures strong SEO and converts visitors into customers.',
+    },
+    uxProcess: {
+      NO: [
+        'Kartla behovene til små og mellomstore bedrifter for å tilby optimale digitale løsninger.',
+        'Fokusert tungt på universell utforming (tilgjengelighet) og universelle standarder.',
+        'Planla informasjonsarkitektur for å sikre sømløs klientside-navigasjon og rask flyt.',
+      ],
+      EN: [
+        'Mapped out the needs of small and medium-sized businesses to provide optimal digital solutions.',
+        'Focused heavily on universal design (accessibility) and core web standards.',
+        'Planned information architecture to ensure seamless client-side navigation and fast user flow.',
+      ],
+    },
+    figmaDesign: {
+      NO: [
+        'Utviklet et rent og moderne visuelt design tilpasset merkevarebygging for bedrifter.',
+        'Sørget for full responsivitet på tvers av mobil, nettbrett og desktop.',
+        'Designet intuitive skjemaer og Call-to-Action elementer for optimal konvertering.',
+      ],
+      EN: [
+        'Developed a clean and modern visual design tailored for business branding.',
+        'Ensured full responsiveness across mobile, tablet, and desktop viewports.',
+        'Designed intuitive forms and Call-to-Action elements for optimal conversion rates.',
+      ],
+    },
+    finalSolution: {
+      NO: [
+        'Bygget en høypresterende webapplikasjon med React 19 og TypeScript i Strict mode.',
+        'Implementert lynrask ytelse og produksjonsbygg ved hjelp av Vite.',
+        'Tatt i bruk Tailwind CSS v4 for skalerbar styling og React Router DOM v7 for sømløs navigasjon.',
+        'Integrert type-sikre skjemaer med React Hook Form og Zod, samt Oxlint for effektiv statisk kodeanalyse.',
+      ],
+      EN: [
+        'Built a high-performance web application using React 19 and TypeScript in Strict mode.',
+        'Implemented fast performance and production builds using Vite.',
+        'Adopted Tailwind CSS v4 for scalable styling and React Router DOM v7 for seamless navigation.',
+        'Integrated type-safe forms with React Hook Form and Zod, alongside Oxlint for efficient static code analysis.',
+      ],
+    },
+    technologies: [
+      'React 19',
+      'TypeScript',
+      'Vite',
+      'Tailwind CSS v4',
+      'React Router DOM v7',
+      'React Hook Form',
+      'Zod',
+      'Lucide React',
+      'Oxlint',
+    ],
+    github: 'https://github.com/Nirush4/fremtid-web',
+    live: 'https://fremtidweb.netlify.app/',
+    Figma: '',
+    thumbnail: '/projects/fremtid_web.png',
+    screenshots: [],
+    category: 'frontend',
+  },
+  {
+    id: 2,
     name: 'Holidaze 🏡',
     description: {
       NO: 'Moderne plattform for overnattingsbestilling bygget med React og TypeScript, med stedshåndtering, bestillinger, autentisering og en skalerbar frontend-arkitektur.',
@@ -123,7 +189,7 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
   },
 
   {
-    id: 2,
+    id: 3,
     name: 'Online Shop 🛒',
     description: {
       NO: 'Frontend e-handelsapplikasjon bygget med React og TypeScript, med fokus på ytelse, skalerbarhet og en ren brukeropplevelse.',
@@ -194,7 +260,7 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
   },
 
   {
-    id: 3,
+    id: 4,
     name: 'NewsHub 📰',
     description: {
       NO: 'Fullstack nyhetsplattform bygget med React, TypeScript og Tailwind CSS, som bruker Supabase som Backend-as-a-Service for autentisering, databasedrift og sikre CRUD-operasjoner.',
@@ -264,7 +330,7 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
   },
 
   {
-    id: 4,
+    id: 5,
     name: 'Auction House 🏷️',
     description: {
       NO: 'Responsiv og tilgjengelig auksjonsplattform bygget med ren TypeScript og Tailwind CSS, som integrerer Noroff Auction House API v2.',
@@ -335,7 +401,7 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
   },
 
   {
-    id: 5,
+    id: 6,
     name: 'Flip Match – Memory Card Game',
     description: {
       NO: 'Et responsivt huskespill (memory) bygget med React, TypeScript og Tailwind CSS, med jevne interaksjoner og enkle spillmekanikker.',
@@ -396,7 +462,7 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
   },
 
   {
-    id: 6,
+    id: 7,
     name: 'Rainy Days – Interactive Product Storefronts',
     description: {
       NO: 'En dynamisk nettbutikk bygget med ren JavaScript og sanntids produktdata fra et eksternt API.',
@@ -459,7 +525,7 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
   },
 
   {
-    id: 7,
+    id: 8,
     name: 'Social Media App – Frontend Social Platform',
     description: {
       NO: 'Frontend sosiale medier-applikasjon med innleggsadministrasjon, interaksjoner og responsivt design.',
@@ -529,7 +595,7 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
   },
 
   {
-    id: 8,
+    id: 9,
     name: 'Lens of Wanderlust 📸 – Travel Vlog Page',
     description: {
       NO: 'Responsiv reisevlogg-nettside med API-drevet innhold, videoer og bildebasert historiefortelling.',
@@ -592,7 +658,7 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
   },
 
   {
-    id: 9,
+    id: 10,
     name: 'Square Pumpkin 🤳🏼 – Social Media Platform',
     description: {
       NO: 'Interaktiv plattform for sosiale medier med bildedeling, personlige feeder og innebygd kamerafunksjonalitet.',
@@ -653,7 +719,7 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
   },
 
   {
-    id: 10,
+    id: 11,
     name: 'The Community Science Museum: Discover Together',
     description: {
       NO: 'Interaktiv og responsiv vitenskapsmuseum-nettside designet for barn, familier og lærere.',
@@ -716,7 +782,7 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
 
 export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
   {
-    id: 11,
+    id: 12,
     category: 'graphic',
     name: 'Ritual Set',
     projectType: {
@@ -836,7 +902,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 12,
+    id: 13,
     category: 'graphic',
     name: 'Halo Flights — Cruise Campaign',
     projectType: {
@@ -957,7 +1023,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
   },
 
   {
-    id: 13,
+    id: 14,
     category: 'graphic',
     name: 'Voltage — Energy Drink Product & Packaging Design',
     projectType: {
@@ -1082,7 +1148,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 14,
+    id: 15,
     category: 'graphic',
     name: 'Portrait Study — Line & Ink',
     projectType: {
@@ -1194,7 +1260,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 15,
+    id: 16,
     category: 'video',
     name: 'Halo Philippines — Website Welcome Video',
     projectType: {
@@ -1311,7 +1377,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 16,
+    id: 17,
     category: 'analysis',
     name: "Munchy's Oat Krunch — Print Ad Breakdown",
     projectType: {
@@ -1366,7 +1432,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 17,
+    id: 18,
     category: 'graphic',
     name: 'Halo Flights — Six Nations Rugby 2024 Campaign',
     projectType: {
@@ -1458,7 +1524,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 18,
+    id: 19,
     category: 'graphic',
     name: 'Uga — Private Pool Villas Brand Identity & Mockup',
     projectType: {
@@ -1591,7 +1657,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 19,
+    id: 20,
     category: 'graphic',
     name: 'Halo Flights — Bulgaria Ski & Spa Holiday Campaign',
     projectType: {
@@ -1687,5 +1753,3 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
 ];
-
-// Testing
