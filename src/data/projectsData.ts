@@ -49,6 +49,101 @@ export interface LocalizedGraphicProject
 export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
   {
     id: 1,
+    name: 'TurNorge (TrailApp) 🌲',
+    description: {
+      NO: 'En personvernvennlig og robust norsk tur- og friluftsguide med et rent og trivelig skandinavisk skogdesign og full støtte for både lys og mørk modus. Appen kombinerer avansert datahåndtering fra eksterne API-kilder med skybaserte backend-tjenester for å tilby turgåere pålitelig sanntidsinformasjon.',
+      EN: 'A privacy-focused and robust Norwegian hiking and outdoor guide featuring a clean and cozy Scandinavian forest design with seamless light and dark mode support. Combines advanced data handling from external API sources with cloud-based backend services to provide hikers with reliable real-time information.',
+    },
+    problem: {
+      NO: 'Turgåere og friluftsentusiaster mangler en enhetlig, lynrask og universelt utformet plattform som samler sanntidsværmeldinger, kartlag, kollektivtransport og tilpassede ruteplanleggere på ett sted.',
+      EN: 'Hikers and outdoor enthusiasts lack a unified, lightning-fast, and universally designed platform that aggregates real-time weather forecasts, map layers, public transit, and custom route planners in one place.',
+    },
+    uxProcess: {
+      NO: [
+        'Arkitektonisk planlegging for å sikre sømløs og effektiv håndtering av komplekse, asynkrone data fra flere eksterne API-kilder.',
+        'Implementert streng type-sikkerhet og robust feilhåndtering for å sikre at brukeren alltid får stabil og pålitelig informasjon.',
+        'Prioritert full WCAG-tilgjengelighet med dynamisk støtte for lys/mørk modus, skjermleservenlige funksjoner og optimal kontrast.',
+      ],
+      EN: [
+        'Architectural planning to ensure seamless and efficient handling of complex, asynchronous data from multiple external API sources.',
+        'Implemented strict type safety and robust error handling to ensure users always receive stable and reliable information.',
+        'Prioritized full WCAG accessibility with dynamic light/dark mode support, screen-reader friendly features, and high contrast.',
+      ],
+    },
+    figmaDesign: {
+      NO: [
+        'Utviklet et rent, skandinavisk visuelt grensesnitt med tilpassede fargepaletter for både lys og mørk modus for optimal lesbarhet til ulike døgntider.',
+        'Sørget for full responsivitet på tvers av enheter for å fungere optimalt ute i felt.',
+        'Designet dedikerte komponenter for 12-timers temperatur- og vindgrafer samt kritiske sikkerhetsadvarsler for minusgrader.',
+      ],
+      EN: [
+        'Developed a clean, Scandinavian visual interface featuring tailored light and dark mode color palettes for optimal readability at any time of day.',
+        'Ensured full cross-device responsiveness to perform optimally out in the field.',
+        'Designed dedicated components for 12-hour temperature and wind charts along with critical sub-zero safety warnings.',
+      ],
+    },
+    finalSolution: {
+      NO: [
+        'Bygget en fullstack-applikasjon fra bunnen av med React og TypeScript for optimal ytelse og type-sikkerhet.',
+        'Utnyttet Vite for raske bygg og optimalisert tilstandsstyring for å holde applikasjonen lynrask.',
+        'Tatt i bruk Mantine UI v7 for et konsistent komponentbibliotek med innebygd, sømløs veksling mellom lys og mørk modus.',
+        'Integrert Supabase for sikker brukerautentisering, beskyttede sider og synkronisering av favoritter i skyen på tvers av enheter.',
+        'Integrert og strukturert data fra krevende eksterne kilder som MET.no (sanntidsvarsler), Kartverket (kartlag), kollektivtransport og regionale turmål.',
+      ],
+      EN: [
+        'Built a full-stack application from scratch using React and TypeScript for optimal performance and type safety.',
+        'Leveraged Vite for fast builds and optimized state management to keep the application lightning-fast.',
+        'Adopted Mantine UI v7 for a consistent component library featuring built-in, seamless switching between light and dark themes.',
+        'Integrated Supabase for secure user authentication, protected routes, and cloud-syncing of user favorites across devices.',
+        'Integrated and structured data from demanding external sources such as MET.no (real-time forecasts), Kartverket (map layers), public transit, and regional destinations.',
+      ],
+    },
+    technologies: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'Mantine UI v7',
+      'React Router',
+      'Supabase',
+      'MET.no API',
+      'Kartverket API',
+      'REST APIs',
+    ],
+    github: 'https://github.com/Nirush4/TurNorge',
+    live: 'https://tur-norge.no/',
+    Figma: '',
+    thumbnail: '/projects/fullstack/turnorge/turnorge.png',
+    gallery: [
+      {
+        type: 'image',
+        src: '/projects/fullstack/turnorge/famouse_destinations.png',
+      },
+      {
+        type: 'image',
+        src: '/projects/fullstack/turnorge/why_tur_norge.png',
+      },
+
+      {
+        type: 'image',
+        src: '/projects/fullstack/turnorge/trip_planner.png',
+      },
+      {
+        type: 'image',
+        src: '/projects/fullstack/turnorge/trip_planner.png',
+      },
+      {
+        type: 'image',
+        src: '/projects/fullstack/turnorge/safety_guide.png',
+      },
+      {
+        type: 'image',
+        src: '/projects/fullstack/turnorge/login.png',
+      },
+    ],
+    category: 'fullstack',
+  },
+  {
+    id: 2,
     name: 'Fremtid Web 🚀',
     description: {
       NO: 'Moderne, raske og tilgjengelige digitale løsninger for små og mellomstore bedrifter. Vi kombinerer solid frontend-utvikling med gjennomtenkt visuelt design for å skape merkevareopplevelser som skaper vekst.',
@@ -110,12 +205,12 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
     github: 'https://github.com/Nirush4/fremtid-web',
     live: 'https://fremtidweb.netlify.app/',
     Figma: '',
-    thumbnail: '/projects/fremtid_web.png',
-    screenshots: [],
+    thumbnail: '/projects/frontend/fremtid_web.png',
+    gallery: [],
     category: 'frontend',
   },
   {
-    id: 2,
+    id: 3,
     name: 'Holidaze 🏡',
     description: {
       NO: 'Moderne plattform for overnattingsbestilling bygget med React og TypeScript, med stedshåndtering, bestillinger, autentisering og en skalerbar frontend-arkitektur.',
@@ -183,13 +278,13 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
     live: 'https://holidaze-booking-hub.netlify.app/',
     Figma:
       'https://www.figma.com/design/XNqFbiOZuNuuIp7xPNdLtc/Holidaze?node-id=0-1&t=w4cNDvcLeRQdYoPI-1',
-    thumbnail: '/projects/holidaze.png',
-    screenshots: [],
+    thumbnail: '/projects/frontend/holidaze.png',
+    gallery: [],
     category: 'frontend',
   },
 
   {
-    id: 3,
+    id: 4,
     name: 'Online Shop 🛒',
     description: {
       NO: 'Frontend e-handelsapplikasjon bygget med React og TypeScript, med fokus på ytelse, skalerbarhet og en ren brukeropplevelse.',
@@ -254,13 +349,13 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
     ],
     github: 'https://github.com/Nirush4/JavaScript-Frameworks',
     live: 'https://online-shopping-master.netlify.app/',
-    thumbnail: '/projects/online-shopping.png',
-    screenshots: [],
+    thumbnail: '/projects/frontend/online-shopping.png',
+    gallery: [],
     category: 'frontend',
   },
 
   {
-    id: 4,
+    id: 5,
     name: 'NewsHub 📰',
     description: {
       NO: 'Fullstack nyhetsplattform bygget med React, TypeScript og Tailwind CSS, som bruker Supabase som Backend-as-a-Service for autentisering, databasedrift og sikre CRUD-operasjoner.',
@@ -324,13 +419,13 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
     ],
     github: 'https://github.com/Nirush4/Development-platforms-ca-nirush',
     live: 'https://news-hubnet.netlify.app/?q=&page=1',
-    thumbnail: '/projects/news-hub.png',
-    screenshots: [],
+    thumbnail: '/projects/fullstack/news-hub.png',
+    gallery: [],
     category: 'frontend',
   },
 
   {
-    id: 5,
+    id: 6,
     name: 'Auction House 🏷️',
     description: {
       NO: 'Responsiv og tilgjengelig auksjonsplattform bygget med ren TypeScript og Tailwind CSS, som integrerer Noroff Auction House API v2.',
@@ -395,13 +490,13 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
     live: 'https://auctionn-house.netlify.app/',
     Figma:
       'https://www.figma.com/design/24nEKpFa9DxvuXji5oADrA/Auction-House?node-id=0-1&t=V6CCv8hOE97gdcae-1',
-    thumbnail: '/projects/aution-house.png',
-    screenshots: [],
+    thumbnail: '/projects/frontend/aution-house.png',
+    gallery: [],
     category: 'frontend',
   },
 
   {
-    id: 6,
+    id: 7,
     name: 'Flip Match – Memory Card Game',
     description: {
       NO: 'Et responsivt huskespill (memory) bygget med React, TypeScript og Tailwind CSS, med jevne interaksjoner og enkle spillmekanikker.',
@@ -456,13 +551,13 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
     github: 'https://github.com/Nirush4/Flip-Match',
     live: 'https://flip-match-memory.netlify.app/',
-    thumbnail: '/projects/flip-match.png',
-    screenshots: [],
+    thumbnail: '/projects/frontend/flip-match.png',
+    gallery: [],
     category: 'frontend',
   },
 
   {
-    id: 7,
+    id: 8,
     name: 'Rainy Days – Interactive Product Storefronts',
     description: {
       NO: 'En dynamisk nettbutikk bygget med ren JavaScript og sanntids produktdata fra et eksternt API.',
@@ -519,13 +614,13 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
     live: 'https://rainydays-webshop-no.netlify.app/',
     Figma:
       'https://www.figma.com/design/hgQ4WNNGSHOxg9DViYzdIA/Rainydays-Superman?node-id=0-1&t=2S1d9x6TllOtDOsy-1',
-    thumbnail: '/projects/rainydays.jpg',
-    screenshots: [],
+    thumbnail: '/projects/frontend/rainydays.jpg',
+    gallery: [],
     category: 'frontend',
   },
 
   {
-    id: 8,
+    id: 9,
     name: 'Social Media App – Frontend Social Platform',
     description: {
       NO: 'Frontend sosiale medier-applikasjon med innleggsadministrasjon, interaksjoner og responsivt design.',
@@ -589,13 +684,13 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
     ],
     github: 'https://github.com/Nirush4/JavaScript-2-Course-Assignment',
     live: 'https://javascript-2-assignment-socialmedia.netlify.app/',
-    thumbnail: '/projects/social-media-app.png',
-    screenshots: [],
+    thumbnail: '/projects/frontend/social-media-app.png',
+    gallery: [],
     category: 'frontend',
   },
 
   {
-    id: 9,
+    id: 10,
     name: 'Lens of Wanderlust 📸 – Travel Vlog Page',
     description: {
       NO: 'Responsiv reisevlogg-nettside med API-drevet innhold, videoer og bildebasert historiefortelling.',
@@ -652,13 +747,13 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
     live: 'https://lensofwanderlust.netlify.app/',
     Figma:
       'https://www.figma.com/design/tC4Vb684z0vqyUyatYSfpv/Lens-of-Wanderlust?node-id=0-1&t=0WfBButjx90Q0IqV-1',
-    thumbnail: '/projects/lensofwanderlust-vlog.jpg',
-    screenshots: [],
+    thumbnail: '/projects/frontend/lensofwanderlust-vlog.jpg',
+    gallery: [],
     category: 'frontend',
   },
 
   {
-    id: 10,
+    id: 11,
     name: 'Square Pumpkin 🤳🏼 – Social Media Platform',
     description: {
       NO: 'Interaktiv plattform for sosiale medier med bildedeling, personlige feeder og innebygd kamerafunksjonalitet.',
@@ -713,13 +808,13 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
     technologies: ['HTML5', 'CSS3', 'Tailwind CSS', 'JavaScript'],
     github: 'https://github.com/Nirush4/Fed1-agency-1-ca',
     live: 'https://squarepumpkin.netlify.app/',
-    thumbnail: '/projects/squarepumpkin.jpg',
-    screenshots: [],
+    thumbnail: '/projects/frontend/squarepumpkin.jpg',
+    gallery: [],
     category: 'frontend',
   },
 
   {
-    id: 11,
+    id: 12,
     name: 'The Community Science Museum: Discover Together',
     description: {
       NO: 'Interaktiv og responsiv vitenskapsmuseum-nettside designet for barn, familier og lærere.',
@@ -774,15 +869,15 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
     technologies: ['HTML5', 'CSS3', 'JavaScript'],
     github: 'https://github.com/Nirush4/Semesterproject-1',
     live: 'https://thecommunitysciencemuseum1.netlify.app/',
-    thumbnail: '/projects/community-science-museum.jpg',
-    screenshots: [],
+    thumbnail: '/projects/frontend/community-science-museum.jpg',
+    gallery: [],
     category: 'frontend',
   },
 ];
 
 export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
   {
-    id: 12,
+    id: 13,
     category: 'graphic',
     name: 'Ritual Set',
     projectType: {
@@ -902,7 +997,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 13,
+    id: 14,
     category: 'graphic',
     name: 'Halo Flights — Cruise Campaign',
     projectType: {
@@ -1023,7 +1118,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
   },
 
   {
-    id: 14,
+    id: 15,
     category: 'graphic',
     name: 'Voltage — Energy Drink Product & Packaging Design',
     projectType: {
@@ -1148,7 +1243,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 15,
+    id: 16,
     category: 'graphic',
     name: 'Portrait Study — Line & Ink',
     projectType: {
@@ -1260,7 +1355,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 16,
+    id: 17,
     category: 'video',
     name: 'Halo Philippines — Website Welcome Video',
     projectType: {
@@ -1377,7 +1472,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 17,
+    id: 18,
     category: 'analysis',
     name: "Munchy's Oat Krunch — Print Ad Breakdown",
     projectType: {
@@ -1432,7 +1527,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 18,
+    id: 19,
     category: 'graphic',
     name: 'Halo Flights — Six Nations Rugby 2024 Campaign',
     projectType: {
@@ -1524,7 +1619,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 19,
+    id: 20,
     category: 'graphic',
     name: 'Uga — Private Pool Villas Brand Identity & Mockup',
     projectType: {
@@ -1657,7 +1752,7 @@ export const GRAPHIC_PROJECTS: LocalizedGraphicProject[] = [
     behance: '',
   },
   {
-    id: 20,
+    id: 21,
     category: 'graphic',
     name: 'Halo Flights — Bulgaria Ski & Spa Holiday Campaign',
     projectType: {

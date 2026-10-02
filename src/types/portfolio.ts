@@ -5,7 +5,7 @@ export interface SkillCategory {
 
 export interface FrontendProject {
   id: number;
-  category: 'frontend';
+  category: 'frontend' | 'backend' | 'fullstack';
   name: string;
   description: string;
   problem: string;
@@ -17,7 +17,10 @@ export interface FrontendProject {
   live: string;
   Figma?: string;
   thumbnail: string;
-  screenshots: string[];
+  gallery: {
+    type: string;
+    src: string;
+  }[];
 }
 
 export interface GraphicProject {
