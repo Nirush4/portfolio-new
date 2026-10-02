@@ -92,7 +92,17 @@ export const ProjectDetailsPage = ({
           title='Copy Project URL'
         >
           {isBottom ? (
-            bottomCopied
+            bottomCopied ? (
+              <>
+                <span className='text-[#27C93F] font-bold'>✓</span>
+                <span className='text-[#27C93F] font-bold'>Link Copied!</span>
+              </>
+            ) : (
+              <>
+                <span>🔗</span>
+                <span className='font-bold'>Copy Link</span>
+              </>
+            )
           ) : copied ? (
             <>
               <span className='text-[#27C93F] font-bold'>✓</span>
@@ -147,15 +157,16 @@ export const ProjectDetailsPage = ({
     );
   }
 
-  const isFrontend = project.category === 'frontend';
-  const frontendData = isFrontend
-    ? (project as LocalizedFrontendProject)
-    : null;
-  const graphicData = !isFrontend ? (project as LocalizedGraphicProject) : null;
+  const isCoding =
+    project.category === 'frontend' ||
+    project.category === 'fullstack' ||
+    project.category === 'backend';
+
+  const codingData = isCoding ? (project as LocalizedFrontendProject) : null;
+  const graphicData = !isCoding ? (project as LocalizedGraphicProject) : null;
 
   return (
     <div className='max-w-6xl mx-auto px-6 py-12 mt-8 font-mono text-[#C9D1D9] selection:bg-[#C586C0]/30 selection:text-white'>
-      {/* Top Clean Navigation Toolbar */}
       <div className='mb-6 bg-[#161B22]/60 p-4 rounded-xl border border-[#30363D] backdrop-blur-md shadow-lg'>
         {renderNavToolbar(false)}
       </div>
@@ -198,9 +209,9 @@ export const ProjectDetailsPage = ({
 
           <ProjectThumbnail thumbnail={project.thumbnail} name={project.name} />
 
-          {isFrontend && frontendData && (
+          {isCoding && codingData && (
             <div className='space-y-10 pt-4 font-sans'>
-              {frontendData.problem && (
+              {codingData.problem && (
                 <div
                   style={{
                     backgroundColor:
@@ -216,13 +227,13 @@ export const ProjectDetailsPage = ({
                       : 'The Challenge & User Need'}
                   </h3>
                   <p className='text-sm text-[#8B949E] leading-relaxed'>
-                    {frontendData.problem[lang]}
+                    {codingData.problem[lang]}
                   </p>
                 </div>
               )}
 
-              {frontendData.uxProcess &&
-                frontendData.uxProcess[lang].length > 0 && (
+              {codingData.uxProcess &&
+                codingData.uxProcess[lang].length > 0 && (
                   <div className='space-y-4'>
                     <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
                       <span className='text-[#C586C0]'>02 //</span>{' '}
@@ -231,7 +242,7 @@ export const ProjectDetailsPage = ({
                         : 'Research & User Experience Steps'}
                     </h3>
                     <div className='grid gap-3'>
-                      {frontendData.uxProcess[lang].map((step, idx) => (
+                      {codingData.uxProcess[lang].map((step, idx) => (
                         <div
                           key={idx}
                           style={{
@@ -254,8 +265,8 @@ export const ProjectDetailsPage = ({
                   </div>
                 )}
 
-              {frontendData.finalSolution &&
-                frontendData.finalSolution[lang].length > 0 && (
+              {codingData.finalSolution &&
+                codingData.finalSolution[lang].length > 0 && (
                   <div className='space-y-4'>
                     <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
                       <span className='text-[#27C93F]'>03 //</span>{' '}
@@ -264,7 +275,7 @@ export const ProjectDetailsPage = ({
                         : 'The Final Product & Key Features'}
                     </h3>
                     <div className='grid gap-3'>
-                      {frontendData.finalSolution[lang].map((sol, idx) => (
+                      {codingData.finalSolution[lang].map((sol, idx) => (
                         <div
                           key={idx}
                           style={{
@@ -285,6 +296,11 @@ export const ProjectDetailsPage = ({
                   </div>
                 )}
 
+              <ProjectGallery
+                gallery={codingData.gallery || []}
+                projectName={project.name}
+              />
+
               <div className='space-y-3 pt-2'>
                 <h3 className='text-white text-sm font-bold font-mono tracking-wide uppercase text-[#8B949E]'>
                   {lang === 'NO'
@@ -292,7 +308,7 @@ export const ProjectDetailsPage = ({
                     : 'Technologies & Frameworks Deployed'}
                 </h3>
                 <div className='flex flex-wrap gap-2'>
-                  {frontendData.technologies.map((tech, i) => (
+                  {(codingData.technologies || []).map((tech, i) => (
                     <span
                       key={i}
                       className='text-xs px-3 py-1 bg-[#21262D] text-[#79C0FF] border border-[#30363D] rounded-md font-mono'
@@ -304,9 +320,9 @@ export const ProjectDetailsPage = ({
               </div>
 
               <div className='flex flex-wrap gap-4 pt-6 border-t border-[#30363D]'>
-                {frontendData.live && (
+                {codingData.live && (
                   <a
-                    href={frontendData.live}
+                    href={codingData.live}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='px-6 py-3 bg-[#C586C0] text-[#0D1117] text-xs font-mono font-bold hover:bg-[#d89fd3] transition-all rounded shadow-md flex items-center gap-2'
@@ -314,9 +330,9 @@ export const ProjectDetailsPage = ({
                     <span>Live Demo ↗</span>
                   </a>
                 )}
-                {frontendData.github && (
+                {codingData.github && (
                   <a
-                    href={frontendData.github}
+                    href={codingData.github}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='px-6 py-3 bg-[#21262D] text-[#C9D1D9] border border-[#30363D] text-xs font-mono font-bold hover:border-[#8B949E] transition-all rounded flex items-center gap-2'
@@ -328,7 +344,7 @@ export const ProjectDetailsPage = ({
             </div>
           )}
 
-          {!isFrontend && graphicData && (
+          {!isCoding && graphicData && (
             <div className='space-y-10 pt-4 font-sans'>
               {graphicData.challenge && (
                 <div
@@ -432,7 +448,9 @@ export const ProjectDetailsPage = ({
                         className='border border-[#30363D] p-3 rounded-lg flex flex-col items-center text-center gap-2'
                       >
                         <span
-                          className='w-10 h-10 rounded-full border border-white/20 shadow-md'
+                          role='img'
+                          aria-label={`Color swatch: ${c.name}`}
+                          className='w-10 h-10 rounded-full border border-white/20 shadow-md inline-block'
                           style={{ backgroundColor: c.value }}
                         ></span>
                         <div>
@@ -461,7 +479,7 @@ export const ProjectDetailsPage = ({
                     : 'Software & Creative Tools Used'}
                 </h3>
                 <div className='flex flex-wrap gap-2'>
-                  {graphicData.tools.map((tool, i) => (
+                  {(graphicData.tools || []).map((tool, i) => (
                     <span
                       key={i}
                       className='text-xs px-3 py-1 bg-[#21262D] text-[#7EE787] border border-[#30363D] rounded-md font-mono'

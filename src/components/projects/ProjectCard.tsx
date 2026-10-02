@@ -19,12 +19,14 @@ export const ProjectCard = ({
   onViewCaseStudy,
 }: ProjectCardProps): JSX.Element => {
   const navigate = useNavigate();
-  const isFrontend = project.category === 'frontend';
 
-  const frontendData = isFrontend
-    ? (project as LocalizedFrontendProject)
-    : null;
-  const graphicData = !isFrontend ? (project as LocalizedGraphicProject) : null;
+  const isCoding =
+    project.category === 'frontend' ||
+    project.category === 'fullstack' ||
+    project.category === 'backend';
+
+  const codingData = isCoding ? (project as LocalizedFrontendProject) : null;
+  const graphicData = !isCoding ? (project as LocalizedGraphicProject) : null;
 
   const handleCaseStudyClick = () => {
     if (onViewCaseStudy) {
@@ -39,8 +41,9 @@ export const ProjectCard = ({
       style={{
         backgroundColor: 'color-mix(in oklab, #1b1924 95%, transparent)',
       }}
-      className='border border-[#30363D] flex flex-col justify-between overflow-hidden group font-mono  shadow-xl transition-all duration-300 hover:border-[#C586C0]/60 hover:-translate-y-1'
+      className='border border-[#30363D] flex flex-col justify-between overflow-hidden group font-mono shadow-xl transition-all duration-300 hover:border-[#C586C0]/60 hover:-translate-y-1'
     >
+      {/* Thumbnail Header */}
       <div
         style={{
           backgroundColor: 'color-mix(in oklab, #0d1117 95%, transparent)',
@@ -73,9 +76,9 @@ export const ProjectCard = ({
         }}
         className='px-4 py-2.5 border-b border-[#30363D] flex flex-wrap gap-1.5'
       >
-        {isFrontend &&
-          frontendData &&
-          frontendData.technologies.map((tech, i) => (
+        {isCoding &&
+          codingData &&
+          (codingData.technologies || []).map((tech, i) => (
             <span
               key={i}
               className='text-[11px] px-2 py-0.5 bg-[#21262D] text-[#79C0FF] border border-[#30363D] rounded'
@@ -83,9 +86,9 @@ export const ProjectCard = ({
               {tech}
             </span>
           ))}
-        {!isFrontend &&
+        {!isCoding &&
           graphicData &&
-          graphicData.tools.map((tool, i) => (
+          (graphicData.tools || []).map((tool, i) => (
             <span
               key={i}
               className='text-[11px] px-2 py-0.5 bg-[#21262D] text-[#7EE787] border border-[#30363D] rounded'
@@ -97,7 +100,7 @@ export const ProjectCard = ({
 
       <div className='p-5 flex-grow flex flex-col justify-between space-y-4'>
         <div>
-          {!isFrontend && graphicData && graphicData.projectType && (
+          {!isCoding && graphicData && graphicData.projectType && (
             <span className='text-[11px] text-[#79C0FF] uppercase tracking-wider block mb-1 font-sans font-semibold'>
               {graphicData.projectType[lang]}
             </span>
@@ -110,7 +113,7 @@ export const ProjectCard = ({
             {project.description[lang]}
           </p>
 
-          {!isFrontend &&
+          {!isCoding &&
             graphicData &&
             graphicData.colors &&
             graphicData.colors.length > 0 && (
@@ -121,6 +124,8 @@ export const ProjectCard = ({
                 {graphicData.colors.map((c, idx) => (
                   <span
                     key={idx}
+                    role='img'
+                    aria-label={`Color swatch: ${c.name}`}
                     title={c.name}
                     className='w-4 h-4 rounded-full border border-white/20 inline-block shadow-sm'
                     style={{ backgroundColor: c.value }}
@@ -140,11 +145,11 @@ export const ProjectCard = ({
           </button>
 
           <div className='flex gap-2'>
-            {isFrontend && frontendData && (
+            {isCoding && codingData && (
               <>
-                {frontendData.live && (
+                {codingData.live && (
                   <a
-                    href={frontendData.live}
+                    href={codingData.live}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='flex-1 text-center py-2 border border-[#30363D] bg-[#21262D] text-[#C9D1D9] text-xs font-sans hover:border-[#C586C0] hover:text-[#C586C0] transition-colors rounded shadow-sm'
@@ -152,9 +157,9 @@ export const ProjectCard = ({
                     {lang === 'NO' ? 'Direkte demo ↗' : 'Live Demo ↗'}
                   </a>
                 )}
-                {frontendData.github && (
+                {codingData.github && (
                   <a
-                    href={frontendData.github}
+                    href={codingData.github}
                     target='_blank'
                     rel='noopener noreferrer'
                     className='flex-1 text-center py-2 border border-[#30363D] bg-[#21262D] text-[#8B949E] text-xs font-sans hover:border-[#8B949E] hover:text-white transition-colors rounded shadow-sm'
@@ -165,7 +170,7 @@ export const ProjectCard = ({
               </>
             )}
 
-            {!isFrontend && graphicData && (
+            {!isCoding && graphicData && (
               <>
                 {graphicData.behance && (
                   <a
