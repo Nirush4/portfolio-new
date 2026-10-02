@@ -421,7 +421,7 @@ export const FRONTEND_PROJECTS: LocalizedFrontendProject[] = [
     live: 'https://news-hubnet.netlify.app/?q=&page=1',
     thumbnail: '/projects/fullstack/news-hub.png',
     gallery: [],
-    category: 'frontend',
+    category: 'fullstack',
   },
 
   {
