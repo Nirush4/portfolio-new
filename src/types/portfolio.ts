@@ -1,5 +1,6 @@
 export interface SkillCategory {
   title: string;
+  subTitle: string;
   skills: string[];
 }
 

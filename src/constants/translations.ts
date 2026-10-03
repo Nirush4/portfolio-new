@@ -64,6 +64,7 @@ export const getLocalizedSkills = (lang: 'NO' | 'EN'): SkillCategory[] => {
     return [
       {
         title: 'Frontend',
+        subTitle: 'Teknologier',
         skills: [
           'React',
           'TypeScript',
@@ -88,6 +89,7 @@ export const getLocalizedSkills = (lang: 'NO' | 'EN'): SkillCategory[] => {
       },
       {
         title: 'Samarbeid & metodikk',
+        subTitle: 'Teknologier',
         skills: [
           'Agile/Scrum',
           'Komponentbasert utvikling',
@@ -104,21 +106,25 @@ export const getLocalizedSkills = (lang: 'NO' | 'EN'): SkillCategory[] => {
       },
       {
         title: 'Testing',
+        subTitle: 'Teknologier',
         skills: ['Playwright', 'Cypress', 'Vitest', 'Jest', 'MSW'],
       },
       {
-        title: 'Backend (grunnleggende)',
+        title: 'Backend',
+        subTitle: 'Teknologier',
         skills: [
           'Node.js',
           'Express',
           'Hono',
           'Python',
           'PostgreSQL',
+          'MySQL',
           'Supabase',
         ],
       },
       {
         title: 'UX/UI & design (tilleggsstyrke)',
+        subTitle: 'Teknologier',
         skills: [
           'Figma',
           'Designsystemer',
@@ -134,6 +140,7 @@ export const getLocalizedSkills = (lang: 'NO' | 'EN'): SkillCategory[] => {
   return [
     {
       title: 'Frontend',
+      subTitle: 'Technologies',
       skills: [
         'React',
         'TypeScript',
@@ -158,6 +165,7 @@ export const getLocalizedSkills = (lang: 'NO' | 'EN'): SkillCategory[] => {
     },
     {
       title: 'Collaboration & Methodology',
+      subTitle: 'Technologies',
       skills: [
         'Agile/Scrum',
         'Component-based development',
@@ -174,21 +182,25 @@ export const getLocalizedSkills = (lang: 'NO' | 'EN'): SkillCategory[] => {
     },
     {
       title: 'Testing',
+      subTitle: 'Technologies',
       skills: ['Playwright', 'Cypress', 'Vitest', 'Jest', 'MSW'],
     },
     {
-      title: 'Backend (Fundamentals)',
+      title: 'Backend',
+      subTitle: 'Technologies',
       skills: [
         'Node.js',
         'Express',
         'Hono',
         'Python',
         'PostgreSQL',
+        'MySQL',
         'Supabase',
       ],
     },
     {
       title: 'UX/UI & Design (Additional Strength)',
+      subTitle: 'Technologies',
       skills: [
         'Figma',
         'Design systems',
