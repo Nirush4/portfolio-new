@@ -66,7 +66,7 @@ export const SkillsSection = ({
                 aria-hidden='true'
               >
                 <span className='text-[#61AFEF]'>//</span>
-                <span>Stack &amp; Capabilities</span>
+                <span>{cat.subTitle}</span>
               </div>
 
               <ul
