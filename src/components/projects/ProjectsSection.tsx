@@ -60,111 +60,116 @@ export const ProjectsSection = ({
   );
 
   return (
-    <section id='projects' className='max-w-6xl mx-auto px-6 py-16 font-mono'>
-      <div className='flex flex-col md:flex-row md:justify-between md:items-center mb-10 gap-6'>
-        <div className='flex items-center gap-4 w-full max-w-md'>
-          <h2 className='text-white text-2xl md:text-3xl font-medium'>
-            <span className='text-[#C778DD]'>#</span>
-            {lang === 'NO' ? 'prosjekter' : 'projects'}
-          </h2>
-          <div className='h-[1px] bg-[#C778DD] flex-grow'></div>
+    <section
+      id='projects'
+      className='bg-[#0B1220] py-20 px-6 font-mono text-[#8F9BAE]'
+    >
+      <div className='max-w-6xl mx-auto'>
+        <div className='flex flex-col md:flex-row md:justify-between md:items-center mb-12 gap-6'>
+          <div className='flex items-center gap-4 w-full max-w-md'>
+            <h2 className='text-white text-2xl md:text-3xl font-extrabold uppercase tracking-tight'>
+              <span className='text-[rgb(237,242,81)]'>#</span>
+              {lang === 'NO' ? 'prosjekter' : 'projects'}
+            </h2>
+            <div className='h-[1px] bg-[#1E293B] flex-grow'></div>
+          </div>
         </div>
-      </div>
 
-      <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto mb-14'>
-        <button
-          onClick={() => handleTabChange('frontend')}
-          className={`group text-left p-5 rounded-xl border-2 transition-all duration-300 cursor-pointer flex items-center justify-between shadow-lg ${
-            activeTab === 'frontend'
-              ? 'bg-[#1b1924] border-[#C586C0] shadow-[#C586C0]/15 scale-[1.02]'
-              : 'bg-[#161B22]/80 border-[#30363D] hover:border-[#8B949E]/50 hover:bg-[#161B22]'
-          }`}
-        >
-          <div className='flex items-center gap-4'>
-            <div
-              className={`w-12 h-12 rounded-lg flex items-center justify-center text-lg font-bold transition-colors ${
-                activeTab === 'frontend'
-                  ? 'bg-[#c062c5] text-[#0D1117]'
-                  : 'bg-[#21262D] text-[#79C0FF] group-hover:bg-[#30363D]'
-              }`}
-            >
-              &lt;/&gt;
-            </div>
-            <div>
-              <span className='block text-[10px] uppercase font-mono tracking-wider text-[#8B949E] mb-0.5'>
-                {lang === 'NO' ? 'Kodeskap' : 'Code Workspace'}
-              </span>
-              <span
-                className={`block text-sm font-bold font-sans ${
-                  activeTab === 'frontend' ? 'text-white' : 'text-[#C9D1D9]'
-                }`}
-              >
-                {lang === 'NO' ? 'Frontend-utvikling' : 'Frontend Dev'}
-              </span>
-            </div>
-          </div>
-          <div
-            className={`w-3 h-3 rounded-full border transition-all ${
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto mb-14'>
+          <button
+            onClick={() => handleTabChange('frontend')}
+            className={`group text-left p-5 border transition-all duration-300 cursor-pointer flex items-center justify-between rounded-none ${
               activeTab === 'frontend'
-                ? 'bg-[#C586C0] border-[#C586C0] shadow-sm shadow-[#C586C0]'
-                : 'border-[#30363D] bg-transparent'
+                ? 'bg-[#121A2C] border-[rgb(237,242,81)] shadow-xl'
+                : 'bg-[#0C121E] border-[#1E293B] hover:border-[#8F9BAE]/50 hover:bg-[#121A2C]'
             }`}
-          ></div>
-        </button>
-
-        <button
-          onClick={() => handleTabChange('graphic')}
-          className={`group text-left p-5 rounded-xl border-2 transition-all duration-300 cursor-pointer flex items-center justify-between shadow-lg ${
-            activeTab === 'graphic'
-              ? 'bg-[#1b1924] border-[#7EE787] shadow-[#7EE787]/15 scale-[1.02]'
-              : 'bg-[#161B22]/80 border-[#30363D] hover:border-[#8B949E]/50 hover:bg-[#161B22]'
-          }`}
-        >
-          <div className='flex items-center gap-4'>
-            <div
-              className={`w-12 h-12 rounded-lg flex items-center justify-center text-lg transition-colors ${
-                activeTab === 'graphic'
-                  ? 'bg-[#71cc75] text-[#0D1117]'
-                  : 'bg-[#21262D] text-[#7EE787] group-hover:bg-[#30363D]'
-              }`}
-            >
-              🎨
-            </div>
-            <div>
-              <span className='block text-[10px] uppercase font-mono tracking-wider text-[#8B949E] mb-0.5'>
-                {lang === 'NO' ? 'Kreativt studio' : 'Creative Studio'}
-              </span>
-              <span
-                className={`block text-sm font-bold font-sans ${
-                  activeTab === 'graphic' ? 'text-white' : 'text-[#C9D1D9]'
+          >
+            <div className='flex items-center gap-4'>
+              <div
+                className={`w-12 h-12 flex items-center justify-center text-sm font-bold transition-colors ${
+                  activeTab === 'frontend'
+                    ? 'bg-[rgb(237,242,81)] text-[#0C121E]'
+                    : 'bg-[#1E293B] text-white group-hover:bg-[#2A384C]'
                 }`}
               >
-                {lang === 'NO' ? 'Grafisk design' : 'Graphic Design'}
-              </span>
+                &lt;/&gt;
+              </div>
+              <div>
+                <span className='block text-[10px] uppercase tracking-widest text-[#8F9BAE] mb-0.5 font-bold'>
+                  {lang === 'NO' ? 'Kodeskap' : 'Code Workspace'}
+                </span>
+                <span
+                  className={`block text-sm font-bold uppercase tracking-wider ${
+                    activeTab === 'frontend' ? 'text-white' : 'text-[#8F9BAE]'
+                  }`}
+                >
+                  {lang === 'NO' ? 'Frontend-utvikling' : 'Frontend Dev'}
+                </span>
+              </div>
             </div>
-          </div>
-          <div
-            className={`w-3 h-3 rounded-full border transition-all ${
+            <div
+              className={`w-3 h-3 transition-all ${
+                activeTab === 'frontend'
+                  ? 'bg-[rgb(237,242,81)]'
+                  : 'border border-[#1E293B] bg-transparent'
+              }`}
+            ></div>
+          </button>
+
+          <button
+            onClick={() => handleTabChange('graphic')}
+            className={`group text-left p-5 border transition-all duration-300 cursor-pointer flex items-center justify-between rounded-none ${
               activeTab === 'graphic'
-                ? 'bg-[#7EE787] border-[#7EE787] shadow-sm shadow-[#7EE787]'
-                : 'border-[#30363D] bg-transparent'
+                ? 'bg-[#121A2C] border-[rgb(237,242,81)] shadow-xl'
+                : 'bg-[#0C121E] border-[#1E293B] hover:border-[#8F9BAE]/50 hover:bg-[#121A2C]'
             }`}
-          ></div>
-        </button>
-      </div>
+          >
+            <div className='flex items-center gap-4'>
+              <div
+                className={`w-12 h-12 flex items-center justify-center text-sm transition-colors ${
+                  activeTab === 'graphic'
+                    ? 'bg-[rgb(237,242,81)] text-[#0C121E]'
+                    : 'bg-[#1E293B] text-white group-hover:bg-[#2A384C]'
+                }`}
+              >
+                🎨
+              </div>
+              <div>
+                <span className='block text-[10px] uppercase tracking-widest text-[#8F9BAE] mb-0.5 font-bold'>
+                  {lang === 'NO' ? 'Kreativt studio' : 'Creative Studio'}
+                </span>
+                <span
+                  className={`block text-sm font-bold uppercase tracking-wider ${
+                    activeTab === 'graphic' ? 'text-white' : 'text-[#8F9BAE]'
+                  }`}
+                >
+                  {lang === 'NO' ? 'Grafisk design' : 'Graphic Design'}
+                </span>
+              </div>
+            </div>
+            <div
+              className={`w-3 h-3 transition-all ${
+                activeTab === 'graphic'
+                  ? 'bg-[rgb(237,242,81)]'
+                  : 'border border-[#1E293B] bg-transparent'
+              }`}
+            ></div>
+          </button>
+        </div>
 
-      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12'>
-        {(paginatedProjects ?? []).map((project) => (
-          <ProjectCard key={project.id} lang={lang} project={project} />
-        ))}
-      </div>
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12'>
+          {(paginatedProjects ?? []).map((project) => (
+            <ProjectCard key={project.id} lang={lang} project={project} />
+          ))}
+        </div>
 
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-        lang={lang}
-      />
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          lang={lang}
+        />
+      </div>
     </section>
   );
 };
