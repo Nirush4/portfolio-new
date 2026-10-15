@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+
+:root {
+    /* Primary Vibelabs Accent */
+    --color-electric-lime: rgb(237, 242, 81);
+    /* #EDF251 */
+    --color-electric-lime-hover: #dce13b;
+
+    /* Dark Navy Backgrounds */
+    --color-bg-dark: #0b1220;
+    --color-bg-elevated: #121a2c;
+    --color-border-dark: #1e293b;
+
+    /* Text Colors */
+    --color-text-dark: #0c121e;
+    --color-text-white: #ffffff;
+    --color-text-muted: #8f9bae;
+}
