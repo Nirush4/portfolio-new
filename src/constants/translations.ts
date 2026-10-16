@@ -24,7 +24,7 @@ export const translations = {
     },
     sidebar: {
       socials: '// socials',
-      active: 'active',
+      active: '// active',
     },
   },
   NO: {
@@ -52,7 +52,7 @@ export const translations = {
     },
     sidebar: {
       socials: '// sosiale',
-      active: 'aktiv',
+      active: '// aktiv',
     },
   },
 };

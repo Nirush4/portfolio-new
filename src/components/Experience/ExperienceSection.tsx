@@ -214,10 +214,10 @@ export const ExperienceSection = ({
         }}
       />
 
-      <section className='bg-[#F4F5F7] pt-20 pb-16 px-6 text-[#0C121E]'>
+      <section className='bg-[#F4F5F7] pt-20  px-6 text-[#0C121E]'>
         <div className='max-w-6xl mx-auto'>
           <div className='flex items-center gap-4 w-full max-w-md mb-14'>
-            <h2 className='text-[#0C121E] text-2xl md:text-3xl font-black uppercase tracking-tight'>
+            <h2 className='text-[#0C121E] text-2xl md:text-4xl font-black uppercase tracking-tight'>
               <span className='text-[rgb(237,242,81)] bg-[#0C121E] px-2 py-0.5 mr-1'>
                 #
               </span>
