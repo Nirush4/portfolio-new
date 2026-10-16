@@ -28,16 +28,18 @@ export const Pagination = ({
   };
 
   return (
-    <div className='flex flex-col sm:flex-row items-center justify-between bg-[#0C121E] border border-[#1E293B] px-6 py-4 rounded-none gap-4 shadow-xl font-mono text-[#8F9BAE]'>
-      <div className='text-xs flex items-center gap-2 uppercase tracking-wider'>
+    <div className='flex flex-col sm:flex-row items-center justify-between bg-[#0C121E] border-2 border-[#0C121E] px-6 py-4 rounded-none gap-4 shadow-[4px_4px_0px_0px_rgba(12,18,30,0.8)] font-mono text-[#8F9BAE]'>
+      <div className='text-xs flex items-center gap-2 uppercase tracking-wider font-bold'>
         <span className='text-[rgb(237,242,81)]'>//</span>
         <span>
           {lang === 'NO' ? 'Viser side' : 'Showing page'}{' '}
-          <strong className='text-white text-sm font-bold'>
+          <strong className='text-white text-sm font-black'>
             {currentPage}
           </strong>{' '}
           {lang === 'NO' ? 'av' : 'of'}{' '}
-          <strong className='text-white text-sm font-bold'>{totalPages}</strong>
+          <strong className='text-white text-sm font-black'>
+            {totalPages}
+          </strong>
         </span>
       </div>
 
@@ -45,10 +47,10 @@ export const Pagination = ({
         <button
           onClick={() => handlePageClick(Math.max(currentPage - 1, 1))}
           disabled={currentPage === 1}
-          className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1 cursor-pointer rounded-none ${
+          className={`px-3 py-1.5 text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1 cursor-pointer rounded-none border ${
             currentPage === 1
-              ? 'opacity-40 cursor-not-allowed border border-[#1E293B] text-[#8F9BAE]'
-              : 'border border-[#1E293B] bg-[#121A2C] text-white hover:border-[rgb(237,242,81)] hover:text-[rgb(237,242,81)]'
+              ? 'opacity-40 cursor-not-allowed border-[#1E293B] text-[#8F9BAE] bg-[#121A2C]'
+              : 'border-[#1E293B] bg-[#121A2C] text-white hover:border-[rgb(237,242,81)] hover:text-[rgb(237,242,81)]'
           }`}
         >
           <span>&lt;</span> {lang === 'NO' ? 'Forrige' : 'Prev'}
@@ -61,7 +63,7 @@ export const Pagination = ({
               onClick={() => handlePageClick(page)}
               className={`w-8 h-8 text-xs font-black transition-all flex items-center justify-center cursor-pointer rounded-none border ${
                 currentPage === page
-                  ? 'bg-[rgb(237,242,81)] border-[rgb(237,242,81)] text-[#0C121E] shadow-md'
+                  ? 'bg-[rgb(237,242,81)] border-[rgb(237,242,81)] text-[#0C121E] shadow-sm'
                   : 'border-[#1E293B] bg-[#121A2C] text-[#8F9BAE] hover:border-[#8F9BAE] hover:text-white'
               }`}
             >
@@ -73,10 +75,10 @@ export const Pagination = ({
         <button
           onClick={() => handlePageClick(Math.min(currentPage + 1, totalPages))}
           disabled={currentPage === totalPages}
-          className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1 cursor-pointer rounded-none ${
+          className={`px-3 py-1.5 text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1 cursor-pointer rounded-none border ${
             currentPage === totalPages
-              ? 'opacity-40 cursor-not-allowed border border-[#1E293B] text-[#8F9BAE]'
-              : 'border border-[#1E293B] bg-[#121A2C] text-white hover:border-[rgb(237,242,81)] hover:text-[rgb(237,242,81)]'
+              ? 'opacity-40 cursor-not-allowed border-[#1E293B] text-[#8F9BAE] bg-[#121A2C]'
+              : 'border-[#1E293B] bg-[#121A2C] text-white hover:border-[rgb(237,242,81)] hover:text-[rgb(237,242,81)]'
           }`}
         >
           {lang === 'NO' ? 'Neste' : 'Next'} <span>&gt;</span>

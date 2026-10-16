@@ -60,116 +60,126 @@ export const ProjectsSection = ({
   );
 
   return (
-    <section
-      id='projects'
-      className='bg-[#0B1220] py-20 px-6 font-mono text-[#8F9BAE]'
-    >
-      <div className='max-w-6xl mx-auto'>
-        <div className='flex flex-col md:flex-row md:justify-between md:items-center mb-12 gap-6'>
-          <div className='flex items-center gap-4 w-full max-w-md'>
-            <h2 className='text-white text-2xl md:text-3xl font-extrabold uppercase tracking-tight'>
-              <span className='text-[rgb(237,242,81)]'>#</span>
-              {lang === 'NO' ? 'prosjekter' : 'projects'}
-            </h2>
-            <div className='h-[1px] bg-[#1E293B] flex-grow'></div>
+    <div id='projects' className='relative w-full font-mono overflow-hidden'>
+      <section className='bg-[rgb(237,242,81)] pt-20 pb-16 px-6 text-[#0C121E]'>
+        <div className='max-w-6xl mx-auto'>
+          <div className='flex flex-col md:flex-row md:justify-between md:items-center mb-12 gap-6'>
+            <div className='flex items-center gap-4 w-full max-w-md'>
+              <h2 className='text-[#0C121E] text-2xl md:text-3xl font-black uppercase tracking-tight'>
+                <span className='text-[#0C121E]/60'>/</span>{' '}
+                {lang === 'NO' ? 'prosjekter' : 'projects'}
+              </h2>
+              <div className='h-[2px] bg-[#0C121E] flex-grow'></div>
+            </div>
           </div>
-        </div>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto mb-14'>
-          <button
-            onClick={() => handleTabChange('frontend')}
-            className={`group text-left p-5 border transition-all duration-300 cursor-pointer flex items-center justify-between rounded-none ${
-              activeTab === 'frontend'
-                ? 'bg-[#121A2C] border-[rgb(237,242,81)] shadow-xl'
-                : 'bg-[#0C121E] border-[#1E293B] hover:border-[#8F9BAE]/50 hover:bg-[#121A2C]'
-            }`}
-          >
-            <div className='flex items-center gap-4'>
-              <div
-                className={`w-12 h-12 flex items-center justify-center text-sm font-bold transition-colors ${
-                  activeTab === 'frontend'
-                    ? 'bg-[rgb(237,242,81)] text-[#0C121E]'
-                    : 'bg-[#1E293B] text-white group-hover:bg-[#2A384C]'
-                }`}
-              >
-                &lt;/&gt;
-              </div>
-              <div>
-                <span className='block text-[10px] uppercase tracking-widest text-[#8F9BAE] mb-0.5 font-bold'>
-                  {lang === 'NO' ? 'Kodeskap' : 'Code Workspace'}
-                </span>
-                <span
-                  className={`block text-sm font-bold uppercase tracking-wider ${
-                    activeTab === 'frontend' ? 'text-white' : 'text-[#8F9BAE]'
-                  }`}
-                >
-                  {lang === 'NO' ? 'Frontend-utvikling' : 'Frontend Dev'}
-                </span>
-              </div>
-            </div>
-            <div
-              className={`w-3 h-3 transition-all ${
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto mb-14'>
+            <button
+              onClick={() => handleTabChange('frontend')}
+              className={`group text-left p-5 border-2 transition-all duration-300 cursor-pointer flex items-center justify-between rounded-none ${
                 activeTab === 'frontend'
-                  ? 'bg-[rgb(237,242,81)]'
-                  : 'border border-[#1E293B] bg-transparent'
+                  ? 'bg-[#0C121E] text-white border-[#0C121E] shadow-[4px_4px_0px_0px_rgba(12,18,30,0.3)]'
+                  : 'bg-[rgb(237,242,81)] text-[#0C121E] border-[#0C121E] hover:bg-[#0C121E] hover:text-white'
               }`}
-            ></div>
-          </button>
-
-          <button
-            onClick={() => handleTabChange('graphic')}
-            className={`group text-left p-5 border transition-all duration-300 cursor-pointer flex items-center justify-between rounded-none ${
-              activeTab === 'graphic'
-                ? 'bg-[#121A2C] border-[rgb(237,242,81)] shadow-xl'
-                : 'bg-[#0C121E] border-[#1E293B] hover:border-[#8F9BAE]/50 hover:bg-[#121A2C]'
-            }`}
-          >
-            <div className='flex items-center gap-4'>
-              <div
-                className={`w-12 h-12 flex items-center justify-center text-sm transition-colors ${
-                  activeTab === 'graphic'
-                    ? 'bg-[rgb(237,242,81)] text-[#0C121E]'
-                    : 'bg-[#1E293B] text-white group-hover:bg-[#2A384C]'
-                }`}
-              >
-                🎨
-              </div>
-              <div>
-                <span className='block text-[10px] uppercase tracking-widest text-[#8F9BAE] mb-0.5 font-bold'>
-                  {lang === 'NO' ? 'Kreativt studio' : 'Creative Studio'}
-                </span>
-                <span
-                  className={`block text-sm font-bold uppercase tracking-wider ${
-                    activeTab === 'graphic' ? 'text-white' : 'text-[#8F9BAE]'
+            >
+              <div className='flex items-center gap-4'>
+                <div
+                  className={`w-12 h-12 flex items-center justify-center text-sm font-bold transition-colors ${
+                    activeTab === 'frontend'
+                      ? 'bg-[rgb(237,242,81)] text-[#0C121E]'
+                      : 'bg-[#0C121E] text-white group-hover:bg-[rgb(237,242,81)] group-hover:text-[#0C121E]'
                   }`}
                 >
-                  {lang === 'NO' ? 'Grafisk design' : 'Graphic Design'}
-                </span>
+                  &lt;/&gt;
+                </div>
+                <div>
+                  <span
+                    className={`block text-[10px] uppercase tracking-widest mb-0.5 font-bold ${
+                      activeTab === 'frontend'
+                        ? 'text-[#8F9BAE]'
+                        : 'text-[#0C121E]/70 group-hover:text-[#8F9BAE]'
+                    }`}
+                  >
+                    {lang === 'NO' ? 'Kodeskap' : 'Code Workspace'}
+                  </span>
+                  <span className='block text-sm font-black uppercase tracking-wider'>
+                    {lang === 'NO' ? 'Frontend-utvikling' : 'Frontend Dev'}
+                  </span>
+                </div>
               </div>
-            </div>
-            <div
-              className={`w-3 h-3 transition-all ${
+              <div
+                className={`w-3 h-3 transition-all ${
+                  activeTab === 'frontend'
+                    ? 'bg-[rgb(237,242,81)]'
+                    : 'border-2 border-[#0C121E] bg-transparent group-hover:border-[rgb(237,242,81)] group-hover:bg-[rgb(237,242,81)]'
+                }`}
+              ></div>
+            </button>
+
+            <button
+              onClick={() => handleTabChange('graphic')}
+              className={`group text-left p-5 border-2 transition-all duration-300 cursor-pointer flex items-center justify-between rounded-none ${
                 activeTab === 'graphic'
-                  ? 'bg-[rgb(237,242,81)]'
-                  : 'border border-[#1E293B] bg-transparent'
+                  ? 'bg-[#0C121E] text-white border-[#0C121E] shadow-[4px_4px_0px_0px_rgba(12,18,30,0.3)]'
+                  : 'bg-[rgb(237,242,81)] text-[#0C121E] border-[#0C121E] hover:bg-[#0C121E] hover:text-white'
               }`}
-            ></div>
-          </button>
-        </div>
+            >
+              <div className='flex items-center gap-4'>
+                <div
+                  className={`w-12 h-12 flex items-center justify-center text-sm transition-colors ${
+                    activeTab === 'graphic'
+                      ? 'bg-[rgb(237,242,81)] text-[#0C121E]'
+                      : 'bg-[#0C121E] text-white group-hover:bg-[rgb(237,242,81)] group-hover:text-[#0C121E]'
+                  }`}
+                >
+                  🎨
+                </div>
+                <div>
+                  <span
+                    className={`block text-[10px] uppercase tracking-widest mb-0.5 font-bold ${
+                      activeTab === 'graphic'
+                        ? 'text-[#8F9BAE]'
+                        : 'text-[#0C121E]/70 group-hover:text-[#8F9BAE]'
+                    }`}
+                  >
+                    {lang === 'NO' ? 'Kreativt studio' : 'Creative Studio'}
+                  </span>
+                  <span className='block text-sm font-black uppercase tracking-wider'>
+                    {lang === 'NO' ? 'Grafisk design' : 'Graphic Design'}
+                  </span>
+                </div>
+              </div>
+              <div
+                className={`w-3 h-3 transition-all ${
+                  activeTab === 'graphic'
+                    ? 'bg-[rgb(237,242,81)]'
+                    : 'border-2 border-[#0C121E] bg-transparent group-hover:border-[rgb(237,242,81)] group-hover:bg-[rgb(237,242,81)]'
+                }`}
+              ></div>
+            </button>
+          </div>
 
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12'>
-          {(paginatedProjects ?? []).map((project) => (
-            <ProjectCard key={project.id} lang={lang} project={project} />
-          ))}
-        </div>
+          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12'>
+            {(paginatedProjects ?? []).map((project) => (
+              <ProjectCard key={project.id} lang={lang} project={project} />
+            ))}
+          </div>
 
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-          lang={lang}
-        />
-      </div>
-    </section>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            lang={lang}
+          />
+        </div>
+      </section>
+
+      <div
+        className='w-full h-16 md:h-24 bg-[rgb(237,242,81)]'
+        style={{
+          clipPath: 'polygon(0 0, 100% 0, 100% 25%, 0 100%)',
+        }}
+      />
+    </div>
   );
 };
