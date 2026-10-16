@@ -65,7 +65,7 @@ export const ProjectsSection = ({
         <div className='max-w-6xl mx-auto'>
           <div className='flex flex-col md:flex-row md:justify-between md:items-center mb-12 gap-6'>
             <div className='flex items-center gap-4 w-full max-w-md'>
-              <h2 className='text-[#0C121E] text-2xl md:text-3xl font-black uppercase tracking-tight'>
+              <h2 className='text-[#0C121E] text-2xl md:text-4xl font-black uppercase tracking-tight'>
                 <span className='text-[#0C121E]/60'>/</span>{' '}
                 {lang === 'NO' ? 'prosjekter' : 'projects'}
               </h2>
