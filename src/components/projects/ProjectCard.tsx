@@ -117,7 +117,7 @@ export const ProjectCard = ({
         <div className='space-y-2.5 pt-3 border-t border-[#1E293B]'>
           <button
             onClick={handleCaseStudyClick}
-            className='w-full py-2.5 px-4 cursor-pointer bg-[rgb(237,242,81)] text-[#0C121E] border border-[rgb(237,242,81)] text-xs font-black uppercase tracking-widest hover:bg-white hover:border-white transition-all flex items-center justify-center gap-2 rounded-none'
+            className='w-full py-2.5 px-4 cursor-pointer bg-white text-[#0C121E] text-xs font-black uppercase tracking-widest hover:bg-[rgb(237,242,8)] transition-all flex items-center justify-center gap-2 rounded-none'
           >
             <span>{lang === 'NO' ? 'Se saksstudie' : 'View Case Study'}</span>
             <span className='font-mono'>~~&gt;</span>
