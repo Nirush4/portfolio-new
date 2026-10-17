@@ -1,15 +1,14 @@
 export const vibelabsTheme = {
   colors: {
-    // Core Background Themes
-    darkNavy: '#0B1220', // Hero, Navigation, Footer, Code blocks
-    darkNavyElevated: '#121A2C', // Cards inside dark sections
+    darkNavy: '#0B1220',
+    darkNavyElevated: '#121A2C',
     darkNavyBorder: '#1E293B',
 
-    lightBg: '#F4F5F7', // Metrics, Skills, Experience sections
-    lightCardBg: '#FFFFFF', // Cards inside light sections
+    lightBg: '#F4F5F7',
+    lightCardBg: '#FFFFFF',
     lightBorder: '#E2E8F0',
 
-    vibrantLime: 'rgb(237, 242, 81)', // CTA Banners, Contact, Live Badges
+    vibrantLime: 'rgb(237, 242, 81)',
     vibrantLimeHover: '#DCE13B',
 
     // Text Variants
