@@ -170,7 +170,7 @@ export const Navbar = ({
         <div
           id='mobile-menu'
           ref={mobileMenuRef}
-          className='absolute top-full left-0 w-full bg-[#0C121E] border-b border-[#1E293B] shadow-2xl py-6 px-6 flex flex-col gap-4 lg:hidden text-xs uppercase font-bold tracking-wider border-t border-[#1E293B]'
+          className='absolute top-full left-0 w-full bg-[#0C121E] border-b border-[#1E293B] shadow-2xl py-6 px-6 flex flex-col gap-4 lg:hidden text-xs font-bold tracking-wider border-t border-[#1E293B]'
         >
           <a
             href='#home'
@@ -208,7 +208,7 @@ export const Navbar = ({
           <div className='pt-4 flex items-center justify-between border-t border-[#1E293B] bg-[#0B1220] p-3.5 border border-[#1E293B]'>
             <label
               htmlFor='mobile-language-select'
-              className='text-xs text-[rgb(237,242,81)] font-bold uppercase tracking-wider flex items-center gap-1.5'
+              className='text-xs text-[rgb(237,242,81)] font-bold tracking-wider flex items-center gap-1.5'
             >
               <span>🌐</span> Språk / Language:
             </label>

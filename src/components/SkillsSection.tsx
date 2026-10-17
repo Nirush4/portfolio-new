@@ -31,7 +31,7 @@ export const SkillsSection = ({
           <div className='flex items-center gap-4 w-full max-w-md mb-12'>
             <h2
               id='skills-heading'
-              className='text-white text-2xl md:text-4xl font-black uppercase tracking-tight'
+              className='text-white text-2xl md:text-4xl font-black tracking-tight'
             >
               <span
                 className='text-[rgb(237,242,81)] bg-[#0C121E] border border-[#1E293B] px-2 py-0.5 mr-2'
@@ -69,7 +69,7 @@ export const SkillsSection = ({
                         aria-hidden='true'
                       ></div>
                     </div>
-                    <span className='text-white text-xs font-bold uppercase tracking-wider ml-1'>
+                    <span className='text-white text-xs font-bold tracking-wider ml-1'>
                       {cat.title.toLowerCase().replace(/\s+/g, '-')}.tsx
                     </span>
                   </div>
@@ -77,7 +77,7 @@ export const SkillsSection = ({
 
                 <div className='p-5 bg-[#121A2C] text-xs leading-relaxed'>
                   <div
-                    className='text-[#8F9BAE] mb-4 select-none flex items-center gap-2 font-bold uppercase tracking-wider text-[11px]'
+                    className='text-[#8F9BAE] mb-4 select-none flex items-center gap-2 font-bold tracking-wider text-[11px]'
                     aria-hidden='true'
                   >
                     <span className='text-[rgb(237,242,81)]'>//</span>
@@ -92,7 +92,7 @@ export const SkillsSection = ({
                   >
                     {cat.skills.map((skill, sIdx) => (
                       <li key={sIdx}>
-                        <span className='inline-block font-mono text-[11px] font-bold uppercase tracking-wider text-[#8F9BAE] bg-[#0C121E] border border-[#1E293B] group-hover:border-[rgb(237,242,81)]/50 group-hover:text-white px-2.5 py-1 transition-all'>
+                        <span className='inline-block font-mono text-[11px] font-bold tracking-wider text-[#8F9BAE] bg-[#0C121E] border border-[#1E293B] group-hover:border-[rgb(237,242,81)]/50 group-hover:text-white px-2.5 py-1 transition-all'>
                           {skill}
                         </span>
                       </li>

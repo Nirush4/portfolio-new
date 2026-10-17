@@ -19,7 +19,7 @@ export const ProjectHeader = ({
       {name}
     </h1>
     {projectType && (
-      <p className='text-xs md:text-sm font-semibold text-[#61AFEF] uppercase tracking-wider font-sans'>
+      <p className='text-xs md:text-sm font-semibold text-[#61AFEF] tracking-wider font-sans'>
         {projectType}
       </p>
     )}

@@ -191,7 +191,7 @@ export const ProjectDetailsPage = ({
               {project.name.toLowerCase().replace(/\s+/g, '-')}.config
             </span>
           </div>
-          <span className='text-[10px] uppercase font-bold tracking-widest text-[#F2CC60] bg-[#21262D] px-2.5 py-0.5 rounded border border-[#30363D]'>
+          <span className='text-[10px] font-bold tracking-widest text-[#F2CC60] bg-[#21262D] px-2.5 py-0.5 rounded border border-[#30363D]'>
             {project.category}
           </span>
         </div>
@@ -302,7 +302,7 @@ export const ProjectDetailsPage = ({
               />
 
               <div className='space-y-3 pt-2'>
-                <h3 className='text-white text-sm font-bold font-mono tracking-wide uppercase text-[#8B949E]'>
+                <h3 className='text-white text-sm font-bold font-mono tracking-wide text-[#8B949E]'>
                   {lang === 'NO'
                     ? 'Teknologier & Rammeverk'
                     : 'Technologies & Frameworks Deployed'}
@@ -473,7 +473,7 @@ export const ProjectDetailsPage = ({
               />
 
               <div className='space-y-3 pt-2'>
-                <h3 className='text-white text-sm font-bold font-mono tracking-wide uppercase text-[#8B949E]'>
+                <h3 className='text-white text-sm font-bold font-mono tracking-wide text-[#8B949E]'>
                   {lang === 'NO'
                     ? 'Programvare & Kreative Verktøy Brukt'
                     : 'Software & Creative Tools Used'}

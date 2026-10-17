@@ -50,7 +50,7 @@ export const Footer = ({ lang = 'EN' }: FooterProps): JSX.Element => {
           aria-label={isNo ? 'Bunntekst navigasjon' : 'Footer Navigation'}
           className='flex justify-center'
         >
-          <ul className='flex flex-wrap items-center justify-center gap-6 text-[#8F9BAE] font-mono text-xs uppercase tracking-wider'>
+          <ul className='flex flex-wrap items-center justify-center gap-6 text-[#8F9BAE] font-mono text-xs  tracking-wider'>
             <li>
               <a
                 href='#home'
@@ -90,7 +90,7 @@ export const Footer = ({ lang = 'EN' }: FooterProps): JSX.Element => {
           </ul>
         </nav>
 
-        <div className='flex items-center justify-center md:justify-end gap-4 font-mono text-xs uppercase tracking-wider'>
+        <div className='flex items-center justify-center md:justify-end gap-4 font-mono text-xs  tracking-wider'>
           <Link
             to='https://github.com/Nirush4'
             target='_blank'

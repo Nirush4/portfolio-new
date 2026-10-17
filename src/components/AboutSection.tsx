@@ -26,7 +26,7 @@ export const AboutSection = ({ lang }: AboutSectionProps): JSX.Element => {
           <div className='flex items-center gap-4 w-full max-w-md mb-12'>
             <h2
               id='about-section-heading'
-              className='text-white text-2xl md:text-4xl font-black uppercase tracking-tight'
+              className='text-white text-2xl md:text-4xl font-black  tracking-tight'
             >
               <span
                 className='text-[rgb(237,242,81)] bg-[#0C121E] border border-[#1E293B] px-2 py-0.5 mr-2'
@@ -66,7 +66,7 @@ export const AboutSection = ({ lang }: AboutSectionProps): JSX.Element => {
 
               <div className='p-5 bg-[#121A2C] text-xs md:text-sm leading-relaxed text-[#8F9BAE] space-y-4'>
                 <div
-                  className='text-[#8F9BAE] select-none flex items-center gap-2 mb-2 font-bold uppercase tracking-wider text-[11px]'
+                  className='text-[#8F9BAE] select-none flex items-center gap-2 mb-2 font-bold  tracking-wider text-[11px]'
                   aria-hidden='true'
                 >
                   <span className='text-[rgb(237,242,81)]'>//</span>

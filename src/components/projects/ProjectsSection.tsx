@@ -65,7 +65,7 @@ export const ProjectsSection = ({
         <div className='max-w-6xl mx-auto'>
           <div className='flex flex-col md:flex-row md:justify-between md:items-center mb-12 gap-6'>
             <div className='flex items-center gap-4 w-full max-w-md'>
-              <h2 className='text-[#0C121E] text-2xl md:text-4xl font-black uppercase tracking-tight'>
+              <h2 className='text-[#0C121E] text-2xl md:text-4xl font-black tracking-tight'>
                 <span className='text-[#0C121E]/60'>/</span>{' '}
                 {lang === 'NO' ? 'prosjekter' : 'projects'}
               </h2>
@@ -94,7 +94,7 @@ export const ProjectsSection = ({
                 </div>
                 <div>
                   <span
-                    className={`block text-[10px] uppercase tracking-widest mb-0.5 font-bold ${
+                    className={`block text-[10px] tracking-widest mb-0.5 font-bold ${
                       activeTab === 'frontend'
                         ? 'text-[#8F9BAE]'
                         : 'text-[#0C121E]/70 group-hover:text-[#8F9BAE]'
@@ -102,7 +102,7 @@ export const ProjectsSection = ({
                   >
                     {lang === 'NO' ? 'Kodeskap' : 'Code Workspace'}
                   </span>
-                  <span className='block text-sm font-black uppercase tracking-wider'>
+                  <span className='block text-sm font-black tracking-wider'>
                     {lang === 'NO' ? 'Frontend-utvikling' : 'Frontend Dev'}
                   </span>
                 </div>
@@ -136,7 +136,7 @@ export const ProjectsSection = ({
                 </div>
                 <div>
                   <span
-                    className={`block text-[10px] uppercase tracking-widest mb-0.5 font-bold ${
+                    className={`block text-[10px] tracking-widest mb-0.5 font-bold ${
                       activeTab === 'graphic'
                         ? 'text-[#8F9BAE]'
                         : 'text-[#0C121E]/70 group-hover:text-[#8F9BAE]'
@@ -144,7 +144,7 @@ export const ProjectsSection = ({
                   >
                     {lang === 'NO' ? 'Kreativt studio' : 'Creative Studio'}
                   </span>
-                  <span className='block text-sm font-black uppercase tracking-wider'>
+                  <span className='block text-sm font-black tracking-wider'>
                     {lang === 'NO' ? 'Grafisk design' : 'Graphic Design'}
                   </span>
                 </div>

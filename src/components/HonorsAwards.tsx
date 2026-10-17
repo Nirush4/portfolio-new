@@ -41,7 +41,7 @@ export const HonorsAwards = ({ lang }: HonorsAwardsProps): JSX.Element => {
         <div className='flex items-center gap-4 w-full max-w-md mb-12'>
           <h2
             id='honors-awards-heading'
-            className='text-[#0C121E] text-2xl md:text-4xl font-black uppercase tracking-tight'
+            className='text-[#0C121E] text-2xl md:text-4xl font-black tracking-tight'
           >
             <span
               className='text-[rgb(237,242,81)] bg-[#0C121E] px-2 py-0.5 mr-1'
