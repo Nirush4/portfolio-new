@@ -104,7 +104,7 @@ export const Footer = ({ lang = 'EN' }: FooterProps): JSX.Element => {
           >
             GitHub
           </Link>
-          <span aria-hidden='true' className='text-[#1E293B]'>
+          <span aria-hidden='true' className='text-[#34445e]'>
             /
           </span>
           <Link
@@ -124,7 +124,7 @@ export const Footer = ({ lang = 'EN' }: FooterProps): JSX.Element => {
       </div>
 
       <div className='max-w-6xl mx-auto px-6 mt-8 pt-6 border-t border-[#1E293B] flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#8F9BAE] gap-2'>
-        <p>
+        <p className='text-xs'>
           © 2026 Nirushan.{' '}
           {isNo ? 'Alle rettigheter reservert.' : 'All rights reserved.'}
         </p>
