@@ -202,47 +202,67 @@ export const ExperienceSection = ({
   ];
 
   return (
-    <section
+    <div
       id='experience'
       ref={containerRef}
-      className='max-w-6xl mx-auto px-6 py-16 font-mono'
+      className='relative w-full font-mono overflow-hidden'
     >
-      <div className='flex items-center gap-4 w-full max-w-md mb-14'>
-        <h2 className='text-white text-2xl md:text-3xl font-medium'>
-          <span className='text-[#C778DD]'>#</span>
-          {lang === 'NO' ? 'erfaring' : 'experience'}
-        </h2>
-        <div className='h-[1px] bg-[#C778DD] flex-grow'></div>
-      </div>
+      <div
+        className='w-full bg-[#F4F5F7]'
+        style={{
+          clipPath: 'polygon(0 100%, 100% 0, 100% 100%, 0 100%)',
+        }}
+      />
 
-      <div className='relative ml-3 md:ml-6 pl-6 md:pl-10 space-y-6'>
-        <div className='absolute left-0 md:left-0 top-3 bottom-3 w-[2px] bg-[#30363D]'></div>
+      <section className='bg-[#F4F5F7] pt-20  px-6 text-[#0C121E]'>
+        <div className='max-w-6xl mx-auto'>
+          <div className='flex items-center gap-4 w-full max-w-md mb-14'>
+            <h2 className='text-[#0C121E] text-2xl md:text-4xl font-black tracking-tight'>
+              <span className='text-[rgb(237,242,81)] bg-[#0C121E] px-2 py-0.5 mr-1'>
+                #
+              </span>
+              {lang === 'NO' ? 'erfaring' : 'experience'}
+            </h2>
+            <div className='h-[2px] bg-[#0C121E] flex-grow'></div>
+          </div>
 
-        <motion.div
-          style={{ height: lineHeight }}
-          className='absolute left-0 md:left-0 top-3 w-[2px] bg-gradient-to-b from-[#C586C0] via-[#7EE787] to-[#C586C0] rounded-full'
-        ></motion.div>
+          <div className='relative ml-3 md:ml-6 pl-6 md:pl-10 space-y-6'>
+            <div className='absolute left-0 md:left-0 top-3 bottom-3 w-[2px] bg-[#0C121E]/20'></div>
 
-        {experiences.map((exp, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-          >
-            <ExperienceCard
-              period={exp.period}
-              role={exp.role}
-              company={exp.company}
-              link={exp.link}
-              badge={exp.badge}
-              tasks={exp.tasks}
-              lang={lang}
-            />
-          </motion.div>
-        ))}
-      </div>
-    </section>
+            <motion.div
+              style={{ height: lineHeight }}
+              className='absolute left-0 md:left-0 top-3 w-[2px] bg-[#0C121E]'
+            ></motion.div>
+
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <ExperienceCard
+                  period={exp.period}
+                  role={exp.role}
+                  company={exp.company}
+                  link={exp.link}
+                  badge={exp.badge}
+                  tasks={exp.tasks}
+                  lang={lang}
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div
+        className='w-full h-16 md:h-24 bg-[#F4F5F7]'
+        style={{
+          clipPath: 'polygon(0 0, 100% 0, 100% 25%, 0 100%)',
+        }}
+      />
+    </div>
   );
 };

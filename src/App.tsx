@@ -24,7 +24,7 @@ const App = (): JSX.Element => {
   const t = translations[currentLang];
 
   return (
-    <div className='bg-[#282C33] text-[#CCCCCC] font-mono min-h-screen relative selection:bg-[#007ACC] selection:text-white'>
+    <div className='bg-[#F4F5F7]  font-mono min-h-screen relative selection:bg-[#007ACC] selection:text-white'>
       <BackgroundAccents lang={currentLang} t={t} />
       <Navbar
         currentLang={currentLang}

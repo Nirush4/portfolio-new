@@ -91,257 +91,248 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
   };
 
   return (
-    <section
+    <div
       id='contacts'
-      className='max-w-6xl mx-auto px-6 py-20 font-mono'
-      aria-labelledby='contact-section-heading'
+      className='relative w-full font-mono overflow-hidden bg-[#0B1220]'
     >
-      <div className='flex items-center gap-4 w-full max-w-md mb-12'>
-        <h2
-          id='contact-section-heading'
-          className='text-white text-2xl md:text-3xl font-medium'
-        >
-          <span className='text-[#C586C0]' aria-hidden='true'>
-            #
-          </span>
-          {lang === 'NO' ? 'kontakt-meg' : 'contact-me'}
-        </h2>
-        <div
-          className='h-[1px] bg-[#C778DD] flex-grow'
-          aria-hidden='true'
-        ></div>
-      </div>
-
-      <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 items-start'>
-        <div
-          style={{
-            backgroundColor: 'color-mix(in oklab, #1b1924 95%, transparent)',
-          }}
-          className='lg:col-span-5 border border-[#30363D] hover:border-[#C586C0] transition-all shadow-xl flex flex-col justify-between overflow-hidden'
-        >
-          <div
-            style={{
-              backgroundColor: 'color-mix(in oklab, #0d1117 95%, transparent)',
-            }}
-            className='px-4 py-3 border-b border-[#30363D] flex items-center justify-between'
-          >
-            <div className='flex items-center gap-2' aria-hidden='true'>
-              <span className='w-2.5 h-2.5 rounded-full bg-[#FF5F56]/80'></span>
-              <span className='w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/80'></span>
-              <span className='w-2.5 h-2.5 rounded-full bg-[#27C93F]/80'></span>
-            </div>
-            <span className='text-[11px] font-medium tracking-wider text-[#F2CC60] bg-[#21262D] px-2.5 py-0.5 border border-[#30363D] rounded font-sans'>
-              {lang === 'NO' ? 'tilgjengelighet.tsx' : 'availability.tsx'}
-            </span>
+      <section
+        className='bg-[#0B1220] py-16 px-6 text-[#8F9BAE] relative z-10'
+        aria-labelledby='contact-section-heading'
+      >
+        <div className='max-w-6xl mx-auto'>
+          <div className='flex items-center gap-4 w-full max-w-md mb-12'>
+            <h2
+              id='contact-section-heading'
+              className='text-white text-2xl md:text-4xl font-black tracking-tight'
+            >
+              <span
+                className='text-[rgb(237,242,81)] bg-[#0C121E] border border-[#1E293B] px-2 py-0.5 mr-2'
+                aria-hidden='true'
+              >
+                #
+              </span>
+              {lang === 'NO' ? 'kontakt-meg' : 'contact-me'}
+            </h2>
+            <div
+              className='h-[2px] bg-[#1E293B] flex-grow'
+              aria-hidden='true'
+            ></div>
           </div>
 
-          <div className='p-6 md:p-8 flex flex-col justify-center space-y-6'>
-            <div className='space-y-3 font-sans'>
-              <p className='text-white font-bold text-xl md:text-2xl tracking-tight leading-snug'>
-                {lang === 'NO'
-                  ? 'La oss skape noe sammen'
-                  : 'Let’s build something together'}
-              </p>
-              <p className='text-sm md:text-base text-[#8B949E] leading-relaxed'>
-                {lang === 'NO'
-                  ? 'Jeg er interessert i nye muligheter som frontend-utvikler eller designer. Har du en spennende forespørsel, et prosjekt, eller ønsker du bare å slå av en prat? Ta gjerne kontakt via skjemaet!'
-                  : 'I am interested in new opportunities as a frontend developer or designer. Whether you have an exciting query, a project, or just want to connect, feel free to drop a message using the form!'}
-              </p>
-            </div>
-
-            <div className='border border-[#30363D] bg-[#0d1117]/60 p-4 rounded space-y-2 font-sans'>
-              <div className='flex items-center gap-2 text-xs font-mono text-[#7EE787]'>
-                <span
-                  className='w-2 h-2 bg-[#7EE787] rounded-full animate-pulse'
-                  aria-hidden='true'
-                ></span>
-                <span>
-                  {lang === 'NO'
-                    ? 'Status: Klar for nye utfordringer'
-                    : 'Status: Open for new opportunities'}
+          <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 items-start'>
+            <div className='lg:col-span-5 bg-[#121A2C] border border-[#1E293B] hover:border-[rgb(237,242,81)]/80 transition-all rounded-none shadow-xl flex flex-col justify-between overflow-hidden'>
+              <div className='px-4 py-3 bg-[#0C121E] border-b border-[#1E293B] flex items-center justify-between'>
+                <div className='flex items-center gap-2' aria-hidden='true'>
+                  <span className='w-2.5 h-2.5 bg-[#FF5F56]/80'></span>
+                  <span className='w-2.5 h-2.5 bg-[#FFBD2E]/80'></span>
+                  <span className='w-2.5 h-2.5 bg-[#27C93F]/80'></span>
+                </div>
+                <span className='text-[10px] lowercase font-bold tracking-widest text-[rgb(237,242,81)] bg-[#0C121E] px-2.5 py-0.5 rounded-none border border-[#1E293B] font-mono'>
+                  {lang === 'NO' ? 'tilgjengelighet.tsx' : 'availability.tsx'}
                 </span>
               </div>
-              <p className='text-xs text-[#8B949E]'>
-                {lang === 'NO'
-                  ? 'Svarer vanligvis innen 24 timer på virkedager.'
-                  : 'Typically responds within 24 hours on business days.'}
-              </p>
-            </div>
-          </div>
-        </div>
 
-        <div
-          style={{
-            backgroundColor: 'color-mix(in oklab, #1b1924 95%, transparent)',
-          }}
-          className='lg:col-span-7 border border-[#30363D] shadow-2xl overflow-hidden flex flex-col relative ring-2 ring-[#C586C0]/30'
-        >
-          <div
-            style={{
-              backgroundColor: 'color-mix(in oklab, #0d1117 95%, transparent)',
-            }}
-            className='px-4 py-3 border-b border-[#30363D] flex items-center justify-between pr-24 sm:pr-4'
-          >
-            <div className='flex items-center gap-2' aria-hidden='true'>
-              <span className='w-2.5 h-2.5 rounded-full bg-[#FF5F56]/80'></span>
-              <span className='w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/80'></span>
-              <span className='w-2.5 h-2.5 rounded-full bg-[#27C93F]/80'></span>
-            </div>
-            <span className='text-[11px] font-medium tracking-wider text-[#F2CC60] bg-[#21262D] px-2.5 py-0.5 border border-[#30363D] rounded font-sans'>
-              {lang == 'NO' ? 'kontakt.tsx' : 'contact.tsx'}
-            </span>
-          </div>
-
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className='p-6 md:p-8 space-y-5 flex-grow flex flex-col justify-between'
-            noValidate
-          >
-            <div className='space-y-4'>
-              <div>
-                <label
-                  htmlFor='contact-name'
-                  className='block mb-2 text-xs text-[#C9D1D9] uppercase tracking-wider font-mono font-semibold'
-                >
-                  {lang === 'NO' ? 'Navn' : 'Name'}{' '}
-                  <span className='text-[#FF5F56]' aria-hidden='true'>
-                    *
-                  </span>
-                </label>
-                <input
-                  id='contact-name'
-                  type='text'
-                  aria-required='true'
-                  aria-invalid={errors.name ? 'true' : 'false'}
-                  {...register('name')}
-                  className={`w-full px-4 py-3 text-sm bg-[#0d1117] text-white border rounded outline-none font-sans transition-all shadow-inner ${
-                    errors.name
-                      ? 'border-[#FF5F56] ring-1 ring-[#FF5F56]'
-                      : 'border-[#30363D] hover:border-[#C586C0]/50 focus:border-[#C586C0] focus:ring-1 focus:ring-[#C586C0]'
-                  }`}
-                  placeholder={lang === 'NO' ? 'Ola Nordmann' : 'John Doe'}
-                />
-                {errors.name && (
-                  <p
-                    className='mt-1 text-xs text-[#FF5F56] font-sans'
-                    role='alert'
-                  >
-                    {errors.name.message}
+              <div className='p-6 md:p-8 flex flex-col justify-center space-y-6'>
+                <div className='space-y-3 font-sans'>
+                  <p className='text-white font-bold text-xl md:text-2xl tracking-tight leading-snug'>
+                    {lang === 'NO'
+                      ? 'La oss skape noe sammen'
+                      : 'Let’s build something together'}
                   </p>
-                )}
-              </div>
-
-              <div>
-                <label
-                  htmlFor='contact-email'
-                  className='block mb-2 text-xs text-[#C9D1D9] uppercase tracking-wider font-mono font-semibold'
-                >
-                  E-post{' '}
-                  <span className='text-[#FF5F56]' aria-hidden='true'>
-                    *
-                  </span>
-                </label>
-                <input
-                  id='contact-email'
-                  type='email'
-                  aria-required='true'
-                  aria-invalid={errors.email ? 'true' : 'false'}
-                  {...register('email')}
-                  className={`w-full px-4 py-3 text-sm bg-[#0d1117] text-white border rounded outline-none font-sans transition-all shadow-inner ${
-                    errors.email
-                      ? 'border-[#FF5F56] ring-1 ring-[#FF5F56]'
-                      : 'border-[#30363D] hover:border-[#C586C0]/50 focus:border-[#C586C0] focus:ring-1 focus:ring-[#C586C0]'
-                  }`}
-                  placeholder='you@example.com'
-                />
-                {errors.email && (
-                  <p
-                    className='mt-1 text-xs text-[#FF5F56] font-sans'
-                    role='alert'
-                  >
-                    {errors.email.message}
+                  <p className='text-xs md:text-sm text-[#8F9BAE] leading-relaxed'>
+                    {lang === 'NO'
+                      ? 'Jeg er interessert i nye muligheter som frontend-utvikler eller designer. Har du en spennende forespørsel, et prosjekt, eller ønsker du bare å slå av en prat? Ta gjerne kontakt via skjemaet!'
+                      : 'I am interested in new opportunities as a frontend developer or designer. Whether you have an exciting query, a project, or just want to connect, feel free to drop a message using the form!'}
                   </p>
-                )}
-              </div>
-
-              <div>
-                <label
-                  htmlFor='contact-message'
-                  className='block mb-2 text-xs text-[#C9D1D9] uppercase tracking-wider font-mono font-semibold'
-                >
-                  {lang === 'NO' ? 'Melding' : 'Message'}{' '}
-                  <span className='text-[#FF5F56]' aria-hidden='true'>
-                    *
-                  </span>
-                </label>
-                <textarea
-                  id='contact-message'
-                  rows={4}
-                  aria-required='true'
-                  aria-invalid={errors.message ? 'true' : 'false'}
-                  {...register('message')}
-                  className={`w-full px-4 py-3 text-sm bg-[#0d1117] text-white border rounded outline-none font-sans transition-all resize-none shadow-inner ${
-                    errors.message
-                      ? 'border-[#FF5F56] ring-1 ring-[#FF5F56]'
-                      : 'border-[#30363D] hover:border-[#C586C0]/50 focus:border-[#C586C0] focus:ring-1 focus:ring-[#C586C0]'
-                  }`}
-                  placeholder={
-                    lang === 'NO'
-                      ? 'Skriv din melding her...'
-                      : 'Write your message here...'
-                  }
-                />
-                {errors.message && (
-                  <p
-                    className='mt-1 text-xs text-[#FF5F56] font-sans'
-                    role='alert'
-                  >
-                    {errors.message.message}
-                  </p>
-                )}
-              </div>
-            </div>
-
-            <div className='pt-3'>
-              <button
-                type='submit'
-                disabled={isSubmitting}
-                className='w-full py-3 px-4 border border-[#C586C0] bg-[#C586C0] text-[#0D1117] text-sm font-bold font-sans hover:bg-[#c586c0d9] hover:text-white transition-all flex items-center justify-center gap-2 rounded shadow-md cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-[#C586C0] focus:ring-offset-2 focus:ring-offset-[#1b1924]'
-                aria-label={lang === 'NO' ? 'Send melding' : 'Send message'}
-              >
-                {isSubmitting ? (
-                  <span>
-                    {lang === 'NO' ? 'Sender melding...' : 'Sending message...'}
-                  </span>
-                ) : (
-                  <>
-                    <span>
-                      {lang === 'NO' ? 'Send melding' : 'Send Message'}
-                    </span>
-                    <span className='font-mono'>~~&gt;</span>
-                  </>
-                )}
-              </button>
-
-              {resultMessage && (
-                <div
-                  role='status'
-                  aria-live='polite'
-                  className={`mt-4 text-xs md:text-sm p-3 font-mono border text-center rounded ${
-                    statusType === 'success'
-                      ? 'bg-[#27C93F]/10 text-[#7EE787] border-[#27C93F]/40'
-                      : statusType === 'error'
-                      ? 'bg-[#FF5F56]/10 text-[#FF5F56] border-[#FF5F56]/40'
-                      : 'bg-[#79C0FF]/10 text-[#79C0FF] border-[#79C0FF]/40'
-                  }`}
-                >
-                  {resultMessage}
                 </div>
-              )}
+
+                <div className='border border-[#1E293B] bg-[#0C121E] p-4 rounded-none space-y-2 font-mono'>
+                  <div className='flex items-center gap-2 text-xs text-[rgb(237,242,81)] font-bold'>
+                    <span
+                      className='w-2 h-2 bg-[rgb(237,242,81)] rounded-full animate-pulse'
+                      aria-hidden='true'
+                    ></span>
+                    <span>
+                      {lang === 'NO'
+                        ? 'Status: Klar for nye utfordringer'
+                        : 'Status: Open for new opportunities'}
+                    </span>
+                  </div>
+                  <p className='text-xs text-[#8F9BAE] font-sans'>
+                    {lang === 'NO'
+                      ? 'Svarer vanligvis innen 24 timer på virkedager.'
+                      : 'Typically responds within 24 hours on business days.'}
+                  </p>
+                </div>
+              </div>
             </div>
-          </form>
+
+            <div className='lg:col-span-7 bg-[#121A2C] border border-[#1E293B] rounded-none shadow-xl overflow-hidden flex flex-col relative'>
+              <div className='px-4 py-3 bg-[#0C121E] border-b border-[#1E293B] flex items-center justify-between'>
+                <div className='flex items-center gap-2' aria-hidden='true'>
+                  <span className='w-2.5 h-2.5 bg-[#FF5F56]/80'></span>
+                  <span className='w-2.5 h-2.5 bg-[#FFBD2E]/80'></span>
+                  <span className='w-2.5 h-2.5 bg-[#27C93F]/80'></span>
+                </div>
+                <span className='text-[10px] lowercase font-bold tracking-widest text-[rgb(237,242,81)] bg-[#0C121E] px-2.5 py-0.5 rounded-none border border-[#1E293B] font-mono'>
+                  {lang === 'NO' ? 'kontakt.tsx' : 'contact.tsx'}
+                </span>
+              </div>
+
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className='p-6 md:p-8 space-y-5 flex-grow flex flex-col justify-between'
+                noValidate
+              >
+                <div className='space-y-4'>
+                  <div>
+                    <label
+                      htmlFor='contact-name'
+                      className='block mb-2 text-xs text-white tracking-wider font-mono font-bold'
+                    >
+                      {lang === 'NO' ? 'Navn' : 'Name'}{' '}
+                      <span className='text-[#FF5F56]' aria-hidden='true'>
+                        *
+                      </span>
+                    </label>
+                    <input
+                      id='contact-name'
+                      type='text'
+                      aria-required='true'
+                      aria-invalid={errors.name ? 'true' : 'false'}
+                      {...register('name')}
+                      className={`w-full px-4 py-3 text-xs md:text-sm font-mono text-white bg-[#0C121E] border rounded-none outline-none transition-colors placeholder-[#8F9BAE]/50 ${
+                        errors.name
+                          ? 'border-[#FF5F56] ring-1 ring-[#FF5F56]'
+                          : 'border-[#1E293B] focus:border-[rgb(237,242,81)]'
+                      }`}
+                      placeholder={lang === 'NO' ? 'Ola Nordmann' : 'John Doe'}
+                    />
+                    {errors.name && (
+                      <p
+                        className='mt-1 text-xs text-[#FF5F56] font-mono'
+                        role='alert'
+                      >
+                        {errors.name.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor='contact-email'
+                      className='block mb-2 text-xs text-white tracking-wider font-mono font-bold'
+                    >
+                      E-post{' '}
+                      <span className='text-[#FF5F56]' aria-hidden='true'>
+                        *
+                      </span>
+                    </label>
+                    <input
+                      id='contact-email'
+                      type='email'
+                      aria-required='true'
+                      aria-invalid={errors.email ? 'true' : 'false'}
+                      {...register('email')}
+                      className={`w-full px-4 py-3 text-xs md:text-sm font-mono text-white bg-[#0C121E] border rounded-none outline-none transition-colors placeholder-[#8F9BAE]/50 ${
+                        errors.email
+                          ? 'border-[#FF5F56] ring-1 ring-[#FF5F56]'
+                          : 'border-[#1E293B] focus:border-[rgb(237,242,81)]'
+                      }`}
+                      placeholder='you@example.com'
+                    />
+                    {errors.email && (
+                      <p
+                        className='mt-1 text-xs text-[#FF5F56] font-mono'
+                        role='alert'
+                      >
+                        {errors.email.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor='contact-message'
+                      className='block mb-2 text-xs text-white tracking-wider font-mono font-bold'
+                    >
+                      {lang === 'NO' ? 'Melding' : 'Message'}{' '}
+                      <span className='text-[#FF5F56]' aria-hidden='true'>
+                        *
+                      </span>
+                    </label>
+                    <textarea
+                      id='contact-message'
+                      rows={4}
+                      aria-required='true'
+                      aria-invalid={errors.message ? 'true' : 'false'}
+                      {...register('message')}
+                      className={`w-full px-4 py-3 text-xs md:text-sm font-mono text-white bg-[#0C121E] border rounded-none outline-none transition-colors resize-none placeholder-[#8F9BAE]/50 ${
+                        errors.message
+                          ? 'border-[#FF5F56] ring-1 ring-[#FF5F56]'
+                          : 'border-[#1E293B] focus:border-[rgb(237,242,81)]'
+                      }`}
+                      placeholder={
+                        lang === 'NO'
+                          ? 'Skriv din melding her...'
+                          : 'Write your message here...'
+                      }
+                    />
+                    {errors.message && (
+                      <p
+                        className='mt-1 text-xs text-[#FF5F56] font-mono'
+                        role='alert'
+                      >
+                        {errors.message.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className='pt-3'>
+                  <button
+                    type='submit'
+                    disabled={isSubmitting}
+                    className='w-full py-3 px-6 bg-[rgb(237,242,81)] text-[#0C121E] font-bold border-2 border-[#0C121E] text-xs font-mono rounded-none shadow-[3px_3px_0px_0px_rgba(12,18,30,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(12,18,30,1)] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-[#0C121E]'
+                    aria-label={lang === 'NO' ? 'Send melding' : 'Send message'}
+                  >
+                    {isSubmitting ? (
+                      <span>
+                        {lang === 'NO'
+                          ? 'Sender melding...'
+                          : 'Sending message...'}
+                      </span>
+                    ) : (
+                      <>
+                        <span>
+                          {lang === 'NO' ? 'Send melding' : 'Send Message'}
+                        </span>
+                        <span className='font-mono'>~~&gt;</span>
+                      </>
+                    )}
+                  </button>
+
+                  {resultMessage && (
+                    <div
+                      role='status'
+                      aria-live='polite'
+                      className={`mt-4 text-xs font-mono p-3 border text-center rounded-none ${
+                        statusType === 'success'
+                          ? 'bg-[#0C121E] text-[rgb(237,242,81)] border-[rgb(237,242,81)]'
+                          : statusType === 'error'
+                          ? 'bg-[#0C121E] text-[#FF5F56] border-[#FF5F56]'
+                          : 'bg-[#0C121E] text-white border-[#1E293B]'
+                      }`}
+                    >
+                      {resultMessage}
+                    </div>
+                  )}
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };

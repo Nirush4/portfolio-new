@@ -37,51 +37,30 @@ export const ProjectCard = ({
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: 'color-mix(in oklab, #1b1924 95%, transparent)',
-      }}
-      className='border border-[#30363D] flex flex-col justify-between overflow-hidden group font-mono shadow-xl transition-all duration-300 hover:border-[#C586C0]/60 hover:-translate-y-1'
-    >
-      {/* Thumbnail Header */}
-      <div
-        style={{
-          backgroundColor: 'color-mix(in oklab, #0d1117 95%, transparent)',
-        }}
-        className='h-48 border-b border-[#30363D] overflow-hidden relative'
-      >
+    <div className='bg-[#0C121E] border-2 border-[#0C121E] flex flex-col justify-between overflow-hidden group font-mono shadow-[4px_4px_0px_0px_rgba(12,18,30,0.8)] transition-all duration-300 hover:-translate-y-1 rounded-none text-white'>
+      <div className='h-48 bg-[#070B14] border-b-2 border-[#0C121E] overflow-hidden relative'>
         <div className='absolute top-3 left-3 flex items-center gap-1.5 z-10'>
-          <span className='w-2.5 h-2.5 rounded-full bg-[#FF5F56]/80 inline-block'></span>
-          <span className='w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/80 inline-block'></span>
-          <span className='w-2.5 h-2.5 rounded-full bg-[#27C93F]/80 inline-block'></span>
+          <span className='w-2.5 h-2.5 bg-[#FF5F56] inline-block'></span>
+          <span className='w-2.5 h-2.5 bg-[#FFBD2E] inline-block'></span>
+          <span className='w-2.5 h-2.5 bg-[#27C93F] inline-block'></span>
         </div>
         <img
           src={project.thumbnail}
           alt={project.name}
           className='w-full h-full object-cover group-hover:scale-105 transition-all duration-300 pt-8 opacity-95 group-hover:opacity-100'
         />
-        <div
-          style={{
-            backgroundColor: 'color-mix(in oklab, #161B22 90%, transparent)',
-          }}
-          className='absolute top-2.5 right-3 backdrop-blur-md border border-[#30363D] px-2.5 py-1 text-[11px] text-[#F2CC60] uppercase tracking-wider rounded font-sans font-medium shadow-sm'
-        >
+        <div className='absolute top-2.5 right-3 bg-[rgb(237,242,81)] text-[#0C121E] px-2.5 py-1 text-[10px] tracking-widest font-black border border-[#0C121E]'>
           {project.category}
         </div>
       </div>
 
-      <div
-        style={{
-          backgroundColor: 'color-mix(in oklab, #0d1117 60%, transparent)',
-        }}
-        className='px-4 py-2.5 border-b border-[#30363D] flex flex-wrap gap-1.5'
-      >
+      <div className='px-4 py-2.5 bg-[#121A2C] border-b border-[#1E293B] flex flex-wrap gap-1.5'>
         {isCoding &&
           codingData &&
           (codingData.technologies || []).map((tech, i) => (
             <span
               key={i}
-              className='text-[11px] px-2 py-0.5 bg-[#21262D] text-[#79C0FF] border border-[#30363D] rounded'
+              className='text-[10px] px-2 py-0.5 bg-[#0C121E] text-[#8F9BAE] border border-[#1E293B] tracking-wider font-bold'
             >
               {tech}
             </span>
@@ -91,7 +70,7 @@ export const ProjectCard = ({
           (graphicData.tools || []).map((tool, i) => (
             <span
               key={i}
-              className='text-[11px] px-2 py-0.5 bg-[#21262D] text-[#7EE787] border border-[#30363D] rounded'
+              className='text-[10px] px-2 py-0.5 bg-[#0C121E] text-[rgb(237,242,81)] border border-[#1E293B] tracking-wider font-bold'
             >
               {tool}
             </span>
@@ -101,15 +80,15 @@ export const ProjectCard = ({
       <div className='p-5 flex-grow flex flex-col justify-between space-y-4'>
         <div>
           {!isCoding && graphicData && graphicData.projectType && (
-            <span className='text-[11px] text-[#79C0FF] uppercase tracking-wider block mb-1 font-sans font-semibold'>
+            <span className='text-[10px] text-[rgb(237,242,81)] tracking-widest block mb-1 font-extrabold'>
               {graphicData.projectType[lang]}
             </span>
           )}
-          <h3 className='text-white text-xl font-bold font-sans tracking-tight line-clamp-1'>
+          <h3 className='text-white text-lg font-black tracking-tight line-clamp-1'>
             {project.name}
           </h3>
 
-          <p className='text-xs md:text-sm text-[#8B949E] mt-2.5 leading-relaxed line-clamp-3 font-sans'>
+          <p className='text-xs text-[#8F9BAE] mt-2.5 leading-relaxed line-clamp-3'>
             {project.description[lang]}
           </p>
 
@@ -117,8 +96,8 @@ export const ProjectCard = ({
             graphicData &&
             graphicData.colors &&
             graphicData.colors.length > 0 && (
-              <div className='mt-4 flex items-center gap-2 pt-3 border-t border-[#30363D]/60'>
-                <span className='text-[11px] text-[#8B949E] font-sans mr-1'>
+              <div className='mt-4 flex items-center gap-2 pt-3 border-t border-[#1E293B]'>
+                <span className='text-[10px] text-[#8F9BAE] tracking-wider mr-1 font-bold'>
                   {lang === 'NO' ? 'Palett:' : 'Palette:'}
                 </span>
                 {graphicData.colors.map((c, idx) => (
@@ -127,7 +106,7 @@ export const ProjectCard = ({
                     role='img'
                     aria-label={`Color swatch: ${c.name}`}
                     title={c.name}
-                    className='w-4 h-4 rounded-full border border-white/20 inline-block shadow-sm'
+                    className='w-3.5 h-3.5 border border-white/30 inline-block shadow-sm'
                     style={{ backgroundColor: c.value }}
                   ></span>
                 ))}
@@ -135,10 +114,10 @@ export const ProjectCard = ({
             )}
         </div>
 
-        <div className='space-y-3 pt-3 border-t border-[#30363D]'>
+        <div className='space-y-2.5 pt-3 border-t border-[#1E293B]'>
           <button
             onClick={handleCaseStudyClick}
-            className='w-full py-2.5 px-4 border cursor-pointer border-[#C586C0]/50 bg-[#C586C0]/10 text-white text-xs font-semibold font-sans hover:bg-[#C586C0] hover:text-[#0D1117] transition-all flex items-center justify-center gap-2 rounded shadow-sm'
+            className='w-full py-2.5 px-4 cursor-pointer bg-white text-[#0C121E] text-xs font-black tracking-widest hover:bg-[rgb(237,242,8)] transition-all flex items-center justify-center gap-2 rounded-none'
           >
             <span>{lang === 'NO' ? 'Se saksstudie' : 'View Case Study'}</span>
             <span className='font-mono'>~~&gt;</span>
@@ -152,7 +131,7 @@ export const ProjectCard = ({
                     href={codingData.live}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex-1 text-center py-2 border border-[#30363D] bg-[#21262D] text-[#C9D1D9] text-xs font-sans hover:border-[#C586C0] hover:text-[#C586C0] transition-colors rounded shadow-sm'
+                    className='flex-1 text-center py-2 border border-[#1E293B] bg-[#121A2C] text-[#8F9BAE] text-[11px] tracking-wider hover:border-[#8F9BAE] hover:text-white transition-colors font-bold'
                   >
                     {lang === 'NO' ? 'Direkte demo ↗' : 'Live Demo ↗'}
                   </a>
@@ -162,7 +141,7 @@ export const ProjectCard = ({
                     href={codingData.github}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex-1 text-center py-2 border border-[#30363D] bg-[#21262D] text-[#8B949E] text-xs font-sans hover:border-[#8B949E] hover:text-white transition-colors rounded shadow-sm'
+                    className='flex-1 text-center py-2 border border-[#1E293B] bg-[#121A2C] text-[#8F9BAE] text-[11px] tracking-wider hover:border-[#8F9BAE] hover:text-white transition-colors font-bold'
                   >
                     {lang === 'NO' ? 'GitHub kode' : 'GitHub Code'}
                   </a>
@@ -177,7 +156,7 @@ export const ProjectCard = ({
                     href={graphicData.behance}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex-1 text-center py-2 border border-[#30363D] bg-[#21262D] text-[#C9D1D9] text-xs font-sans hover:border-[#C586C0] hover:text-[#C586C0] transition-colors rounded shadow-sm'
+                    className='flex-1 text-center py-2 border border-[#1E293B] bg-[#121A2C] text-[#8F9BAE] text-[11px] tracking-wider hover:border-[#8F9BAE] hover:text-white transition-colors font-bold'
                   >
                     Behance ↗
                   </a>
@@ -187,7 +166,7 @@ export const ProjectCard = ({
                     href={graphicData.figma}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex-1 text-center py-2 border border-[#30363D] bg-[#21262D] text-[#8B949E] text-xs font-sans hover:border-[#8B949E] hover:text-white transition-colors rounded shadow-sm'
+                    className='flex-1 text-center py-2 border border-[#1E293B] bg-[#121A2C] text-[#8F9BAE] text-[11px] tracking-wider hover:border-[#8F9BAE] hover:text-white transition-colors font-bold'
                   >
                     {lang === 'NO' ? 'Figma-fil' : 'Figma File'}
                   </a>
