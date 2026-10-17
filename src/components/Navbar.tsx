@@ -75,7 +75,7 @@ export const Navbar = ({
 
         <nav
           aria-label='Main Navigation'
-          className='hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-wider'
+          className='hidden lg:flex items-center gap-8 text-sm font-bold tracking-wider'
         >
           <div className='flex items-center gap-6'>
             <a
@@ -112,12 +112,12 @@ export const Navbar = ({
             </a>
           </div>
 
-          <div className='flex items-center gap-2 bg-[#0C121E] border border-[#1E293B] px-3 py-1.5 text-xs rounded-none shadow-sm hover:border-[rgb(237,242,81)]/50 transition-colors'>
+          <div className='flex items-center gap-2 bg-[#0C121E] border border-[#34445e] px-3 py-1.5 text-xs rounded-none shadow-sm hover:border-[rgb(237,242,81)]/50 transition-colors'>
             <span className='text-[#8F9BAE] font-bold'>LANG:</span>
             <select
               id='language-select'
               aria-label='Select Language'
-              className='bg-[#0B1220] border border-[#1E293B] text-[rgb(237,242,81)] px-2 py-0.5 focus:outline-none focus:ring-1 focus:ring-[rgb(237,242,81)] cursor-pointer font-black tracking-wider transition-colors hover:border-[rgb(237,242,81)]'
+              className='bg-[#0B1220] border border-[#34445e] text-[rgb(237,242,81)] px-2 py-0.5 focus:outline-none focus:ring-1 focus:ring-[rgb(237,242,81)] cursor-pointer font-black tracking-wider transition-colors hover:border-[rgb(237,242,81)]'
               value={currentLang}
               onChange={(e) => onLanguageChange(e.target.value as 'NO' | 'EN')}
             >
