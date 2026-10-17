@@ -103,7 +103,7 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
           <div className='flex items-center gap-4 w-full max-w-md mb-12'>
             <h2
               id='contact-section-heading'
-              className='text-white text-2xl md:text-4xl font-black uppercase tracking-tight'
+              className='text-white text-2xl md:text-4xl font-black tracking-tight'
             >
               <span
                 className='text-[rgb(237,242,81)] bg-[#0C121E] border border-[#1E293B] px-2 py-0.5 mr-2'
@@ -188,7 +188,7 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
                   <div>
                     <label
                       htmlFor='contact-name'
-                      className='block mb-2 text-xs text-white uppercase tracking-wider font-mono font-bold'
+                      className='block mb-2 text-xs text-white tracking-wider font-mono font-bold'
                     >
                       {lang === 'NO' ? 'Navn' : 'Name'}{' '}
                       <span className='text-[#FF5F56]' aria-hidden='true'>
@@ -221,7 +221,7 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
                   <div>
                     <label
                       htmlFor='contact-email'
-                      className='block mb-2 text-xs text-white uppercase tracking-wider font-mono font-bold'
+                      className='block mb-2 text-xs text-white tracking-wider font-mono font-bold'
                     >
                       E-post{' '}
                       <span className='text-[#FF5F56]' aria-hidden='true'>
@@ -254,7 +254,7 @@ export const ContactSection = ({ lang }: ContactSectionProps): JSX.Element => {
                   <div>
                     <label
                       htmlFor='contact-message'
-                      className='block mb-2 text-xs text-white uppercase tracking-wider font-mono font-bold'
+                      className='block mb-2 text-xs text-white tracking-wider font-mono font-bold'
                     >
                       {lang === 'NO' ? 'Melding' : 'Message'}{' '}
                       <span className='text-[#FF5F56]' aria-hidden='true'>
