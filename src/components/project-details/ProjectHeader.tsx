@@ -12,8 +12,8 @@ export const ProjectHeader = ({
   description,
 }: ProjectHeaderProps): JSX.Element => (
   <header className='space-y-3 font-mono'>
-    <h1 className='text-white text-3xl md:text-5xl font-extrabold tracking-tight font-sans'>
-      <span className='text-[#C778DD]' aria-hidden='true'>
+    <h1 className='text-white text-3xl md:text-4xl font-extrabold tracking-tight font-sans'>
+      <span className='text-[rgb(237,242,81)]' aria-hidden='true'>
         &gt;
       </span>{' '}
       {name}
