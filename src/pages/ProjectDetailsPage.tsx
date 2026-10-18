@@ -66,36 +66,38 @@ export const ProjectDetailsPage = ({
         title={
           lang === 'NO' ? 'Gå tilbake til prosjekter' : 'Go back to projects'
         }
-        className='inline-flex items-center gap-2 hover:text-[#C586C0] transition-colors group cursor-pointer bg-[#21262D] px-4 py-2 rounded-lg border border-[#30363D] hover:border-[#C586C0] shadow-sm'
+        className='inline-flex items-center gap-2 hover:text-[rgb(237,242,81)] transition-colors group cursor-pointer bg-[#0C121E] px-4 py-2 rounded-none border border-[#1E293B] hover:border-[rgb(237,242,81)] shadow-sm'
       >
-        <span className='text-[#C586C0] group-hover:-translate-x-1 transition-transform'>
+        <span className='text-[rgb(237,242,81)] group-hover:-translate-x-1 transition-transform'>
           &larr;
         </span>
         <span className='text-sm font-bold'>
           {lang === 'NO' ? 'Tilbake til Prosjekter' : 'Back to Projects'}
         </span>
-        <span className='text-xs text-[#8B949E] hidden sm:inline font-mono'>
+        <span className='text-xs text-[#8F9BAE] hidden sm:inline font-mono'>
           (cd /portfolio/projects)
         </span>
       </Link>
 
       <div className='flex items-center gap-3'>
         {!isBottom && (
-          <span className='hidden sm:inline-block font-mono text-[11px] text-[#F2CC60] bg-[#161B22] px-3 py-1.5 rounded-lg border border-[#30363D]'>
+          <span className='hidden sm:inline-block font-mono text-[11px] text-[rgb(237,242,81)] bg-[#0C121E] px-3 py-1.5 rounded-none border border-[#1E293B]'>
             case-study / id-{project?.id}
           </span>
         )}
 
         <button
           onClick={() => handleCopyUrl(isBottom)}
-          className='inline-flex items-center gap-2 px-4 py-2 bg-[#21262D] hover:bg-[#30363D] text-white border border-[#4f5964] hover:border-[#C586C0] text-xs font-mono rounded-lg transition-all cursor-pointer shadow-md'
+          className='inline-flex items-center gap-2 px-4 py-2 bg-[#0C121E] hover:bg-[#1E293B] text-white border border-[#1E293B] hover:border-[rgb(237,242,81)] text-xs font-mono rounded-none transition-all cursor-pointer shadow-md'
           title='Copy Project URL'
         >
           {isBottom ? (
             bottomCopied ? (
               <>
-                <span className='text-[#27C93F] font-bold'>✓</span>
-                <span className='text-[#27C93F] font-bold'>Link Copied!</span>
+                <span className='text-[rgb(237,242,81)] font-bold'>✓</span>
+                <span className='text-[rgb(237,242,81)] font-bold'>
+                  Link Copied!
+                </span>
               </>
             ) : (
               <>
@@ -105,8 +107,10 @@ export const ProjectDetailsPage = ({
             )
           ) : copied ? (
             <>
-              <span className='text-[#27C93F] font-bold'>✓</span>
-              <span className='text-[#27C93F] font-bold'>Link Copied!</span>
+              <span className='text-[rgb(237,242,81)] font-bold'>✓</span>
+              <span className='text-[rgb(237,242,81)] font-bold'>
+                Link Copied!
+              </span>
             </>
           ) : (
             <>
@@ -121,17 +125,12 @@ export const ProjectDetailsPage = ({
 
   if (!project) {
     return (
-      <div className='max-w-3xl mx-auto px-6 py-32 text-center font-mono text-white'>
-        <div
-          style={{
-            backgroundColor: 'color-mix(in oklab, #1b1924 95%, transparent)',
-          }}
-          className='border border-[#30363D] p-8 rounded-2xl shadow-2xl'
-        >
+      <div className='max-w-3xl mx-auto px-6 py-32 text-center font-mono text-white bg-[#0B1220]'>
+        <div className='border border-[#1E293B] bg-[#121A2C] p-8 rounded-none shadow-2xl'>
           <h2 className='text-3xl font-bold text-[#FF5F56] mb-3'>
             404 // Project Not Found
           </h2>
-          <p className='text-[#8B949E] mb-6 font-sans text-sm'>
+          <p className='text-[#8F9BAE] mb-6 font-sans text-sm'>
             The project workspace you are trying to access doesn&apos;t exist or
             has been relocated.
           </p>
@@ -143,9 +142,9 @@ export const ProjectDetailsPage = ({
                 ? 'Gå tilbake til prosjekter'
                 : 'Go back to projects'
             }
-            className='inline-flex items-center gap-2 hover:text-[#C586C0] transition-colors group cursor-pointer bg-[#21262D] px-4 py-2 rounded-lg border border-[#30363D]'
+            className='inline-flex items-center gap-2 hover:text-[rgb(237,242,81)] transition-colors group cursor-pointer bg-[#0C121E] px-4 py-2 rounded-none border border-[#1E293B]'
           >
-            <span className='text-[#C586C0] group-hover:-translate-x-1 transition-transform'>
+            <span className='text-[rgb(237,242,81)] group-hover:-translate-x-1 transition-transform'>
               &larr;
             </span>
             <span className='text-sm font-bold'>
@@ -166,37 +165,27 @@ export const ProjectDetailsPage = ({
   const graphicData = !isCoding ? (project as LocalizedGraphicProject) : null;
 
   return (
-    <div className='max-w-6xl mx-auto px-6 py-12 mt-8 font-mono text-[#C9D1D9] selection:bg-[#C586C0]/30 selection:text-white'>
-      <div className='mb-6 bg-[#161B22]/60 p-4 rounded-xl border border-[#30363D] backdrop-blur-md shadow-lg'>
+    <div className='mx-auto px-6 py-12 mt-8 font-mono text-[#8F9BAE] selection:bg-[rgb(237,242,81)] selection:text-[#0C121E] bg-[#0B1220]'>
+      <div className='max-w-6xl m-auto mb-6 bg-[#121A2C] p-4 rounded-none border border-[#1E293B] shadow-lg'>
         {renderNavToolbar(false)}
       </div>
 
-      <div
-        style={{
-          backgroundColor: 'color-mix(in oklab, #1b1924 95%, transparent)',
-        }}
-        className='border border-[#30363D] rounded-xl overflow-hidden shadow-2xl backdrop-blur-md'
-      >
-        <div
-          style={{
-            backgroundColor: 'color-mix(in oklab, #0d1117 95%, transparent)',
-          }}
-          className='border-b border-[#30363D] px-4 py-3 flex items-center justify-between'
-        >
+      <div className='max-w-6xl m-auto border border-[#1E293B] bg-[#121A2C] rounded-none overflow-hidden shadow-2xl'>
+        <div className='border-b border-[#1E293B] bg-[#0C121E] px-4 py-3 flex items-center justify-between'>
           <div className='flex items-center gap-2'>
-            <span className='w-3 h-3 rounded-full bg-[#FF5F56] inline-block'></span>
-            <span className='w-3 h-3 rounded-full bg-[#FFBD2E] inline-block'></span>
-            <span className='w-3 h-3 rounded-full bg-[#27C93F] inline-block'></span>
-            <span className='ml-3 text-xs text-[#8B949E] font-mono hidden sm:inline'>
+            <span className='w-2.5 h-2.5 rounded-full bg-[#FF5F56]/80 inline-block'></span>
+            <span className='w-2.5 h-2.5 rounded-full bg-[#FFBD2E]/80 inline-block'></span>
+            <span className='w-2.5 h-2.5 rounded-full bg-[#27C93F]/80 inline-block'></span>
+            <span className='ml-3 text-xs text-[#8F9BAE] font-mono hidden sm:inline'>
               {project.name.toLowerCase().replace(/\s+/g, '-')}.config
             </span>
           </div>
-          <span className='text-[10px] font-bold tracking-widest text-[#F2CC60] bg-[#21262D] px-2.5 py-0.5 rounded border border-[#30363D]'>
+          <span className='text-[10px] font-bold tracking-widest text-[rgb(237,242,81)] bg-[#0C121E] px-2.5 py-0.5 rounded-none border border-[#1E293B]'>
             {project.category}
           </span>
         </div>
 
-        <div className='p-6 md:p-10 space-y-8'>
+        <div className='p-6 md:p-10 space-y-8 bg-[#121A2C]'>
           <ProjectHeader
             name={project.name}
             projectType={
@@ -212,21 +201,15 @@ export const ProjectDetailsPage = ({
           {isCoding && codingData && (
             <div className='space-y-10 pt-4 font-sans'>
               {codingData.problem && (
-                <div
-                  style={{
-                    backgroundColor:
-                      'color-mix(in oklab, #161B22 60%, transparent)',
-                  }}
-                  className='border border-[#30363D] p-6 rounded-lg relative overflow-hidden'
-                >
-                  <div className='absolute top-0 left-0 w-1.5 h-full bg-[#FF5F56]'></div>
+                <div className='border border-[#1E293B] bg-[#0C121E] p-6 rounded-none relative overflow-hidden'>
+                  <div className='absolute top-0 left-0 w-1.5 h-full bg-[rgb(237,242,81)]'></div>
                   <h3 className='text-white text-base font-bold mb-2 flex items-center gap-2 font-mono'>
-                    <span className='text-[#FF5F56]'>01 //</span>{' '}
+                    <span className='text-[rgb(237,242,81)]'>01 //</span>{' '}
                     {lang === 'NO'
                       ? 'Utfordringen & Brukerbehovet'
                       : 'The Challenge & User Need'}
                   </h3>
-                  <p className='text-sm text-[#8B949E] leading-relaxed'>
+                  <p className='text-sm text-[#8F9BAE] leading-relaxed'>
                     {codingData.problem[lang]}
                   </p>
                 </div>
@@ -236,7 +219,7 @@ export const ProjectDetailsPage = ({
                 codingData.uxProcess[lang].length > 0 && (
                   <div className='space-y-4'>
                     <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
-                      <span className='text-[#C586C0]'>02 //</span>{' '}
+                      <span className='text-[rgb(237,242,81)]'>02 //</span>{' '}
                       {lang === 'NO'
                         ? 'Forskning & Brukererfaringselementer'
                         : 'Research & User Experience Steps'}
@@ -245,18 +228,14 @@ export const ProjectDetailsPage = ({
                       {codingData.uxProcess[lang].map((step, idx) => (
                         <div
                           key={idx}
-                          style={{
-                            backgroundColor:
-                              'color-mix(in oklab, #161B22 60%, transparent)',
-                          }}
-                          className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
+                          className='border border-[#1E293B] bg-[#0C121E] p-4 rounded-none flex items-start gap-3.5'
                         >
-                          <span className='text-xs font-mono text-[#C586C0] bg-[#21262D] px-2 py-0.5 rounded border border-[#30363D] shrink-0 mt-0.5'>
+                          <span className='text-xs font-mono text-[rgb(237,242,81)] bg-[#121A2C] px-2 py-0.5 rounded-none border border-[#1E293B] shrink-0 mt-0.5'>
                             {lang === 'NO'
                               ? `Trinn 0${idx + 1}`
                               : `Step 0${idx + 1}`}
                           </span>
-                          <p className='text-sm text-[#8B949E] leading-relaxed'>
+                          <p className='text-sm text-[#8F9BAE] leading-relaxed'>
                             {step}
                           </p>
                         </div>
@@ -278,16 +257,12 @@ export const ProjectDetailsPage = ({
                       {codingData.finalSolution[lang].map((sol, idx) => (
                         <div
                           key={idx}
-                          style={{
-                            backgroundColor:
-                              'color-mix(in oklab, #161B22 60%, transparent)',
-                          }}
-                          className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
+                          className='border border-[#1E293B] bg-[#0C121E] p-4 rounded-none flex items-start gap-3.5'
                         >
-                          <span className='text-xs font-mono text-[#27C93F] bg-[#21262D] px-2 py-0.5 rounded border border-[#30363D] shrink-0 mt-0.5'>
+                          <span className='text-xs font-mono text-[#27C93F] bg-[#121A2C] px-2 py-0.5 rounded-none border border-[#1E293B] shrink-0 mt-0.5'>
                             {lang === 'NO' ? 'Ferdig' : 'Done'}
                           </span>
-                          <p className='text-sm text-[#8B949E] leading-relaxed'>
+                          <p className='text-sm text-[#8F9BAE] leading-relaxed'>
                             {sol}
                           </p>
                         </div>
@@ -302,7 +277,7 @@ export const ProjectDetailsPage = ({
               />
 
               <div className='space-y-3 pt-2'>
-                <h3 className='text-white text-sm font-bold font-mono tracking-wide text-[#8B949E]'>
+                <h3 className='text-white text-sm font-bold font-mono tracking-wide text-[#8F9BAE]'>
                   {lang === 'NO'
                     ? 'Teknologier & Rammeverk'
                     : 'Technologies & Frameworks Deployed'}
@@ -311,7 +286,7 @@ export const ProjectDetailsPage = ({
                   {(codingData.technologies || []).map((tech, i) => (
                     <span
                       key={i}
-                      className='text-xs px-3 py-1 bg-[#21262D] text-[#79C0FF] border border-[#30363D] rounded-md font-mono'
+                      className='text-xs px-3 py-1 bg-[#0C121E] text-[rgb(237,242,81)] border border-[#1E293B] rounded-none font-mono'
                     >
                       {tech}
                     </span>
@@ -319,13 +294,13 @@ export const ProjectDetailsPage = ({
                 </div>
               </div>
 
-              <div className='flex flex-wrap gap-4 pt-6 border-t border-[#30363D]'>
+              <div className='flex flex-wrap gap-4 pt-6 border-t border-[#1E293B]'>
                 {codingData.live && (
                   <a
                     href={codingData.live}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='px-6 py-3 bg-[#C586C0] text-[#0D1117] text-xs font-mono font-bold hover:bg-[#d89fd3] transition-all rounded shadow-md flex items-center gap-2'
+                    className='px-6 py-3 bg-[rgb(237,242,81)] text-[#0C121E] text-xs font-mono font-bold border-2 border-[#0C121E] shadow-[3px_3px_0px_0px_rgba(12,18,30,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(12,18,30,1)] transition-all rounded-none flex items-center gap-2'
                   >
                     <span>Live Demo ↗</span>
                   </a>
@@ -335,7 +310,7 @@ export const ProjectDetailsPage = ({
                     href={codingData.github}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='px-6 py-3 bg-[#21262D] text-[#C9D1D9] border border-[#30363D] text-xs font-mono font-bold hover:border-[#8B949E] transition-all rounded flex items-center gap-2'
+                    className='px-6 py-3 bg-[#0C121E] text-white border border-[#1E293B] text-xs font-mono font-bold hover:border-[rgb(237,242,81)] transition-all rounded-none flex items-center gap-2'
                   >
                     <span>GitHub Code</span>
                   </a>
@@ -347,21 +322,15 @@ export const ProjectDetailsPage = ({
           {!isCoding && graphicData && (
             <div className='space-y-10 pt-4 font-sans'>
               {graphicData.challenge && (
-                <div
-                  style={{
-                    backgroundColor:
-                      'color-mix(in oklab, #161B22 60%, transparent)',
-                  }}
-                  className='border border-[#30363D] p-6 rounded-lg relative overflow-hidden'
-                >
-                  <div className='absolute top-0 left-0 w-1.5 h-full bg-[#7EE787]'></div>
+                <div className='border border-[#1E293B] bg-[#0C121E] p-6 rounded-none relative overflow-hidden'>
+                  <div className='absolute top-0 left-0 w-1.5 h-full bg-[rgb(237,242,81)]'></div>
                   <h3 className='text-white text-base font-bold mb-2 flex items-center gap-2 font-mono'>
-                    <span className='text-[#7EE787]'>01 //</span>{' '}
+                    <span className='text-[rgb(237,242,81)]'>01 //</span>{' '}
                     {lang === 'NO'
                       ? 'Designutfordring & Målsetting'
                       : 'Design Challenge & Objective'}
                   </h3>
-                  <p className='text-sm text-[#8B949E] leading-relaxed'>
+                  <p className='text-sm text-[#8F9BAE] leading-relaxed'>
                     {graphicData.challenge[lang]}
                   </p>
                 </div>
@@ -371,7 +340,7 @@ export const ProjectDetailsPage = ({
                 graphicData.research[lang].length > 0 && (
                   <div className='space-y-4'>
                     <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
-                      <span className='text-[#79C0FF]'>02 //</span>{' '}
+                      <span className='text-[rgb(237,242,81)]'>02 //</span>{' '}
                       {lang === 'NO'
                         ? 'Markedsundersøkelse & Oppdagelse'
                         : 'Market Research & Discovery'}
@@ -380,16 +349,12 @@ export const ProjectDetailsPage = ({
                       {graphicData.research[lang].map((res, idx) => (
                         <div
                           key={idx}
-                          style={{
-                            backgroundColor:
-                              'color-mix(in oklab, #161B22 60%, transparent)',
-                          }}
-                          className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
+                          className='border border-[#1E293B] bg-[#0C121E] p-4 rounded-none flex items-start gap-3.5'
                         >
-                          <span className='text-[#79C0FF] font-bold text-base leading-none shrink-0 mt-1'>
+                          <span className='text-[rgb(237,242,81)] font-bold text-base leading-none shrink-0 mt-1'>
                             &bull;
                           </span>
-                          <p className='text-sm text-[#8B949E] leading-relaxed'>
+                          <p className='text-sm text-[#8F9BAE] leading-relaxed'>
                             {res}
                           </p>
                         </div>
@@ -402,7 +367,7 @@ export const ProjectDetailsPage = ({
                 graphicData.designProcess[lang].length > 0 && (
                   <div className='space-y-4'>
                     <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
-                      <span className='text-[#F2CC60]'>03 //</span>{' '}
+                      <span className='text-[rgb(237,242,81)]'>03 //</span>{' '}
                       {lang === 'NO'
                         ? 'Kreativ Prosess & Utførelse'
                         : 'Creative Process & Execution'}
@@ -411,16 +376,12 @@ export const ProjectDetailsPage = ({
                       {graphicData.designProcess[lang].map((proc, idx) => (
                         <div
                           key={idx}
-                          style={{
-                            backgroundColor:
-                              'color-mix(in oklab, #161B22 60%, transparent)',
-                          }}
-                          className='border border-[#30363D]/80 p-4 rounded-lg flex items-start gap-3.5'
+                          className='border border-[#1E293B] bg-[#0C121E] p-4 rounded-none flex items-start gap-3.5'
                         >
-                          <span className='text-[#F2CC60] font-bold text-base leading-none shrink-0 mt-1'>
+                          <span className='text-[rgb(237,242,81)] font-bold text-base leading-none shrink-0 mt-1'>
                             &bull;
                           </span>
-                          <p className='text-sm text-[#8B949E] leading-relaxed'>
+                          <p className='text-sm text-[#8F9BAE] leading-relaxed'>
                             {proc}
                           </p>
                         </div>
@@ -432,7 +393,7 @@ export const ProjectDetailsPage = ({
               {graphicData.colors && graphicData.colors.length > 0 && (
                 <div className='space-y-4 pt-2'>
                   <h3 className='text-white text-base font-bold font-mono flex items-center gap-2'>
-                    <span className='text-[#C586C0]'>04 //</span>{' '}
+                    <span className='text-[rgb(237,242,81)]'>04 //</span>{' '}
                     {lang === 'NO'
                       ? 'Fargesystem & Palett'
                       : 'Color System & Palette'}
@@ -441,23 +402,19 @@ export const ProjectDetailsPage = ({
                     {graphicData.colors.map((c, i) => (
                       <div
                         key={i}
-                        style={{
-                          backgroundColor:
-                            'color-mix(in oklab, #161B22 60%, transparent)',
-                        }}
-                        className='border border-[#30363D] p-3 rounded-lg flex flex-col items-center text-center gap-2'
+                        className='border border-[#1E293B] bg-[#0C121E] p-3 rounded-none flex flex-col items-center text-center gap-2'
                       >
                         <span
                           role='img'
                           aria-label={`Color swatch: ${c.name}`}
-                          className='w-10 h-10 rounded-full border border-white/20 shadow-md inline-block'
+                          className='w-10 h-10 rounded-none border border-white/20 shadow-md inline-block'
                           style={{ backgroundColor: c.value }}
                         ></span>
                         <div>
                           <p className='text-xs font-bold text-white font-sans'>
                             {c.name}
                           </p>
-                          <p className='text-[10px] text-[#8B949E] font-mono'>
+                          <p className='text-[10px] text-[#8F9BAE] font-mono'>
                             {c.value}
                           </p>
                         </div>
@@ -473,7 +430,7 @@ export const ProjectDetailsPage = ({
               />
 
               <div className='space-y-3 pt-2'>
-                <h3 className='text-white text-sm font-bold font-mono tracking-wide text-[#8B949E]'>
+                <h3 className='text-white text-sm font-bold font-mono tracking-wide text-[#8F9BAE]'>
                   {lang === 'NO'
                     ? 'Programvare & Kreative Verktøy Brukt'
                     : 'Software & Creative Tools Used'}
@@ -482,7 +439,7 @@ export const ProjectDetailsPage = ({
                   {(graphicData.tools || []).map((tool, i) => (
                     <span
                       key={i}
-                      className='text-xs px-3 py-1 bg-[#21262D] text-[#7EE787] border border-[#30363D] rounded-md font-mono'
+                      className='text-xs px-3 py-1 bg-[#0C121E] text-[rgb(237,242,81)] border border-[#1E293B] rounded-none font-mono'
                     >
                       {tool}
                     </span>
@@ -490,13 +447,13 @@ export const ProjectDetailsPage = ({
                 </div>
               </div>
 
-              <div className='flex flex-wrap gap-4 pt-6 border-t border-[#30363D]'>
+              <div className='flex flex-wrap gap-4 pt-6 border-t border-[#1E293B]'>
                 {graphicData.behance && (
                   <a
                     href={graphicData.behance}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='px-6 py-3 bg-[#7EE787] text-[#0D1117] text-xs font-mono font-bold hover:bg-[#96efa1] transition-all rounded shadow-md flex items-center gap-2'
+                    className='px-6 py-3 bg-[rgb(237,242,81)] text-[#0C121E] text-xs font-mono font-bold border-2 border-[#0C121E] shadow-[3px_3px_0px_0px_rgba(12,18,30,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(12,18,30,1)] transition-all rounded-none flex items-center gap-2'
                   >
                     <span>Behance ↗</span>
                   </a>
@@ -506,7 +463,7 @@ export const ProjectDetailsPage = ({
                     href={graphicData.figma}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='px-6 py-3 bg-[#21262D] text-[#C9D1D9] border border-[#30363D] text-xs font-mono font-bold hover:border-[#8B949E] transition-all rounded flex items-center gap-2'
+                    className='px-6 py-3 bg-[#0C121E] text-white border border-[#1E293B] text-xs font-mono font-bold hover:border-[rgb(237,242,81)] transition-all rounded-none flex items-center gap-2'
                   >
                     <span>Figma File</span>
                   </a>
@@ -515,7 +472,7 @@ export const ProjectDetailsPage = ({
             </div>
           )}
 
-          <div className='pt-8 mt-12 border-t border-[#30363D] bg-[#161B22]/40 p-4 rounded-xl'>
+          <div className='pt-8 mt-12 border-t border-[#1E293B] bg-[#0C121E] p-4 rounded-none'>
             {renderNavToolbar(true)}
           </div>
         </div>
