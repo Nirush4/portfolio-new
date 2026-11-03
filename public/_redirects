@@ -1,8 +1,1 @@
-# 1. HTTP and HTTPS redirects to full target URL
-http://nirush.dev/*    https://www.nirushan.no/:splat 301!
-https://nirush.dev/*   https://www.nirushan.no/:splat 301!
-http://www.nirush.dev/*  https://www.nirushan.no/:splat 301!
-https://www.nirush.dev/* https://www.nirushan.no/:splat 301!
-
-# 2. SPA fallback
-/* /index.html 200
+/*  /index.html  200
