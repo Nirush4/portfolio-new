@@ -1,5 +1,5 @@
 import { useState, useEffect, type JSX } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { BackgroundAccents } from './components/BackgroundAccents';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -38,6 +38,8 @@ const App = (): JSX.Element => {
             path='/projects/:id'
             element={<ProjectDetailsPage lang={currentLang} t={t} />}
           />
+          <Route path='/projects' element={<Navigate to='/' replace />} />
+          <Route path='/projects/*' element={<Navigate to='/' replace />} />
         </Routes>
       </main>
       <Footer lang={currentLang} />
