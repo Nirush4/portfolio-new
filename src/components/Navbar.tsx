@@ -52,7 +52,7 @@ export const Navbar = ({
     <header className='fixed top-0 left-0 w-full bg-[#0B1220]/95 backdrop-blur-md border-b border-[#1E293B] z-50 font-mono'>
       <div className='max-w-6xl mx-auto px-6 py-4 flex justify-between items-center'>
         <Link
-          to='/'
+          to={`/${location.search}`}
           onClick={() => {
             if (!isDetailsPage) {
               window.scrollTo({ top: 0, behavior: 'smooth' });

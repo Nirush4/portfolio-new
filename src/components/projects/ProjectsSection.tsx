@@ -1,4 +1,5 @@
-import { useState, useEffect, type JSX } from 'react';
+import { useEffect, useState, type JSX } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ProjectCard } from './ProjectCard';
 import { Pagination } from './Pagination';
 import type {
@@ -18,22 +19,27 @@ export const ProjectsSection = ({
   frontendProjects = [],
   graphicProjects = [],
 }: ProjectsSectionProps): JSX.Element => {
-  const [activeTab, setActiveTab] = useState<'frontend' | 'graphic'>(() => {
-    const savedTab = getStorageItem<'frontend' | 'graphic'>(
-      'portfolio_active_project_tab',
-      'frontend'
-    );
-    return savedTab === 'graphic' || savedTab === 'frontend'
-      ? savedTab
-      : 'frontend';
-  });
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // 1. Determine active tab from URL param -> localStorage -> fallback ('frontend')
+  const tabParam = searchParams.get('tab')?.toLowerCase();
+  const activeTab: 'frontend' | 'graphic' =
+    tabParam === 'graphic' || tabParam === 'frontend'
+      ? tabParam
+      : getStorageItem<'frontend' | 'graphic'>(
+          'portfolio_active_project_tab',
+          'frontend'
+        );
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const ITEMS_PER_PAGE = 6;
 
   const handleTabChange = (tab: 'frontend' | 'graphic') => {
     if (tab !== activeTab) {
-      setActiveTab(tab);
+      setStorageItem('portfolio_active_project_tab', tab);
+      const nextParams = new URLSearchParams(searchParams);
+      nextParams.set('tab', tab);
+      setSearchParams(nextParams, { replace: true });
       setCurrentPage(1);
     }
   };
@@ -48,7 +54,13 @@ export const ProjectsSection = ({
 
   useEffect(() => {
     setStorageItem('portfolio_active_project_tab', activeTab);
-  }, [activeTab]);
+
+    if (tabParam !== activeTab) {
+      const nextParams = new URLSearchParams(searchParams);
+      nextParams.set('tab', activeTab);
+      setSearchParams(nextParams, { replace: true });
+    }
+  }, [activeTab, tabParam, searchParams, setSearchParams]);
 
   const currentProjects =
     activeTab === 'frontend' ? frontendProjects : graphicProjects;
