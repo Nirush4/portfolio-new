@@ -12,6 +12,7 @@ import { Footer } from './components/Footer';
 import { translations } from './constants/translations';
 import { Home } from './pages/HomePage';
 import { ProjectDetailsPage } from './pages/ProjectDetailsPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 import { getStorageItem, setStorageItem } from './utils/localStorage';
 
 const App = (): JSX.Element => {
@@ -66,6 +67,7 @@ const App = (): JSX.Element => {
             path='/projects/*'
             element={<Navigate to={`/${location.search}`} replace />}
           />
+          <Route path='*' element={<NotFoundPage lang={currentLang} t={t} />} />
         </Routes>
       </main>
       <Footer lang={currentLang} />

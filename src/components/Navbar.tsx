@@ -22,12 +22,21 @@ export const Navbar = ({
   const navigate = useNavigate();
   const isDetailsPage = location.pathname.startsWith('/projects/');
 
+  const isNotFoundPage = location.pathname !== '/' && !isDetailsPage;
+
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const onNavLinkClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     sectionId: string
   ) => {
+    if (isNotFoundPage) {
+      e.preventDefault();
+      setIsOpen(false);
+      window.location.href = `/${location.search}${sectionId}`;
+      return;
+    }
+
     handleNavClick({
       e,
       sectionId,
@@ -54,7 +63,7 @@ export const Navbar = ({
         <Link
           to={`/${location.search}`}
           onClick={() => {
-            if (!isDetailsPage) {
+            if (!isDetailsPage && !isNotFoundPage) {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }
           }}

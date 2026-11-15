@@ -1,5 +1,5 @@
 import { useState, type JSX } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   FRONTEND_PROJECTS,
   GRAPHIC_PROJECTS,
@@ -14,6 +14,7 @@ import {
   ProjectGallery,
   type GalleryItem,
 } from '../components/project-details/ProjectGallery';
+import { NotFoundPage } from './NotFoundPage';
 
 interface ProjectDetailsProps {
   lang: 'NO' | 'EN';
@@ -22,10 +23,12 @@ interface ProjectDetailsProps {
 
 export const ProjectDetailsPage = ({
   lang,
+  t,
 }: ProjectDetailsProps): JSX.Element => {
   const { id } = useParams<{ id: string }>();
   const projectId = id ? Number(id) : NaN;
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [copied, setCopied] = useState(false);
   const [bottomCopied, setBottomCopied] = useState(false);
@@ -34,9 +37,14 @@ export const ProjectDetailsPage = ({
     FRONTEND_PROJECTS.find((p) => p.id === projectId) ||
     GRAPHIC_PROJECTS.find((p) => p.id === projectId);
 
+  // If project ID does not exist, show custom NotFoundPage while retaining language and translation dictionary
+  if (!project) {
+    return <NotFoundPage lang={lang} t={t} />;
+  }
+
   const handleBackToProjects = (e: React.MouseEvent) => {
     e.preventDefault();
-    navigate('/');
+    navigate(`/${location.search}`);
     setTimeout(() => {
       const element = document.getElementById('projects');
       if (element) {
@@ -61,7 +69,7 @@ export const ProjectDetailsPage = ({
   const renderNavToolbar = (isBottom = false) => (
     <div className='flex flex-wrap items-center justify-between gap-4 text-xs text-white'>
       <Link
-        to='/#projects'
+        to={`/${location.search}`}
         onClick={handleBackToProjects}
         title={
           lang === 'NO' ? 'Gå tilbake til prosjekter' : 'Go back to projects'
@@ -122,39 +130,6 @@ export const ProjectDetailsPage = ({
       </div>
     </div>
   );
-
-  if (!project) {
-    return (
-      <div className='max-w-3xl mx-auto px-6 py-32 text-center font-mono text-white bg-[#0B1220]'>
-        <div className='border border-[#1E293B] bg-[#121A2C] p-8 rounded-none shadow-2xl'>
-          <h2 className='text-3xl font-bold text-[#FF5F56] mb-3'>
-            404 // Project Not Found
-          </h2>
-          <p className='text-[#8F9BAE] mb-6 font-sans text-sm'>
-            The project workspace you are trying to access doesn&apos;t exist or
-            has been relocated.
-          </p>
-          <Link
-            to='/#projects'
-            onClick={handleBackToProjects}
-            title={
-              lang === 'NO'
-                ? 'Gå tilbake til prosjekter'
-                : 'Go back to projects'
-            }
-            className='inline-flex items-center gap-2 hover:text-[rgb(237,242,81)] transition-colors group cursor-pointer bg-[#0C121E] px-4 py-2 rounded-none border border-[#1E293B]'
-          >
-            <span className='text-[rgb(237,242,81)] group-hover:-translate-x-1 transition-transform'>
-              &larr;
-            </span>
-            <span className='text-sm font-bold'>
-              {lang === 'NO' ? 'Tilbake til Prosjekter' : 'Back to Projects'}
-            </span>
-          </Link>
-        </div>
-      </div>
-    );
-  }
 
   const isCoding =
     project.category === 'frontend' ||
