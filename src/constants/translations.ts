@@ -26,6 +26,17 @@ export const translations = {
       socials: '// socials',
       active: '// active',
     },
+    notFound: {
+      fileName: 'error-handler.ts',
+      status: 'STATUS 404',
+      errorLog: 'ERROR: Route resolved to null or unmounted component',
+      exceptionLabel: 'HTTP Exception',
+      description: (fullUrl: string) =>
+        `Sorry, the resource at "${fullUrl}" was not found in this repository or workspace. It may have been relocated.`,
+      buttonText: 'RETURN TO HOME',
+      serverStatus: 'Server online',
+      ariaLive: 'Error 404: Page not found.',
+    },
   },
   NO: {
     nav: {
@@ -53,6 +64,17 @@ export const translations = {
     sidebar: {
       socials: '// sosiale',
       active: '// aktiv',
+    },
+    notFound: {
+      fileName: 'feil-håndterer.ts',
+      status: 'STATUS 404',
+      errorLog: 'FEIL: Ruten returnerte null eller uMontert komponent',
+      exceptionLabel: 'HTTP Unntak',
+      description: (fullUrl: string) =>
+        `Beklager, ressursen ved "${fullUrl}" ble ikke funnet i denne instansen. Den kan ha blitt flyttet eller slettet.`,
+      buttonText: 'TILBAKE TIL HJEM',
+      serverStatus: 'Tjener online',
+      ariaLive: 'Feil 404: Siden ble ikke funnet.',
     },
   },
 };
