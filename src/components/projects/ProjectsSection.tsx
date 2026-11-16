@@ -21,11 +21,11 @@ export const ProjectsSection = ({
 }: ProjectsSectionProps): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // 1. Determine active tab from URL param -> localStorage -> fallback ('frontend')
-  const tabParam = searchParams.get('tab')?.toLowerCase();
+  // 1. Determine active role from URL param ('role') -> localStorage -> fallback ('frontend')
+  const roleParam = searchParams.get('role')?.toLowerCase();
   const activeTab: 'frontend' | 'graphic' =
-    tabParam === 'graphic' || tabParam === 'frontend'
-      ? tabParam
+    roleParam === 'graphic' || roleParam === 'frontend'
+      ? roleParam
       : getStorageItem<'frontend' | 'graphic'>(
           'portfolio_active_project_tab',
           'frontend'
@@ -38,7 +38,7 @@ export const ProjectsSection = ({
     if (tab !== activeTab) {
       setStorageItem('portfolio_active_project_tab', tab);
       const nextParams = new URLSearchParams(searchParams);
-      nextParams.set('tab', tab);
+      nextParams.set('role', tab);
       setSearchParams(nextParams, { replace: true });
       setCurrentPage(1);
     }
@@ -55,12 +55,12 @@ export const ProjectsSection = ({
   useEffect(() => {
     setStorageItem('portfolio_active_project_tab', activeTab);
 
-    if (tabParam !== activeTab) {
+    if (roleParam !== activeTab) {
       const nextParams = new URLSearchParams(searchParams);
-      nextParams.set('tab', activeTab);
+      nextParams.set('role', activeTab);
       setSearchParams(nextParams, { replace: true });
     }
-  }, [activeTab, tabParam, searchParams, setSearchParams]);
+  }, [activeTab, roleParam, searchParams, setSearchParams]);
 
   const currentProjects =
     activeTab === 'frontend' ? frontendProjects : graphicProjects;
